@@ -1,0 +1,80 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 0;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 2;
+    transition: filter 0.3s ease;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 8px var(--accent-cyan));
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.btn-primary.small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+}

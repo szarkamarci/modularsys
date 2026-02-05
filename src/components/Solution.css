@@ -1,0 +1,55 @@
+.solution-section {
+    text-align: center;
+    padding: 8rem 0;
+}
+
+.solution-header {
+    margin-bottom: 4rem;
+}
+
+.solution-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.solution-header p {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+.module-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    /* Square cards */
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.module-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.module-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cta-container {
+    margin-top: 4rem;
+}
