@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)]' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl ${scrolled ? 'shadow-[0px_20px_40px_rgba(87,73,194,0.06)]' : ''}`}>
       <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-headline antialiased">
         <Link to="/" className="flex items-center gap-3">
           <img src="/assets/favico_up.png" alt="ModularAI Logo" className="h-8 w-auto rounded opacity-90" />

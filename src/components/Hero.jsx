@@ -40,7 +40,7 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="hero-gradient text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20">
+            <button className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20">
               {t('hero.cta_primary')}
             </button>
             <button className="bg-surface-container-low text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container transition-colors">
