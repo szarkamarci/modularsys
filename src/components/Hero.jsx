@@ -1,94 +1,90 @@
-import { useRef } from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import './Hero.css';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
-    const containerRef = useRef(null);
+  const { t } = useTranslation();
 
-    // Motion values for the tilt effect
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    // Smooth spring physics for the tilt
-    const mouseX = useSpring(x, { stiffness: 150, damping: 20 });
-    const mouseY = useSpring(y, { stiffness: 150, damping: 20 });
-
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], [15, -15]);
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], [-15, 15]);
-
-    const handleMouseMove = (e) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-
-        // Calculate normalized position (-0.5 to 0.5)
-        const normalizedX = (e.clientX - rect.left) / width - 0.5;
-        const normalizedY = (e.clientY - rect.top) / height - 0.5;
-
-        x.set(normalizedX);
-        y.set(normalizedY);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-
-    return (
-        <section className="hero-section section" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={containerRef}>
-            <div className="container hero-container">
-                <div className="hero-content">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="hero-title text-glow"
-                    >
-                        The Logic Behind Your <span className="text-cyan">Operations</span>.
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="hero-subtitle"
-                    >
-                        We turn disconnected data silos into a unified, predictive intelligence.
-                    </motion.p>
-                    <motion.button
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="btn-primary hero-btn"
-                    >
-                        Request Audit
-                    </motion.button>
-                </div>
-
-                <div className="hero-visual">
-                    <motion.div
-                        className="dashboard-container"
-                        style={{
-                            rotateX: rotateX,
-                            rotateY: rotateY,
-                            transformStyle: "preserve-3d",
-                            perspective: 1200
-                        }}
-                    >
-                        <motion.div className="dashboard-glow" style={{ zIndex: -1 }} />
-                        <motion.img
-                            src="/assets/modularsys.jpeg"
-                            alt="ModularSys Dashboard"
-                            className="dashboard-image glass-panel"
-                            // Add a default floating animation on top of the tilt
-                            animate={{ y: [0, -20, 0] }}
-                            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                        />
-                    </motion.div>
-                </div>
+  return (
+    <section className="max-w-7xl mx-auto px-8 mb-32 pt-32">
+      <div className="flex flex-col lg:flex-row gap-20 items-center">
+        <div className="lg:w-3/5">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-semibold tracking-wide"
+          >
+            {t('hero.badge')}
+          </motion.span>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+            className="font-headline text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.1]"
+          >
+            {t('hero.title_start')}<span className="text-primary italic">{t('hero.title_highlight')}</span>{t('hero.title_end')}
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-on-surface-variant text-xl md:text-2xl leading-relaxed mb-10 max-w-2xl"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="flex flex-wrap gap-4"
+          >
+            <button className="hero-gradient text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20">
+              {t('hero.cta_primary')}
+            </button>
+            <button className="bg-surface-container-low text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container transition-colors">
+              {t('hero.cta_secondary')}
+            </button>
+          </motion.div>
+        </div>
+        
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="lg:w-2/5 relative"
+        >
+          <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
+          <div className="relative bg-surface-container-lowest p-8 rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)] border border-outline-variant/10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
+                <span className="material-symbols-outlined text-on-tertiary-fixed-variant">query_stats</span>
+              </div>
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-widest font-bold">{t('hero.stat_badge')}</p>
+                <p className="font-headline font-bold">{t('hero.stat_title')}</p>
+              </div>
             </div>
-        </section>
-    );
+            <div className="space-y-4">
+              <div className="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: "75%" }}
+                  transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
+                  className="h-full bg-primary rounded-full"
+                ></motion.div>
+              </div>
+              <div className="flex justify-between text-sm font-semibold">
+                <span className="text-on-surface-variant">{t('hero.stat_label')}</span>
+                <span className="text-primary">+42.8%</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

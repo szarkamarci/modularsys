@@ -1,24 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Problem from './components/Problem';
-import Divider from './components/Divider';
-import Solution from './components/Solution';
 import Footer from './components/Footer';
-import './App.css';
+import Home from './pages/Home';
+import Pricing from './pages/Pricing';
+import Resources from './pages/Resources';
 
 function App() {
   return (
-    <div className="app-container">
-      <div className="grid-overlay"></div>
-      <Header />
-      <main>
-        <Hero />
-        <Problem />
-        <Divider title="How It Works" />
-        <Solution />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app-container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/resources" element={<Resources />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
