@@ -6,7 +6,7 @@ import CTA from '../components/CTA';
 
 const Home = () => {
   return (
-    <main className="pt-32">
+    <main className="overflow-x-hidden pt-12 md:pt-0">
       <Hero />
       <Testimonial />
       <BeforeAfter />
