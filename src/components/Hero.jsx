@@ -5,8 +5,28 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="max-w-7xl mx-auto px-8 mb-32 pt-32">
-      <div className="flex flex-col lg:flex-row gap-20 items-center">
+    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32 pt-24 md:pt-32 relative">
+      
+      {/* Desktop Background Graphic: Glass Orb */}
+      <div className="hidden md:block absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 -z-10 pointer-events-none opacity-40">
+        <div className="relative w-[600px] h-[600px] animate-float">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#8477F2]/20 to-[#35618b]/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-white/20 rounded-full backdrop-blur-2xl shadow-[inset_0_0_80px_rgba(132,119,242,0.1)]"></div>
+          <div className="absolute top-10 right-20 w-4 h-4 rounded-full bg-[#8477F2]/30 shadow-[0_0_20px_#8477F2]"></div>
+          <div className="absolute bottom-40 left-10 w-6 h-6 rounded-full bg-[#35618b]/30 shadow-[0_0_20px_#35618b]"></div>
+          <svg className="absolute inset-0 w-full h-full stroke-[#8477F2]/10 fill-none" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" strokeDasharray="0.5 8"></circle>
+            <circle className="opacity-40" cx="50" cy="50" r="30" strokeDasharray="1 12"></circle>
+          </svg>
+        </div>
+      </div>
+
+      {/* Mobile Background Graphic: Magic Spheres */}
+      <div className="block md:hidden absolute -top-10 -right-20 w-80 h-80 rounded-full magic-sphere pointer-events-none"></div>
+      <div className="block md:hidden absolute top-20 -left-20 w-64 h-64 rounded-full bg-secondary-container/10 hero-bg-blur pointer-events-none"></div>
+      <div className="block md:hidden absolute -bottom-10 right-0 w-48 h-48 border-[1.5px] border-primary/20 rounded-full hero-bg-blur opacity-20 pointer-events-none"></div>
+
+      <div className="flex flex-col lg:flex-row gap-12 md:gap-20 items-center relative z-10">
         <div className="lg:w-3/5">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}

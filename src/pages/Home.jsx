@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import TrustBar from '../components/TrustBar';
+import Testimonial from '../components/Testimonial';
 import BeforeAfter from '../components/BeforeAfter';
 import Features from '../components/Features';
 import CTA from '../components/CTA';
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <main className="pt-32">
       <Hero />
-      <TrustBar />
+      <Testimonial />
       <BeforeAfter />
       <Features />
       <CTA />

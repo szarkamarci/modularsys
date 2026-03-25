@@ -14,12 +14,12 @@ const Features = () => {
               <span className="material-symbols-outlined text-white text-3xl">article</span>
             </div>
             <h3 className="font-headline text-3xl font-bold mb-4">
-              {t('features.feat1_title')} <span className="text-primary-container block text-lg font-medium opacity-70">{t('features.feat1_subtitle')}</span>
+              {t('features.feat1_title')} <span className="hidden md:block text-primary-container text-lg font-medium opacity-70 mt-1">{t('features.feat1_subtitle')}</span>
             </h3>
-            <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
+            <p className="text-on-surface-variant text-lg leading-relaxed mb-4 md:mb-8">
               {t('features.feat1_desc')}
             </p>
-            <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-outline-variant/10">
+            <div className="hidden md:inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-outline-variant/10">
               <span className="text-primary font-black text-xl">+577 db</span>
               <span className="text-on-surface-variant text-sm font-medium">{t('features.feat1_stat')}</span>
             </div>
@@ -40,7 +40,7 @@ const Features = () => {
               {t('features.feat2_desc')}
             </p>
           </div>
-          <div className="bg-error-container/20 p-4 rounded-xl border border-error/5">
+          <div className="hidden md:block bg-error-container/20 p-4 rounded-xl border border-error/5">
             <div className="flex justify-between items-center mb-2">
               <span className="text-xs font-bold uppercase text-error">{t('features.feat2_stat_label')}</span>
               <span className="text-error font-black text-lg">{t('features.feat2_stat_val')}</span>
@@ -62,7 +62,7 @@ const Features = () => {
               {t('features.feat3_desc')}
             </p>
           </div>
-          <div className="md:w-1/2 w-full">
+          <div className="md:w-1/2 w-full hidden md:block">
             <div className="space-y-4">
               <div className="p-4 bg-surface-container-low rounded-xl flex items-center justify-between">
                 <div className="flex items-center gap-4">

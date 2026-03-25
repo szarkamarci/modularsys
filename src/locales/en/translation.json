@@ -33,14 +33,14 @@
   "features": {
     "feat1_title": "The Crystal Ball",
     "feat1_subtitle": "(Stock Forecast)",
-    "feat1_desc": "Buy exactly what you need. No more hoarding stock like a squirrel, and no more \"Out of Stock\" apologies.",
+    "feat1_desc": "Predictive forecasting that actually works. We scan your historical trends to see the future before it hits your balance sheet.",
     "feat1_stat": "Auto-Procurement Suggested",
-    "feat2_title": "The Ghostbuster",
-    "feat2_desc": "Catch disappearing clients before they ghost you. Our warning system flags dropping sales instantly.",
+    "feat2_title": "Data Ghostbuster",
+    "feat2_desc": "Automatically find and eliminate duplicate records, phantom inventory, and \"dead\" data that haunts your productivity.",
     "feat2_stat_label": "Warning Signal",
     "feat2_stat_val": "100% Drop",
     "feat3_title": "The 'Fries With That?' Engine",
-    "feat3_desc": "Data-backed upsell recommendations that make your sales team look like mind readers.",
+    "feat3_desc": "An intelligent cross-sell recommender that identifies perfect product pairings based on real-time buyer behavior.",
     "feat3_item1": "Frequently Bought Together",
     "feat3_item2": "Premium Support Bundle",
     "feat3_item3": "Extended Battery Life"
