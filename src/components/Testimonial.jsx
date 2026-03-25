@@ -20,7 +20,7 @@ const Testimonial = () => {
           </div>
           <div className="text-center md:text-left">
             <p className="font-headline font-bold text-on-surface text-lg">{t('testimonial.author', 'Nagy Csaba')}</p>
-            <p className="text-sm font-medium text-on-surface-variant uppercase tracking-widest">{t('testimonial.role', 'HUNGARY, Portos CEO')}</p>
+            <p className="text-sm font-medium text-on-surface-variant uppercase tracking-widest">{t('testimonial.role', 'HUNGARY, Cortos CEO')}</p>
           </div>
         </div>
       </div>
