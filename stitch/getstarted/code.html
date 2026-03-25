@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Get Started | ModularAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e3e2e7",
+              "on-background": "#1a1b1f",
+              "surface-variant": "#e3e2e7",
+              "on-secondary-container": "#2b5982",
+              "secondary-container": "#a5d0ff",
+              "on-secondary-fixed": "#001d34",
+              "primary-container": "#7063dd",
+              "on-surface": "#1a1b1f",
+              "on-primary-fixed-variant": "#4130ac",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c8c4d5",
+              "surface-tint": "#5a4bc5",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#593483",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#dbb8ff",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#fffbff",
+              "on-primary-fixed": "#160066",
+              "primary-fixed-dim": "#c6bfff",
+              "tertiary-fixed": "#efdbff",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#8963b5",
+              "on-secondary": "#ffffff",
+              "surface": "#faf9fe",
+              "secondary-fixed-dim": "#9fcafa",
+              "secondary": "#35618b",
+              "inverse-primary": "#c6bfff",
+              "primary-fixed": "#e4dfff",
+              "outline": "#787585",
+              "on-tertiary-fixed": "#2b0052",
+              "on-error": "#ffffff",
+              "on-primary-container": "#fffbff",
+              "inverse-on-surface": "#f1f0f5",
+              "tertiary": "#704a9a",
+              "surface-container-low": "#f4f3f8",
+              "on-surface-variant": "#474553",
+              "surface-dim": "#dad9df",
+              "inverse-surface": "#2f3034",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#cfe4ff",
+              "on-secondary-fixed-variant": "#184a72",
+              "surface-container": "#eeedf3",
+              "background": "#faf9fe",
+              "primary": "#5749c2",
+              "surface-container-high": "#e9e7ed",
+              "surface-container-lowest": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #5749c2 0%, #7063dd 100%);
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+        body {
+            background-color: #faf9fe;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<div class="text-2xl font-bold tracking-tighter text-slate-900 flex items-center gap-2 font-headline">
+<img alt="ModularAI Logo" class="w-8 h-8 rounded-lg" data-alt="Abstract geometric logo for ModularAI featuring purple shapes on a soft background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4gcmdVknbQB_PRW5OUUL1apZ6JiUZd_EGSZNdjrT2MXUI9KPWfhLlcJ4nAkUQu8dzt-7Xxs2b2k_JshNFMqT6PGWcHiaqNviYf3-7oXrfa5FnBaDXfWzDQawschKPCmdzs7vXWw1KDQibkTzrpnLCwsk2zk9qbqiKN2_KpwamlUBVeK9Hds7P-W-YagSzfPrczGGs5qPruq7nIDMVR9yYL_T78mjlQUT5aUAzvUBhG69soiop_7BFc9sQ4u7SloGpv4tPKwAFd94"/>
+<span>ModularAI</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-slate-500 hover:text-slate-900 transition-colors" href="#">Solutions</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-slate-500 hover:text-slate-900 transition-colors" href="#">Methodology</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-slate-500 hover:text-slate-900 transition-colors" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-[#8477F2] text-white px-6 py-2.5 rounded-full font-headline font-semibold hover:opacity-80 transition-all duration-300 active:scale-95">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+<!-- Ethereal Background Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-tertiary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-6 relative z-10">
+<!-- Header Section -->
+<div class="text-center mb-16">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-on-surface tracking-tight leading-[1.1] mb-6">
+                    Let's untangle your <span class="text-primary italic">spreadsheets</span> together.
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-body max-w-2xl mx-auto leading-relaxed">
+                    No high-pressure sales calls, no jargon-heavy pitches. Just a human conversation about how we can make your data suck less.
+                </p>
+</div>
+<!-- Main Form Card -->
+<div class="surface-container-lowest glass-card rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)] p-8 md:p-12">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<!-- Form Content -->
+<div class="flex-1 w-full space-y-8">
+<div class="space-y-6">
+<!-- Field 1 -->
+<div class="space-y-2">
+<label class="block font-headline font-bold text-on-surface ml-2">What should we call you? (Besides 'The Data Hero')</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-300 outline-none" placeholder="Your name" type="text"/>
+</div>
+<!-- Field 2 -->
+<div class="space-y-2">
+<label class="block font-headline font-bold text-on-surface ml-2">Where can we reach you? (Your email, not your pager)</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-300 outline-none" placeholder="hello@company.com" type="email"/>
+</div>
+<!-- Field 3 -->
+<div class="space-y-2">
+<label class="block font-headline font-bold text-on-surface ml-2">What's the biggest 'spreadsheet spaghetti' nightmare you're facing?</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-md px-6 py-4 focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-300 outline-none resize-none" placeholder="Describe your data chaos..." rows="4"></textarea>
+</div>
+</div>
+<button class="w-full hero-gradient text-white py-5 rounded-full font-headline font-bold text-lg shadow-lg hover:shadow-primary/20 hover:scale-[1.02] transition-all duration-300 active:scale-95">
+                            Rescue My Data (Free Audit)
+                        </button>
+<!-- The Humorous Promise -->
+<div class="bg-primary/5 p-6 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="space-y-1">
+<p class="font-headline font-bold text-primary">Our 'No-Dinosaur' Guarantee</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    We promise not to send a 50-page PDF or a 3-hour demo you didn't ask for. We keep things light, useful, and extinct-reptile-free.
+                                </p>
+</div>
+</div>
+</div>
+<!-- Visual Side Decoration -->
+<div class="hidden lg:flex flex-col items-center justify-center w-64 pt-12">
+<div class="relative">
+<div class="w-48 h-48 bg-primary/10 rounded-full animate-pulse absolute -top-4 -left-4"></div>
+<div class="w-40 h-40 bg-surface-container-lowest shadow-xl rounded-full flex items-center justify-center relative border border-primary/10">
+<span class="material-symbols-outlined text-7xl text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">filter_8</span>
+</div>
+<div class="mt-8 text-center">
+<div class="inline-flex items-center px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold uppercase tracking-widest mb-4">
+                                    Zen Mode
+                                </div>
+<p class="text-sm text-on-surface-variant italic">"Outlook: Data Clarity Is Likely"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-features/Social Proof -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center p-6 space-y-3">
+<span class="material-symbols-outlined text-primary text-4xl">energy_savings_leaf</span>
+<h3 class="font-headline font-bold text-on-surface">Stress-Free Onboarding</h3>
+<p class="text-sm text-on-surface-variant">We handle the heavy lifting while you focus on what matters most.</p>
+</div>
+<div class="text-center p-6 space-y-3">
+<span class="material-symbols-outlined text-primary text-4xl">hub</span>
+<h3 class="font-headline font-bold text-on-surface">Unified Nodes</h3>
+<p class="text-sm text-on-surface-variant">Connect your siloed apps into one beautiful, breathing ecosystem.</p>
+</div>
+<div class="text-center p-6 space-y-3">
+<span class="material-symbols-outlined text-primary text-4xl">auto_awesome</span>
+<h3 class="font-headline font-bold text-on-surface">Human-First AI</h3>
+<p class="text-sm text-on-surface-variant">Technology that speaks your language, not binary riddles.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 bg-[#f4f3f8] tonal-shift-no-border">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-xl">ModularAI</div>
+<p class="font-['Manrope'] text-sm text-slate-500">© 2024 ModularAI. Exhale, we've got the data.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-400 hover:text-[#8477F2] transition-colors font-['Manrope'] text-sm" href="#">Privacy</a>
+<a class="text-slate-400 hover:text-[#8477F2] transition-colors font-['Manrope'] text-sm" href="#">Terms</a>
+<a class="text-slate-400 hover:text-[#8477F2] transition-colors font-['Manrope'] text-sm" href="#">Support</a>
+<a class="text-slate-400 hover:text-[#8477F2] transition-colors font-['Manrope'] text-sm" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+</body></html>

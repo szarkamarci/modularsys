@@ -21,6 +21,17 @@
     -webkit-backdrop-filter: blur(24px);
   }
   
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  
   .hero-gradient {
     background: radial-gradient(circle at 50% 50%, rgba(132, 119, 242, 0.08) 0%, rgba(250, 249, 254, 0) 70%);
   }

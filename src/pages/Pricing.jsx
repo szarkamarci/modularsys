@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Pricing = () => {
   const { t } = useTranslation();
@@ -62,9 +63,12 @@ const Pricing = () => {
                 <h3 className="font-headline text-3xl font-bold mt-2">{t('pricing.present_title')}</h3>
               </div>
               <div className="mb-8">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-extrabold text-on-surface">{t('pricing.present_price')}</span>
-                  <span className="text-on-surface-variant font-medium">{t('pricing.present_period')}</span>
+                <div className="flex flex-col xl:flex-row xl:items-baseline gap-2 xl:gap-4 mb-2 flex-wrap">
+                  <span className="text-2xl md:text-3xl font-bold text-on-surface-variant line-through opacity-60 decoration-2">{t('pricing.present_price_old')}</span>
+                  <div className="flex items-baseline gap-1 flex-wrap">
+                    <span className="text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">{t('pricing.present_price')}</span>
+                    <span className="text-primary-container font-medium whitespace-nowrap">{t('pricing.present_period')}</span>
+                  </div>
                 </div>
                 <p className="text-primary-container mt-2 font-medium">{t('pricing.present_desc')}</p>
               </div>
@@ -86,9 +90,9 @@ const Pricing = () => {
                   <span className="font-medium">{t('pricing.present_feature4')}</span>
                 </li>
               </ul>
-              <button className="w-full py-4 rounded-full font-headline font-bold bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              <Link to="/get-started" className="block text-center w-full py-4 rounded-full font-headline font-bold bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:scale-[1.02] active:scale-[0.98]">
                 {t('pricing.present_btn')}
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -164,9 +168,9 @@ const Pricing = () => {
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-primary-container rounded-full blur-3xl opacity-50"></div>
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 bg-tertiary rounded-full blur-3xl opacity-30"></div>
           <h2 className="font-headline text-3xl md:text-5xl font-extrabold mb-8 relative z-10">{t('pricing.cta_title')}</h2>
-          <button className="bg-surface-container-lowest text-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-headline font-extrabold text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl relative z-10 w-full sm:w-auto">
+          <Link to="/get-started" className="block text-center bg-surface-container-lowest text-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-headline font-extrabold text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl relative z-10 w-full sm:w-auto">
             {t('pricing.cta_btn')}
-          </button>
+          </Link>
         </div>
       </section>
     </main>

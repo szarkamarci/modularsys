@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -11,10 +12,10 @@ const Footer = () => {
           <p className="text-on-surface-variant dark:text-slate-500">{t('footer.rights')}</p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-          <a className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">{t('footer.privacy')}</a>
-          <a className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">{t('footer.terms')}</a>
-          <a className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">{t('footer.security')}</a>
-          <a className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">{t('footer.status')}</a>
+          <Link className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" to="/privacy">{t('footer.privacy')}</Link>
+          <Link className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" to="/terms">{t('footer.terms')}</Link>
+          <Link className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" to="/security">{t('footer.security')}</Link>
+          <Link className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" to="/status">{t('footer.status')}</Link>
         </div>
       </div>
     </footer>

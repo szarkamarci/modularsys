@@ -26,7 +26,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-12">
-          <a className="text-[#8477F2] font-semibold transition-colors duration-300" href="#">{t('header.features')}</a>
+          <Link to="/" className={`font-semibold transition-colors duration-300 ${location.pathname === '/' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>{t('header.features')}</Link>
           <Link to="/pricing" className={`font-semibold transition-colors duration-300 ${location.pathname === '/pricing' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>
             {t('header.pricing')}
           </Link>
@@ -36,9 +36,9 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <button className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20">
+          <Link to="/get-started" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20">
             {t('header.cta')}
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

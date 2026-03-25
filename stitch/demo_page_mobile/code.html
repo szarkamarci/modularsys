@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#faf9fe",
+              "on-secondary-fixed-variant": "#184a72",
+              "tertiary": "#704a9a",
+              "surface-container-highest": "#e3e2e7",
+              "on-tertiary-container": "#fffbff",
+              "on-surface-variant": "#474553",
+              "on-primary": "#ffffff",
+              "primary": "#5749c2",
+              "surface-container-high": "#e9e7ed",
+              "on-secondary-fixed": "#001d34",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#8963b5",
+              "outline-variant": "#c8c4d5",
+              "primary-fixed-dim": "#c6bfff",
+              "surface-tint": "#5a4bc5",
+              "on-background": "#1a1b1f",
+              "inverse-primary": "#c6bfff",
+              "on-surface": "#1a1b1f",
+              "outline": "#787585",
+              "on-secondary-container": "#2b5982",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f3f8",
+              "on-primary-fixed-variant": "#4130ac",
+              "surface-dim": "#dad9df",
+              "secondary-fixed-dim": "#9fcafa",
+              "primary-fixed": "#e4dfff",
+              "surface-variant": "#e3e2e7",
+              "background": "#faf9fe",
+              "secondary-fixed": "#cfe4ff",
+              "secondary": "#35618b",
+              "on-tertiary": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-container": "#eeedf3",
+              "secondary-container": "#a5d0ff",
+              "inverse-on-surface": "#f1f0f5",
+              "on-primary-container": "#fffbff",
+              "on-tertiary-fixed-variant": "#593483",
+              "on-tertiary-fixed": "#2b0052",
+              "tertiary-fixed-dim": "#dbb8ff",
+              "tertiary-fixed": "#efdbff",
+              "surface-bright": "#faf9fe",
+              "inverse-surface": "#2f3034",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#160066",
+              "primary-container": "#7063dd"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      body {
+        background-color: #faf9fe;
+        color: #1a1b1f;
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#faf9fe]/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)] flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#8477F2]">menu</span>
+<span class="text-xl font-extrabold text-[#5749c2] dark:text-[#8477F2] font-['Plus_Jakarta_Sans'] tracking-tight">ModularAI</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a friendly man with a warm smile, soft natural lighting, high-end professional photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChEpLo3kZdN9EeHPqsQngjApTeAqvKjXRokmPtv3_CfYgMDRstmez_0Uf7NsdGmWhHyQM8oFBPA0p8Juih6JMWddjgRJCTuZd0wqPMyhteTU3axVLyDiduZuG6663hv_LIiQUfF_kVQcTTNEB-JQqczJbNVobpcTh5WgpoTAex5lIEkhohD-J4wvAmNTvqca_c_PHEcEdRNMuFlAtm--hGMgRegX7qmquns0jr-aAPayqWHTv45QguiZpouX1EyTfPBMC-dAUo78I"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold text-on-surface leading-tight tracking-tight mb-2">
+                Welcome back, Alex.
+            </h1>
+<p class="font-body text-lg text-on-surface-variant font-medium opacity-80">
+                Your Digital Sanctuary
+            </p>
+</section>
+<!-- Module 1: Crystal Ball -->
+<section class="mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_20px_40px_rgba(87,73,194,0.04)] overflow-hidden">
+<div class="flex items-center justify-between mb-6">
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-widest mb-1 block">Module 01</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface">Crystal Ball</h2>
+</div>
+<div class="p-3 bg-primary-fixed rounded-2xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+</div>
+<div class="relative h-32 w-full mb-6">
+<div class="absolute bottom-0 left-0 w-full h-full flex items-end justify-between px-2">
+<div class="w-2 bg-primary/10 rounded-full h-[30%]"></div>
+<div class="w-2 bg-primary/20 rounded-full h-[45%]"></div>
+<div class="w-2 bg-primary/30 rounded-full h-[40%]"></div>
+<div class="w-2 bg-primary/40 rounded-full h-[60%]"></div>
+<div class="w-2 bg-primary/50 rounded-full h-[55%]"></div>
+<div class="w-2 bg-primary/80 rounded-full h-[85%]"></div>
+<div class="w-2 bg-primary rounded-full h-[75%]"></div>
+<div class="w-2 bg-primary-container rounded-full h-[95%]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Stock Forecast</p>
+<p class="text-xl font-headline font-bold text-primary">+577 db</p>
+<p class="text-[10px] text-on-surface-variant/60">Procurement Target</p>
+</div>
+<div class="bg-primary-container p-4 rounded-lg text-white">
+<p class="text-[10px] font-bold uppercase mb-1 opacity-80">Predicted Peak</p>
+<p class="text-xl font-headline font-bold">Oct 24</p>
+<p class="text-[10px] opacity-70">High Demand Alert</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Module 2: The Ghostbuster -->
+<section class="mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_20px_40px_rgba(87,73,194,0.04)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="text-xs font-bold text-tertiary uppercase tracking-widest mb-1 block">Module 02</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface">The Ghostbuster</h2>
+</div>
+<div class="p-3 bg-tertiary-fixed rounded-2xl text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">detector_status</span>
+</div>
+</div>
+<div class="flex flex-col items-center mb-8">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-low" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-error" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-headline font-extrabold text-on-surface">100%</span>
+<span class="text-[10px] font-bold text-on-surface-variant/60 uppercase">Volume Drop</span>
+</div>
+</div>
+</div>
+<h3 class="text-sm font-bold text-on-surface-variant mb-4 px-1">High Risk Clients</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<span class="text-sm font-bold text-on-surface">Nexus Corp</span>
+</div>
+<span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded-full">Critical</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg opacity-80">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-warning/10 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<span class="text-sm font-bold text-on-surface">Aura Labs</span>
+</div>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full">Warning</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Module 3: Predictive Chat -->
+<section class="mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_20px_40px_rgba(87,73,194,0.04)]">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+</div>
+<h2 class="text-xl font-headline font-bold text-on-surface">Predictive Assistant</h2>
+</div>
+<div class="space-y-6">
+<div class="flex justify-end">
+<div class="bg-primary/5 p-4 rounded-2xl rounded-tr-none max-w-[85%]">
+<p class="text-sm text-on-surface-variant font-medium">Who is likely to churn next week?</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="bg-surface-container-low p-5 rounded-2xl rounded-tl-none border-l-4 border-primary max-w-[90%]">
+<p class="text-sm text-on-surface leading-relaxed mb-4">
+                                Based on usage patterns, <span class="font-bold text-primary">Stellar Softworks</span> shows a <span class="font-bold">78% probability</span> of churning by next Thursday.
+                            </p>
+<button class="w-full py-3 bg-primary text-white text-xs font-bold rounded-full flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span>
+                                Reach Out Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Action: Add Module -->
+<section class="mb-8">
+<div class="bg-surface-container-low border-2 border-dashed border-outline-variant/30 rounded-xl p-8 flex flex-col items-center justify-center text-center">
+<div class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+<p class="font-headline font-bold text-on-surface mb-4">Enhance Your Sanctuary</p>
+<div class="flex flex-wrap justify-center gap-2">
+<span class="px-4 py-2 bg-white text-[10px] font-bold text-on-surface-variant rounded-full shadow-sm">Revenue</span>
+<span class="px-4 py-2 bg-white text-[10px] font-bold text-on-surface-variant rounded-full shadow-sm">LTV</span>
+<span class="px-4 py-2 bg-white text-[10px] font-bold text-on-surface-variant rounded-full shadow-sm">Risk</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[3rem] bg-[#ffffff]/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0px_-10px_30px_rgba(87,73,194,0.04)] flex justify-around items-center px-4 pb-6 pt-2 w-full">
+<button class="flex flex-col items-center justify-center bg-gradient-to-tr from-[#5749c2] to-[#7063dd] text-white rounded-full p-3 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] text-[10px] font-medium mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-400 p-3 hover:text-[#5749c2] active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Manrope'] text-[10px] font-medium mt-1">Insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-400 p-3 hover:text-[#5749c2] active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined">import_contacts</span>
+<span class="font-['Manrope'] text-[10px] font-medium mt-1">Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-400 p-3 hover:text-[#5749c2] active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] text-[10px] font-medium mt-1">Settings</span>
+</button>
+</nav>
+</body></html>
