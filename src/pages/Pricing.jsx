@@ -9,7 +9,7 @@ const Pricing = () => {
       <section className="max-w-7xl mx-auto px-8 mb-24 relative">
         <div className="hero-gradient absolute inset-0 -z-10 scale-150"></div>
         <div className="max-w-3xl">
-          <h1 className="font-headline text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-8">
+          <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-6 md:mb-8">
             {t('pricing.hero_title_start')} <span className="text-primary-container block mt-2">{t('pricing.hero_title_highlight')}</span>
           </h1>
           <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
@@ -19,10 +19,10 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Grid */}
-      <section className="max-w-7xl mx-auto px-8 mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
           {/* Spreadsheet Chaos */}
-          <div className="bg-surface-container-low rounded-lg p-10 transition-all hover:translate-y-[-4px]">
+          <div className="bg-surface-container-low rounded-xl p-8 md:p-10 transition-all hover:translate-y-[-4px]">
             <div className="mb-8">
               <span className="text-label-md font-bold text-on-surface-variant uppercase tracking-widest">{t('pricing.past_badge')}</span>
               <h3 className="font-headline text-3xl font-bold mt-2">{t('pricing.past_title')}</h3>
@@ -51,10 +51,10 @@ const Pricing = () => {
           </div>
 
           {/* ModularAI (Featured) */}
-          <div className="relative group">
+          <div className="relative group mt-6 lg:mt-0">
             <div className="absolute -inset-1 bg-gradient-to-br from-primary to-tertiary-container rounded-[2.2rem] blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <div className="relative bg-surface-container-lowest rounded-lg p-10 shadow-[0_32px_64px_rgba(87,73,194,0.12)] border border-primary/10">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">
+            <div className="relative bg-surface-container-lowest rounded-xl p-8 md:p-10 shadow-[0_32px_64px_rgba(87,73,194,0.12)] border border-primary/10">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 flex items-center justify-center rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap">
                 {t('pricing.present_badge')}
               </div>
               <div className="mb-8">
@@ -93,7 +93,7 @@ const Pricing = () => {
           </div>
 
           {/* Enterprise Dinosaurs */}
-          <div className="bg-surface-container-low rounded-lg p-10 transition-all hover:translate-y-[-4px]">
+          <div className="bg-surface-container-low rounded-xl p-8 md:p-10 transition-all hover:translate-y-[-4px] mt-6 lg:mt-0">
             <div className="mb-8">
               <span className="text-label-md font-bold text-on-surface-variant uppercase tracking-widest">{t('pricing.relic_badge')}</span>
               <h3 className="font-headline text-3xl font-bold mt-2">{t('pricing.relic_title')}</h3>
@@ -159,12 +159,12 @@ const Pricing = () => {
       </section>
 
       {/* Final CTA Card */}
-      <section className="max-w-7xl mx-auto px-8 mt-20">
-        <div className="bg-primary text-on-primary rounded-xl p-16 relative overflow-hidden flex flex-col items-center text-center">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mt-16 md:mt-20">
+        <div className="bg-primary text-on-primary rounded-xl p-10 md:p-16 relative overflow-hidden flex flex-col items-center text-center">
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-primary-container rounded-full blur-3xl opacity-50"></div>
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 bg-tertiary rounded-full blur-3xl opacity-30"></div>
-          <h2 className="font-headline text-4xl md:text-5xl font-extrabold mb-8 relative z-10">{t('pricing.cta_title')}</h2>
-          <button className="bg-surface-container-lowest text-primary px-10 py-5 rounded-full font-headline font-extrabold text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl relative z-10">
+          <h2 className="font-headline text-3xl md:text-5xl font-extrabold mb-8 relative z-10">{t('pricing.cta_title')}</h2>
+          <button className="bg-surface-container-lowest text-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-headline font-extrabold text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl relative z-10 w-full sm:w-auto">
             {t('pricing.cta_btn')}
           </button>
         </div>

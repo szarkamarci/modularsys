@@ -18,11 +18,16 @@ const Header = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl ${scrolled ? 'shadow-[0px_20px_40px_rgba(87,73,194,0.06)]' : ''}`}>
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-headline antialiased">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/assets/favico_up.png" alt="ModularAI Logo" className="h-8 w-auto rounded opacity-90" />
-          <div className="text-2xl font-bold tracking-tight text-on-surface dark:text-white">ModularAI</div>
-        </Link>
+      <div className="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto font-headline antialiased">
+        <div className="flex items-center gap-3">
+          <button className="md:hidden text-primary mt-1">
+            <span className="material-symbols-outlined text-2xl">menu</span>
+          </button>
+          <Link to="/" className="flex items-center gap-2 md:gap-3">
+            <img src="/assets/favico_up.png" alt="ModularAI Logo" className="h-8 w-auto rounded opacity-90 hidden sm:block" />
+            <div className="text-xl md:text-2xl font-bold tracking-tight text-on-surface dark:text-white">ModularAI</div>
+          </Link>
+        </div>
         <div className="hidden md:flex items-center gap-12">
           <a className="text-[#8477F2] font-semibold transition-colors duration-300" href="#">{t('header.features')}</a>
           <Link to="/pricing" className={`font-semibold transition-colors duration-300 ${location.pathname === '/pricing' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>

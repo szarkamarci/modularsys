@@ -8,11 +8,11 @@ const Resources = () => {
       {/* Hero Section */}
       <header className="max-w-7xl mx-auto px-8 mb-20 text-center md:text-left">
         <div className="max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-medium text-sm mb-6 font-label">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-medium text-xs md:text-sm mb-6 font-label">
             {t('resources.badge')}
           </span>
-          <h1 className="text-6xl md:text-7xl font-headline font-extrabold text-on-surface tracking-tight leading-[1.1] mb-8">
-            {t('resources.title_start')} <span className="text-primary">{t('resources.title_highlight')}</span> {t('resources.title_end')}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-extrabold text-on-surface tracking-tight leading-[1.1] mb-6 md:mb-8">
+            {t('resources.title_start')} <span className="text-primary block mt-1">{t('resources.title_highlight')}</span> {t('resources.title_end')}
           </h1>
           <p className="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl">
             {t('resources.subtitle')}
@@ -21,25 +21,25 @@ const Resources = () => {
       </header>
 
       {/* Featured Article: The Bento Hero */}
-      <section className="max-w-7xl mx-auto px-8 mb-24">
-        <div className="group relative overflow-hidden rounded-xl md:rounded-lg bg-surface-container-lowest shadow-[0px_20px_40px_rgba(87,73,194,0.06)] flex flex-col md:flex-row h-full md:min-h-[500px]">
-          <div className="flex-1 p-10 md:p-16 flex flex-col justify-center order-2 md:order-1 relative z-10 bg-surface-container-lowest md:bg-transparent">
-            <div className="flex items-center gap-2 mb-6 text-primary font-semibold text-sm uppercase tracking-widest">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-20 md:mb-24">
+        <div className="group relative overflow-hidden rounded-2xl md:rounded-xl bg-surface-container-lowest shadow-[0px_20px_40px_rgba(87,73,194,0.06)] flex flex-col md:flex-row h-auto md:min-h-[500px]">
+          <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center order-2 md:order-1 relative z-10 bg-surface-container-lowest md:bg-transparent">
+            <div className="flex items-center gap-2 mb-4 md:mb-6 text-primary font-semibold text-xs md:text-sm uppercase tracking-widest">
               <span className="material-symbols-outlined text-base">star</span>
               {t('resources.featured_badge')}
             </div>
-            <h2 className="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-headline font-bold text-on-surface mb-4 md:mb-6 leading-tight">
               {t('resources.featured_title')}
             </h2>
-            <p className="text-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">
+            <p className="text-base md:text-lg text-on-surface-variant mb-8 md:mb-10 leading-relaxed max-w-lg">
               {t('resources.featured_desc')}
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <button className="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3.5 rounded-xl md:rounded-full font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
                 {t('resources.featured_btn')}
                 <span className="material-symbols-outlined">arrow_forward</span>
               </button>
-              <span className="text-on-surface-variant text-sm font-medium italic">{t('resources.featured_time')}</span>
+              <span className="text-on-surface-variant text-sm font-medium italic mt-2 sm:mt-0">{t('resources.featured_time')}</span>
             </div>
           </div>
           <div className="flex-1 order-1 md:order-2 relative min-h-[300px] md:min-h-auto overflow-hidden">
@@ -154,12 +154,12 @@ const Resources = () => {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="max-w-7xl mx-auto px-8">
-        <div className="bg-surface-container-low rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary-fixed opacity-20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-secondary-container opacity-20 rounded-full blur-3xl"></div>
+      <section className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="bg-surface-container-low rounded-xl p-8 md:p-20 text-center relative overflow-hidden shadow-sm">
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 md:w-64 h-48 md:h-64 bg-primary-fixed opacity-20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 md:w-64 h-48 md:h-64 bg-secondary-container opacity-20 rounded-full blur-3xl"></div>
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface mb-6">
+            <h2 className="text-3xl md:text-5xl font-headline font-extrabold text-on-surface mb-6">
               {t('resources.news_title')}
             </h2>
             <p className="text-lg text-on-surface-variant mb-10 leading-relaxed">

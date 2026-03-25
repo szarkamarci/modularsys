@@ -20,7 +20,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="font-headline text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.1]"
+            className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-on-surface mb-6 md:mb-8 leading-[1.1]"
           >
             {t('hero.title_start')}<span className="text-primary italic">{t('hero.title_highlight')}</span>{t('hero.title_end')}
           </motion.h1>
@@ -29,7 +29,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-on-surface-variant text-xl md:text-2xl leading-relaxed mb-10 max-w-2xl"
+            className="text-on-surface-variant text-lg md:text-2xl leading-relaxed mb-8 md:mb-10 max-w-2xl"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -38,12 +38,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-4 w-full"
           >
-            <button className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20">
+            <button className="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20">
               {t('hero.cta_primary')}
             </button>
-            <button className="bg-surface-container-low text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container transition-colors">
+            <button className="w-full sm:w-auto bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none">
               {t('hero.cta_secondary')}
             </button>
           </motion.div>

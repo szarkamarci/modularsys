@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - ModularAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#160066",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-fixed-variant": "#593483",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              "on-primary": "#ffffff",
+              "on-background": "#1a1b1f",
+              "surface-tint": "#5a4bc5",
+              "surface-dim": "#dad9df",
+              "on-surface-variant": "#474553",
+              "error": "#ba1a1a",
+              "inverse-surface": "#2f3034",
+              "surface-container-high": "#e9e7ed",
+              "on-primary-container": "#fffbff",
+              "on-secondary-container": "#2b5982",
+              "inverse-on-surface": "#f1f0f5",
+              "on-surface": "#1a1b1f",
+              "error-container": "#ffdad6",
+              "background": "#faf9fe",
+              "tertiary-container": "#8963b5",
+              "on-secondary-fixed": "#001d34",
+              "primary-fixed-dim": "#c6bfff",
+              "on-primary-fixed-variant": "#4130ac",
+              "tertiary-fixed-dim": "#dbb8ff",
+              "surface-container-low": "#f4f3f8",
+              "outline": "#787585",
+              "on-tertiary": "#ffffff",
+              "primary": "#5749c2",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#35618b",
+              "inverse-primary": "#c6bfff",
+              "outline-variant": "#c8c4d5",
+              "on-tertiary-fixed": "#2b0052",
+              "primary-fixed": "#e4dfff",
+              "on-secondary-fixed-variant": "#184a72",
+              "secondary-container": "#a5d0ff",
+              "secondary-fixed-dim": "#9fcafa",
+              "tertiary": "#704a9a",
+              "surface": "#faf9fe",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e3e2e7",
+              "surface-container": "#eeedf3",
+              "surface-container-highest": "#e3e2e7",
+              "primary-container": "#7063dd",
+              "on-error": "#ffffff",
+              "secondary-fixed": "#cfe4ff",
+              "tertiary-fixed": "#efdbff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(250, 249, 254, 0.7);
+        backdrop-filter: blur(20px);
+      }
+      .glow-primary {
+        box-shadow: 0px 20px 40px rgba(132, 119, 242, 0.15);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 w-full bg-[#faf9fe]/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(132,119,242,0.06)]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#8477F2]" data-icon="menu">menu</span>
+<h1 class="text-xl font-bold tracking-tight text-[#1a1b1f] font-headline">ModularAI</h1>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-all">
+            Rescue My Data
+        </button>
+</header>
+<main class="pt-24 pb-32 px-6">
+<!-- Hero Section -->
+<section class="mb-12">
+<h2 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4 leading-tight">
+                Data freedom, <br/><span class="text-primary">priced for humans.</span>
+</h2>
+<p class="text-on-surface-variant body-lg max-w-xs">
+                Choose your era. From the chaos of the past to the sanctuary of the future.
+            </p>
+</section>
+<!-- Pricing Tiers Stack -->
+<div class="flex flex-col gap-8 mb-20">
+<!-- Tier 1: The Past -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-6">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline mb-2 block">The Past</span>
+<h3 class="text-2xl font-bold font-headline">Spreadsheet Chaos</h3>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold font-headline">$0</span>
+<span class="text-on-surface-variant font-medium">/ forever</span>
+</div>
+<p class="text-on-surface-variant text-sm">Best for those who enjoy manual entry and existential dread.</p>
+<ul class="flex flex-col gap-4 my-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="close">close</span>
+<span class="text-sm">Automated logic</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="close">close</span>
+<span class="text-sm">Real-time sync</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm">Manual VLOOKUP hell</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-full font-bold bg-surface-container-high text-on-surface-variant">Stay in the past</button>
+</div>
+<!-- Tier 2: The Present (ModularAI - Featured) -->
+<div class="bg-surface-container-lowest rounded-lg p-8 flex flex-col gap-6 relative glow-primary ring-2 ring-primary/20">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    Recommended
+                </div>
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">The Present</span>
+<h3 class="text-2xl font-bold font-headline">ModularAI</h3>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold font-headline text-primary">$29</span>
+<span class="text-on-surface-variant font-medium">/ month</span>
+</div>
+<p class="text-on-surface-variant text-sm">A serene sanctuary for your digital life. Automated and intentional.</p>
+<ul class="flex flex-col gap-4 my-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-sm font-semibold">Unlimited AI Modules</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-sm font-semibold">End-to-end Sanity</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="speed" style="font-variation-settings: 'FILL' 1;">speed</span>
+<span class="text-sm font-semibold">Instant Data Rescues</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-full font-bold bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20">Enter the Future</button>
+</div>
+<!-- Tier 3: The Relic -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-6">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline mb-2 block">The Relic</span>
+<h3 class="text-2xl font-bold font-headline">Enterprise Dinosaurs</h3>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold font-headline">$2,500+</span>
+<span class="text-on-surface-variant font-medium">/ call us</span>
+</div>
+<p class="text-on-surface-variant text-sm">For organizations that love 18-month implementations and fax machines.</p>
+<ul class="flex flex-col gap-4 my-2">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<span class="text-sm">24/7 "Hold Music" support</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="contract" style="font-variation-settings: 'FILL' 1;">contract</span>
+<span class="text-sm">60-page legal contracts</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-full font-bold bg-on-background text-surface-bright">Schedule a demo (in 2026)</button>
+</div>
+</div>
+<!-- FAQ Accordion Section -->
+<section class="mb-12">
+<h4 class="text-2xl font-bold font-headline mb-8 text-center">Curiosities?</h4>
+<div class="flex flex-col gap-4">
+<!-- FAQ Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-5">
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-surface">How long does setup take?</span>
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</div>
+</div>
+<!-- FAQ Item 2 (Expanded concept) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 ring-1 ring-primary/10">
+<div class="flex justify-between items-center mb-3">
+<span class="font-bold text-primary">Is my data actually safe?</span>
+<span class="material-symbols-outlined text-primary" data-icon="remove">remove</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Safer than a secret in a vault. We use high-grade encryption and a "zero-knowledge" architecture, meaning we couldn't peek at your data even if we wanted to.
+                    </p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-5">
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-surface">Can I cancel if I miss the chaos?</span>
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Visual Break -->
+<div class="w-full h-48 rounded-lg mb-20 overflow-hidden relative">
+<img alt="Digital art" class="w-full h-full object-cover" data-alt="Abstract ethereal background with flowing purple and blue silk-like shapes and soft diffused lighting in a serene digital sanctuary style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj-Wzv4-oNPIBhhq4ZrTwEXaITFxoEbFbtQB3m6jiif81kwECAlmUL_rTsKKd2aifGc1YxW6CjrS8WWFuo7do0sEQfzI4QMYCkOeTcvPz2YYCMVaQKnZZli5k-Xl-JeBtSfeEzP3dGKu9oVJxuexf0oW9G1NF6vkKMwLTWkxRyVaZ46Gyq0oblJSV9uYBceC__ggy_cXN6svIBgqaUgHtc0NX9fYzRLaO-O4unTwAHouZDBN4h0CCC4jPPG0AdXEoSozUxeWXVELE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="w-full rounded-t-[2rem] mt-auto bg-[#f4f3f8] dark:bg-slate-950 flex flex-col items-center gap-4 py-8 px-6 w-full">
+<div class="text-lg font-bold text-[#1a1b1f] font-headline">ModularAI</div>
+<div class="flex gap-6">
+<a class="text-[#474553] dark:text-slate-500 hover:text-[#8477F2] transition-colors text-sm font-label" href="#">Privacy</a>
+<a class="text-[#474553] dark:text-slate-500 hover:text-[#8477F2] transition-colors text-sm font-label" href="#">Terms</a>
+<a class="text-[#474553] dark:text-slate-500 hover:text-[#8477F2] transition-colors text-sm font-label" href="#">Support</a>
+</div>
+<p class="text-[#474553] dark:text-slate-500 text-xs font-label mt-4">© 2024 ModularAI. The Digital Sanctuary.</p>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl shadow-[0px_-10px_30px_rgba(132,119,242,0.08)] rounded-t-[3rem] md:hidden">
+<div class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-500 p-3 hover:opacity-80">
+<span class="material-symbols-outlined mb-1" data-icon="home_max">home_max</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-500 p-3 hover:opacity-80">
+<span class="material-symbols-outlined mb-1" data-icon="insights">insights</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#474553] dark:text-slate-500 p-3 hover:opacity-80">
+<span class="material-symbols-outlined mb-1" data-icon="Folder">folder</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#f4f3f8] dark:bg-slate-800 text-[#8477F2] rounded-full p-3 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Settings</span>
+</div>
+</nav>
+</body></html>

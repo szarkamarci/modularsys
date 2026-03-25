@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#160066",
+            "surface-bright": "#faf9fe",
+            "on-tertiary-fixed-variant": "#593483",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#fffbff",
+            "on-primary": "#ffffff",
+            "on-background": "#1a1b1f",
+            "surface-tint": "#5a4bc5",
+            "surface-dim": "#dad9df",
+            "on-surface-variant": "#474553",
+            "error": "#ba1a1a",
+            "inverse-surface": "#2f3034",
+            "surface-container-high": "#e9e7ed",
+            "on-primary-container": "#fffbff",
+            "on-secondary-container": "#2b5982",
+            "inverse-on-surface": "#f1f0f5",
+            "on-surface": "#1a1b1f",
+            "error-container": "#ffdad6",
+            "background": "#faf9fe",
+            "tertiary-container": "#8963b5",
+            "on-secondary-fixed": "#001d34",
+            "primary-fixed-dim": "#c6bfff",
+            "on-primary-fixed-variant": "#4130ac",
+            "tertiary-fixed-dim": "#dbb8ff",
+            "surface-container-low": "#f4f3f8",
+            "outline": "#787585",
+            "on-tertiary": "#ffffff",
+            "primary": "#5749c2",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#35618b",
+            "inverse-primary": "#c6bfff",
+            "outline-variant": "#c8c4d5",
+            "on-tertiary-fixed": "#2b0052",
+            "primary-fixed": "#e4dfff",
+            "on-secondary-fixed-variant": "#184a72",
+            "secondary-container": "#a5d0ff",
+            "secondary-fixed-dim": "#9fcafa",
+            "tertiary": "#704a9a",
+            "surface": "#faf9fe",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e3e2e7",
+            "surface-container": "#eeedf3",
+            "surface-container-highest": "#e3e2e7",
+            "primary-container": "#7063dd",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#cfe4ff",
+            "tertiary-fixed": "#efdbff"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#faf9fe]/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(132,119,242,0.06)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#8477F2]">menu</span>
+<h1 class="text-xl font-bold tracking-tight text-[#1a1b1f]">ModularAI</h1>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90 scale-95 duration-200 ease-in-out">
+      Rescue My Data
+    </button>
+</header>
+<main class="flex-grow pt-24 pb-32 px-6">
+<!-- Hero Section -->
+<section class="mb-12">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-4 leading-tight">
+        The Knowledge Hub for Stress-Free Data.
+      </h2>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+        Deep dives into modular thinking, clean architecture, and the future of serene automation.
+      </p>
+</section>
+<!-- Horizontal Category Chips -->
+<nav class="flex overflow-x-auto gap-3 mb-10 hide-scrollbar -mx-6 px-6">
+<button class="whitespace-nowrap bg-primary text-on-primary px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-md">
+        All Insights
+      </button>
+<button class="whitespace-nowrap bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full text-sm font-medium hover:bg-surface-container-high transition-all">
+        Data Strategy
+      </button>
+<button class="whitespace-nowrap bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full text-sm font-medium hover:bg-surface-container-high transition-all">
+        Case Studies
+      </button>
+<button class="whitespace-nowrap bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full text-sm font-medium hover:bg-surface-container-high transition-all">
+        Modular AI
+      </button>
+<button class="whitespace-nowrap bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full text-sm font-medium hover:bg-surface-container-high transition-all">
+        Productivity
+      </button>
+</nav>
+<!-- Featured Insight -->
+<section class="mb-12">
+<div class="group relative bg-surface-container-lowest rounded-lg overflow-hidden shadow-[0px_20px_40px_rgba(132,119,242,0.06)] flex flex-col">
+<div class="h-64 overflow-hidden">
+<img alt="Digital abstract visualization" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract 3D render of floating translucent geometric shapes in soft lavender and blue hues with a dreamy bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyWW85_s8tG_Zpi0nJQXvSk38q9AOh6zLBqs2vc3eAqjzszT6FOw909Lsk-gBQ-p4JcYYY45zhJXxiYPYTQpEqjrJoqlZ8qK54w-PXk_qdru9mv8q-rAVEOAtmguJeowSOtEytSkt412U4iVVa-O8sM-RlDdykRQ0vIo7fHvNHXVqfONYU3fJbK16wekmvRFu8gkVxmJVvkkWUHSXxUwj3ferQfLOQP03sfCD8XobGH1PLAu9E6BNtCEEMjkKOJ1H_rznLW46SJdM"/>
+</div>
+<div class="p-8">
+<span class="inline-block bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+            Featured Insight
+          </span>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-4 leading-tight">
+            Why the Magic 8-Ball isn't a valid inventory strategy
+          </h3>
+<p class="text-on-surface-variant mb-6 line-clamp-3">
+            Exploring why data-driven forecasting beats gut feeling every time, and how to build a modular system that handles the unpredictable with ease.
+          </p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-on-surface-variant">12 min read</span>
+<button class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+              Read Story
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog & Strategy Cards Column -->
+<section class="flex flex-col gap-8 mb-16">
+<!-- Card 2 -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-4">
+<div class="h-48 rounded-md overflow-hidden bg-surface-dim">
+<img alt="Clean workspace with data dashboard" class="w-full h-full object-cover" data-alt="Minimalist clean workspace featuring a sleek tablet displaying colorful data charts with soft afternoon sunlight casting shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbtcFqQarkVMrHFPVJHlyG_O2arTNCDsbQmTM6ho6x_7e-xh8qcRSFzeZHHdLq_4zS4O7KnE7_NTZkxYLSdBbmnP0FuAmdmzzcJyn_afYrzP4wAItZet4NX1ZxDTJ02DvLDWblSmWZlr0CPTjOMw4ne6-mYNjrNjskqkaSrSnY5XZImq4XmdPEIJKl7wcdNBypK7_XSNjobrAdjvBVI8gmD0xAssvDFiezaBzqVCmaEM7c0DunvtyphxQssMAdQ5zkVq1c-JMkfPA"/>
+</div>
+<div>
+<span class="text-xs font-semibold text-primary mb-2 block">STRATEGY</span>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-2">Eliminating the 'Sheet' Storm</h4>
+<p class="text-on-surface-variant text-sm mb-4">How one team replaced 400 legacy spreadsheets with a single modular truth.</p>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+            Read article
+            <span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-4">
+<div class="h-48 rounded-md overflow-hidden bg-surface-dim">
+<img alt="Digital security and data" class="w-full h-full object-cover" data-alt="Futuristic cyber security interface with glowing circuit patterns in neon purples and soft blue light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbxaISGZEoIvjHPUDSdk2QMOGmmYshBAvBQXK_DVE_m8He1G_CFc8ukVTIe89FQTBqzHrlARpf7NVRoNLBXb9wm1I5IQ6MqYsCRcg0Zgs9c_y9omTJDZPjPiErrZIAtHhk_YiWQ1R32XW-qLha6ozH9cD-TY46fmlvQev0ym-0PF7SCW6FMxjnD0q04RuSVk4r67EsNQepe8VKaHHzR6NLKC-sQXzPiR61nQWUgxrvy7F3cil5dZW-_D29dVfa03kSjnNKxEPnWHs"/>
+</div>
+<div>
+<span class="text-xs font-semibold text-primary mb-2 block">TECH UPDATE</span>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-2">The Zen of Zero-Knowledge</h4>
+<p class="text-on-surface-variant text-sm mb-4">Architecture that protects privacy without sacrificing real-time insights.</p>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+            Read article
+            <span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Newsletter Signup -->
+<section class="bg-gradient-to-br from-primary-fixed to-tertiary-fixed rounded-lg p-8 text-center shadow-lg mb-12">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">mail</span>
+<h3 class="font-headline text-2xl font-extrabold text-on-primary-fixed mb-2">Get smarter, not busier</h3>
+<p class="text-on-primary-fixed-variant mb-8 px-4">
+        Weekly doses of data clarity, sent straight to your sanctuary. No noise, just signal.
+      </p>
+<div class="space-y-4">
+<input class="w-full px-6 py-4 rounded-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/40 text-on-surface transition-all" placeholder="your@email.com" type="email"/>
+<button class="w-full bg-on-primary-fixed text-white py-4 rounded-full font-bold text-lg hover:opacity-90 transition-all">
+          Join the Sanctuary
+        </button>
+</div>
+<p class="mt-4 text-xs text-on-primary-fixed-variant/60">We respect your data. Unsubscribe anytime.</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f4f3f8] flex flex-col items-center gap-4 py-8 px-6 w-full rounded-t-[2rem] mt-auto pb-32">
+<div class="text-lg font-bold text-[#1a1b1f]">ModularAI</div>
+<div class="flex gap-6">
+<a class="text-[#474553] text-sm hover:text-[#8477F2] transition-colors" href="#">Privacy</a>
+<a class="text-[#474553] text-sm hover:text-[#8477F2] transition-colors" href="#">Terms</a>
+<a class="text-[#474553] text-sm hover:text-[#8477F2] transition-colors" href="#">Support</a>
+</div>
+<div class="text-[#474553] text-xs text-center opacity-70">© 2024 ModularAI. The Digital Sanctuary.</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white/80 backdrop-blur-2xl flex justify-around items-center px-4 pb-6 pt-2 shadow-[0px_-10px_30px_rgba(132,119,242,0.08)] rounded-t-[3rem]">
+<div class="flex flex-col items-center justify-center text-[#474553] p-3 hover:opacity-80 transition-transform active:scale-90">
+<span class="material-symbols-outlined">home_max</span>
+<span class="text-[10px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#f4f3f8] text-[#8477F2] rounded-full p-3 transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="text-[10px] font-semibold mt-1">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#474553] p-3 hover:opacity-80 transition-transform active:scale-90">
+<span class="material-symbols-outlined">folder</span>
+<span class="text-[10px] font-medium mt-1">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#474553] p-3 hover:opacity-80 transition-transform active:scale-90">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium mt-1">Settings</span>
+</div>
+</nav>
+</body></html>

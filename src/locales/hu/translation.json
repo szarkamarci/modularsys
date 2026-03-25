@@ -138,5 +138,11 @@
     "news_placeholder": "te@ceged.com",
     "news_btn": "Csatlakozás a Spa-hoz",
     "news_disclaimer": "A feliratkozással elfogadod az Adatvédelmi Irányelveinket. Ígérjük, kíméletesek leszünk."
+  },
+  "bottom_nav": {
+    "home": "Kezdőlap",
+    "pricing": "Árazás",
+    "resources": "Tudásbázis",
+    "settings": "Beállítások"
   }
 }

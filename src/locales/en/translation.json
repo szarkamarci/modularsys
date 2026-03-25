@@ -138,5 +138,11 @@
     "news_placeholder": "you@company.com",
     "news_btn": "Join the Spa",
     "news_disclaimer": "By subscribing, you agree to our Privacy Policy. We promise to be gentle."
+  },
+  "bottom_nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "settings": "Settings"
   }
 }
