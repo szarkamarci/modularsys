@@ -7,10 +7,10 @@
   },
   "hero": {
     "badge": "A Találgatások Vége",
-    "title_start": "Ne a ",
-    "title_highlight": "Varázsgömbtől",
-    "title_end": " kérdezd a készletedet.",
-    "subtitle": "A ModularAI kibogozza a rendetlen, széttöredezett adataidat, és tiszta, prediktív meglátásokká alakítja. Szerezz SAP-szintű intelligenciát anélkül, hogy PhD kellene a használatához.",
+    "title_start": "Ne hagyatkozz ",
+    "title_highlight": "táblázatokra",
+    "title_end": " és megérzésekre a készletkezelésben.",
+    "subtitle": "A ModularAI a széttöredezett üzleti adatokat élő műszerfalakká, készlet-előrejelzésekké és automatizált ajánlásokká alakítja — vállalati komplexitás nélkül.",
     "cta_primary": "Mentsd Meg az Adataimat (Ingyenes Audit)",
     "cta_secondary": "Nézd meg a Demót",
     "stat_badge": "Élő Státusz",
@@ -18,7 +18,7 @@
     "stat_label": "Hatékonyság"
   },
   "trustbar": {
-    "quote": "\"Olyan cégeknek építve, akik túl nagyok az Excelhez, de túl okosak ahhoz, hogy túlfizessenek az SAP-ért.\""
+    "quote": "AI specialisták építették. Üzleti csapatoknak tervezve."
   },
   "beforeAfter": {
     "title": "Az Adattranszformáció",
@@ -46,10 +46,10 @@
     "feat3_item3": "Növelt Akkumulátor Élettartam"
   },
   "cta": {
-    "title": "Készen állsz egy adat spa napra?",
-    "subtitle": "Csatlakozz több mint 400 okos céghez, akik elcserélték a varázsgömbjüket prediktív tisztaságra.",
+    "title": "Készen állsz a kaotikus adatok tiszta döntésekké alakítására?",
+    "subtitle": "Kezdd egy fókuszált adataudittal, és fedezd fel, hol teremthet értéket a prediktív elemzés.",
     "button": "Mentsd Meg az Adataimat (Ingyenes Audit)",
-    "disclaimer": "Nincs szükség bankkártyára. Csatlakoztasd az adataidat 3 perc alatt."
+    "disclaimer": "Nincs szükség bankkártyára. Kezdd egy ingyenes adataudittal."
   },
   "footer": {
     "rights": "© 2026 ModularAI. Minden jog fenntartva.",
@@ -171,5 +171,27 @@
     "feat2_desc": "Kössd össze a különálló appjaid egyetlen lélegző ökoszisztémává.",
     "feat3_title": "Emberközpontú AI",
     "feat3_desc": "Technológia, ami a te nyelveden beszél, nem kettes számrendszerben."
+  },
+  "how_it_works": {
+    "title": "Hogyan működik a ModularAI?",
+    "step1_title": "Adataudit",
+    "step1_desc": "Áttekintjük táblázatait, ERP exportjait, adatbázisait, webshop adatait vagy meglévő riportálási folyamatait.",
+    "step2_title": "Kísérleti Műszerfal",
+    "step2_desc": "Építünk egy fókuszált műszerfalat egy kiemelt üzleti problémára, mint például a készlet, értékesítés vagy termékteljesítmény.",
+    "step3_title": "Prediktív Réteg",
+    "step3_desc": "Előrejelzéseket, ajánlásokat, anomália-észlelést vagy AI-támogatott jelentéseket adunk hozzá ott, ahol mérhető értéket teremt.",
+    "step4_title": "Automatizáció és Integráció",
+    "step4_desc": "Bekötjük a meglátásokat a napi munkafolyamatba, hogy a jelentések, riasztások és ajánlások gyakorlati lépésekké váljanak.",
+    "trust_title": "Az adatai biztonságban maradnak.",
+    "trust_desc": "A ModularAI képes privát adatbázisokkal, szabályozott hozzáféréssel és egyedi integrációkkal működni az Ön cégének biztonsági és munkafolyamat követelményeitől függően.",
+    "trust_bullet1": "Privát vagy szabályozott telepítési opciók",
+    "trust_bullet2": "Szerepkör-alapú hozzáférési lehetőségek",
+    "trust_bullet3": "Egyedi integrációk meglévő rendszerekkel",
+    "trust_bullet4": "Nincs felesleges adatexpozíció"
+  },
+  "testimonial": {
+    "quote": "\"A ModularAI segített a szétszórt működési adatainkat egy olyan tiszta műszerfallá alakítani, amit a csapatunk ténylegesen használni is tud.\"",
+    "author": "Nagy Csaba",
+    "role": "CEO, Cortos, Magyarország"
   }
 }

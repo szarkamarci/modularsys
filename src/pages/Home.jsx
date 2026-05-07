@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import Testimonial from '../components/Testimonial';
 import BeforeAfter from '../components/BeforeAfter';
 import Features from '../components/Features';
+import HowItWorks from '../components/HowItWorks';
 import CTA from '../components/CTA';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Testimonial />
       <BeforeAfter />
       <Features />
+      <HowItWorks />
       <CTA />
     </main>
   );

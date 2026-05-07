@@ -13,11 +13,16 @@ const resources = {
   }
 };
 
+const userLanguage = typeof window !== 'undefined' 
+  ? (window.navigator.language || window.navigator.userLanguage) 
+  : 'en';
+const defaultLang = userLanguage.toLowerCase().startsWith('hu') ? 'hu' : 'en';
+
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en', // default language
+    lng: defaultLang, // dynamic browser detection
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default

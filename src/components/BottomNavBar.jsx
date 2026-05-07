@@ -29,11 +29,6 @@ const BottomNavBar = () => {
         <span className="material-symbols-outlined" style={path === '/resources' ? { fontVariationSettings: "'FILL' 1" } : {}}>folder</span>
         <span className="text-[10px] font-bold mt-1">{t('bottom_nav.resources')}</span>
       </Link>
-      
-      <div className="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors p-3 opacity-80 cursor-pointer w-16">
-        <span className="material-symbols-outlined">settings</span>
-        <span className="text-[10px] font-bold mt-1">{t('bottom_nav.settings')}</span>
-      </div>
     </nav>
   );
 };

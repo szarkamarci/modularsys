@@ -7,10 +7,10 @@
   },
   "hero": {
     "badge": "The End of Guesswork",
-    "title_start": "Stop asking the ",
-    "title_highlight": "Magic 8-Ball",
-    "title_end": " about your inventory.",
-    "subtitle": "ModularAI untangles your messy, fragmented data and turns it into clear, predictive insights. Get SAP-level smarts without needing a PhD to use it.",
+    "title_start": "Stop relying on ",
+    "title_highlight": "spreadsheets",
+    "title_end": " and gut feeling to manage your inventory.",
+    "subtitle": "ModularAI turns fragmented business data into live dashboards, stock forecasts, and automated recommendations — without enterprise complexity.",
     "cta_primary": "Rescue My Data (Free Audit)",
     "cta_secondary": "Watch the Demo",
     "stat_badge": "Live Status",
@@ -18,7 +18,7 @@
     "stat_label": "Efficiency"
   },
   "trustbar": {
-    "quote": "\"Built for companies too big for Excel, but too smart to overpay for SAP.\""
+    "quote": "Built by AI specialists. Designed for business teams."
   },
   "beforeAfter": {
     "title": "The Data Transformation",
@@ -46,10 +46,10 @@
     "feat3_item3": "Extended Battery Life"
   },
   "cta": {
-    "title": "Ready for a data spa day?",
-    "subtitle": "Join 400+ smart companies who traded their magic 8-balls for predictive clarity.",
+    "title": "Ready to turn messy data into clear decisions?",
+    "subtitle": "Start with a free data audit and discover where ModularAI can create value in your current workflow.",
     "button": "Rescue My Data (Free Audit)",
-    "disclaimer": "No credit card required. Connect your data in 3 minutes."
+    "disclaimer": "No credit card required. Start with a free data audit."
   },
   "footer": {
     "rights": "© 2026 ModularAI. All rights reserved.",
@@ -171,5 +171,27 @@
     "feat2_desc": "Connect your siloed apps into one beautiful, breathing ecosystem.",
     "feat3_title": "Human-First AI",
     "feat3_desc": "Technology that speaks your language, not binary riddles."
+  },
+  "how_it_works": {
+    "title": "How ModularAI Works",
+    "step1_title": "Data Audit",
+    "step1_desc": "We review your spreadsheets, ERP exports, databases, webshop data, or existing reporting workflows.",
+    "step2_title": "Pilot Dashboard",
+    "step2_desc": "We build a focused dashboard around one high-value business problem, such as inventory, sales, or product performance.",
+    "step3_title": "Predictive Layer",
+    "step3_desc": "We add forecasting, recommendations, anomaly detection, or AI-assisted reporting where it creates measurable value.",
+    "step4_title": "Automation & Integration",
+    "step4_desc": "We connect insights into your daily workflow so reports, alerts, and recommendations become actionable.",
+    "trust_title": "Your data stays under control.",
+    "trust_desc": "ModularAI can work with private databases, controlled access, and custom integrations depending on your company's security and workflow requirements.",
+    "trust_bullet1": "Private or controlled deployment options",
+    "trust_bullet2": "Role-based access possibilities",
+    "trust_bullet3": "Custom integrations with existing systems",
+    "trust_bullet4": "No unnecessary data exposure"
+  },
+  "testimonial": {
+    "quote": "\"ModularAI helped us turn scattered operational data into a clear dashboard our team can actually use.\"",
+    "author": "Nagy Csaba",
+    "role": "CEO, Cortos, Hungary"
   }
 }

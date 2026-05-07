@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
@@ -13,6 +14,7 @@ import Demo from './pages/Demo';
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         {/* Pages using the common layout (Header + Footer) */}
         <Route element={<Layout />}>
