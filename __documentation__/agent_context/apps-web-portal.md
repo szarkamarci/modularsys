@@ -25,9 +25,12 @@ The demo login and dashboard operate entirely in frontend-only mode.
 - Any features suggesting real data ingestion (e.g. "Connect your database") are strictly visual facades for demonstration purposes.
 
 ## Branding and Assets
-- **Wordmark:** `public/assets/brand/wordmark.svg` is the main horizontal logo. It is used in the `Header`, `Footer`, and `DemoDashboard`.
-- **Mark:** `public/assets/brand/mark.svg` is the simple icon used for the browser favicon (`index.html`) and as the logo icon in the Demo Login (`GetStarted.jsx`).
-- **Dot Effect:** The interactive dot background design (`InteractiveBackground.jsx`) tracks mouse movement (`mousemove` event with `requestAnimationFrame`) and renders a sleek masked radial gradient with parallax transform. It is placed as an ambient background in the `Hero.jsx` and `GetStarted.jsx` components.
+- **Wordmark:** `public/assets/brand/wordmark.svg` — used in `Header`, `Footer`, and the dashboard `SideNav` (top-left, links back to `/`).
+- **Mark:** `public/assets/brand/mark.svg` — used as the favicon (`index.html`), the demo login icon (`GetStarted.jsx`), and the dashboard `TopAppBar` mobile logo.
+- **Dot Effect:** `src/components/InteractiveBackground.jsx` accepts a `variant` prop:
+  - `variant="login"` (default) — fuller intensity, 550 px spotlight, 60% dot opacity. Used on `/get-started`.
+  - `variant="hero"` — subtle/ambient, 700 px diffuse spotlight, 30% dot opacity, reduced parallax. Used in `Hero.jsx` on `/`.
+  - Both variants respect `prefers-reduced-motion` — the animated dot layer is skipped and only static ambient circles are shown.
 
 ## Local Development
 - Run locally: `npm run dev`

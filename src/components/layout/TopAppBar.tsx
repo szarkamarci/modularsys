@@ -5,30 +5,34 @@ import { getCurrentClient } from '../../lib/clients/getCurrentClient';
 import { getRouteConfigMap, getScenarioConfig } from '../../lib/scenarios/scenarioRegistry';
 import { useLocale } from '../../lib/locales/LocaleProvider';
 
-// ─── Type helpers ─────────────────────────────────────────────────────────────
+// ─── Demo auth session key ─────────────────────────────────────────────────────
+// This is the only localStorage key used by the frontend-only demo auth.
+// Logout clears this key and redirects to /get-started.
+const DEMO_SESSION_KEY = 'modularai_demo_session';
+
 type NavPage = {
-    label: string;     
+    label: string;
     href: string;
-    icon: string;      
-    keywords: string[]; 
+    icon: string;
+    keywords: string[];
 };
 
 function getUsername(): string {
-    return 'Demo Felhasználó';
+    return 'Demo User';
 }
 
 export default function TopAppBar() {
-    const router = useNavigate();
+    const navigate = useNavigate();
     const client = getCurrentClient();
     const { locale, localeConfig, setLocale, supportedLocales } = useLocale();
     const scenario = getScenarioConfig(client.scenarioId, locale);
     const routeConfigMap = getRouteConfigMap(scenario);
 
     const [profileOpen, setProfileOpen] = useState(false);
-    const [username, setUsername] = useState('Felhasználó');
+    const [username, setUsername] = useState('User');
     const [searchQuery, setSearchQuery] = useState('');
     const [searchOpen, setSearchOpen] = useState(false);
-    
+
     const searchRef = useRef<HTMLDivElement>(null);
     const profileRef = useRef<HTMLDivElement>(null);
 
@@ -73,13 +77,24 @@ export default function TopAppBar() {
         navigate(href);
     };
 
+    // ── Logout: clears demo session key and redirects to login ────────────────
+    const handleLogout = () => {
+        try {
+            localStorage.removeItem(DEMO_SESSION_KEY);
+        } catch {
+            // localStorage may be unavailable in some privacy modes — safe to ignore
+        }
+        setProfileOpen(false);
+        navigate('/get-started');
+    };
+
     const initials = username.slice(0, 2).toUpperCase();
     const isOverlayOpen = searchOpen || profileOpen;
 
     return (
         <>
             {isOverlayOpen && (
-                <div 
+                <div
                     className="fixed inset-0 z-40 bg-transparent"
                     onClick={() => {
                         setSearchOpen(false);
@@ -87,15 +102,18 @@ export default function TopAppBar() {
                     }}
                 />
             )}
-            <header className={`bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 sticky top-0 flex items-center justify-between px-8 py-4 flex-shrink-0 transition-all ${isOverlayOpen ? 'z-50' : 'z-20'}`}>
+            <header className={`bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 sticky top-0 flex items-center justify-between px-4 md:px-8 py-3 flex-shrink-0 transition-all ${isOverlayOpen ? 'z-50' : 'z-20'}`}>
             <div className="flex items-center gap-6 flex-1">
+                {/* Mobile brand — official mark only */}
                 <div className="flex items-center gap-2 md:hidden">
-                    <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-primary to-primary-container rounded-lg text-on-primary font-bold text-sm">
-                        {client.logoText || client.brandLabel.charAt(0)}
-                    </div>
-                    <span className="text-xl font-bold text-on-surface font-headline tracking-wide">{client.brandLabel}</span>
+                    <img
+                        src="/assets/brand/mark.svg"
+                        alt="ModularAI"
+                        className="h-8 w-auto"
+                    />
                 </div>
 
+                {/* Desktop search */}
                 <div className="hidden md:flex items-center max-w-md w-full" ref={searchRef}>
                     <div className="relative w-full">
                         <div className={`flex items-center px-4 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20 transition-all ${searchOpen ? 'ring-2 ring-primary/20 border-primary/50 bg-surface-container-lowest relative z-50' : ''}`}>
@@ -148,7 +166,8 @@ export default function TopAppBar() {
                 </div>
             </div>
 
-            <div className="flex items-center gap-4 ml-auto">
+            <div className="flex items-center gap-3 ml-auto">
+                {/* Locale switcher */}
                 <div className="flex items-center rounded-full bg-surface-container-low border border-outline-variant/20 p-1">
                     {supportedLocales.map((option) => (
                         <button
@@ -166,10 +185,12 @@ export default function TopAppBar() {
                         </button>
                     ))}
                 </div>
-                <div ref={profileRef} className="relative flex items-center gap-2 ml-2 pl-4 border-l border-outline-variant/20">
+
+                {/* Profile menu */}
+                <div ref={profileRef} className="relative flex items-center gap-2 pl-3 border-l border-outline-variant/20">
                     <button
                         onClick={() => setProfileOpen((prev) => !prev)}
-                        className={`w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-sm font-bold font-headline text-on-primary hover:shadow-[0px_4px_12px_rgba(87,73,194,0.3)] transition-all flex-shrink-0 ${profileOpen ? 'relative z-50' : ''}`}
+                        className={`w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-sm font-bold font-headline text-on-primary hover:shadow-[0px_4px_12px_rgba(87,73,194,0.3)] transition-all flex-shrink-0 ${profileOpen ? 'relative z-50' : ''}`}
                     >
                         {initials}
                     </button>
@@ -188,7 +209,10 @@ export default function TopAppBar() {
                                 </div>
                             </div>
                             <div className="p-2 space-y-1">
-                                <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-body text-error hover:bg-error-container/50 transition-colors text-left">
+                                <button
+                                    onClick={handleLogout}
+                                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-body text-error hover:bg-error-container/50 transition-colors text-left"
+                                >
                                     <span className="material-symbols-outlined text-[18px]">logout</span>
                                     {localeConfig.topBar.logout}
                                 </button>

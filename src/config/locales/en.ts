@@ -43,7 +43,7 @@ export const enLocale: LocaleConfig = {
     },
     routes: [
       {
-        href: '/',
+        href: '/demo-dashboard',
         label: 'AI Executive Cockpit',
         navLabel: 'Executive Cockpit',
         mobileLabel: 'Cockpit',
@@ -54,7 +54,7 @@ export const enLocale: LocaleConfig = {
         teaser: 'Start here for the sales narrative.',
       },
       {
-        href: '/inventory',
+        href: '/demo-dashboard/inventory',
         label: 'Procurement and Stock Risk',
         navLabel: 'Inventory and Procurement',
         mobileLabel: 'Stock',
@@ -65,7 +65,7 @@ export const enLocale: LocaleConfig = {
         teaser: 'Prioritized purchase recommendations.',
       },
       {
-        href: '/search-analytics',
+        href: '/demo-dashboard/search-analytics',
         label: 'Search Demand Analytics',
         navLabel: 'Search Analytics',
         mobileLabel: 'Search',
@@ -76,7 +76,7 @@ export const enLocale: LocaleConfig = {
         teaser: 'Unmet demand and missing products.',
       },
       {
-        href: '/insights',
+        href: '/demo-dashboard/insights',
         label: 'Product Search and Cross-sell',
         navLabel: 'Product Search',
         mobileLabel: 'Products',
@@ -87,7 +87,7 @@ export const enLocale: LocaleConfig = {
         teaser: 'Product intelligence and pairings.',
       },
       {
-        href: '/frequent-items',
+        href: '/demo-dashboard/frequent-items',
         label: 'Basket Analysis',
         navLabel: 'Basket Analysis',
         mobileLabel: 'Basket',
@@ -98,7 +98,7 @@ export const enLocale: LocaleConfig = {
         teaser: 'Pairs, bundles, and attach rate.',
       },
       {
-        href: '/watchlist',
+        href: '/demo-dashboard/watchlist',
         label: 'Pinned Product Watchlist',
         navLabel: 'Watchlist',
         mobileLabel: 'Watch',
@@ -142,7 +142,7 @@ export const enLocale: LocaleConfig = {
         impact: 'Protects $18.6k in forecasted sales',
         urgency: 'High',
         actionLabel: 'Open inventory',
-        route: '/inventory',
+        route: '/demo-dashboard/inventory',
       },
       {
         id: 'failed-searches',
@@ -151,7 +151,7 @@ export const enLocale: LocaleConfig = {
         impact: 'Turns 412 missed intents into a buying brief',
         urgency: 'Medium',
         actionLabel: 'Review searches',
-        route: '/search-analytics',
+        route: '/demo-dashboard/search-analytics',
       },
       {
         id: 'basket-attachment',
@@ -160,7 +160,7 @@ export const enLocale: LocaleConfig = {
         impact: 'Estimated $6.1k margin lift',
         urgency: 'Medium',
         actionLabel: 'Inspect baskets',
-        route: '/frequent-items',
+        route: '/demo-dashboard/frequent-items',
       },
     ],
     companySignals: [

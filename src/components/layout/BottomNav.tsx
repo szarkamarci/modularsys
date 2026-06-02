@@ -49,12 +49,15 @@ export default function BottomNav() {
                 style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
             >
                 {navItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    const isActive =
+                        item.href === '/demo-dashboard'
+                            ? pathname === '/demo-dashboard'
+                            : pathname.startsWith(item.href);
 
                     return (
                         <Link
                             key={item.href}
-                            href={item.href}
+                            to={item.href}
                             className={[
                                 // Base: flex column, centered, snap point so swipe snaps cleanly
                                 'flex flex-col items-center justify-center snap-start',

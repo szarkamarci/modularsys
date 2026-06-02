@@ -43,7 +43,7 @@ export const huLocale: LocaleConfig = {
     },
     routes: [
       {
-        href: '/',
+        href: '/demo-dashboard',
         label: 'AI vezetői cockpit',
         navLabel: 'Vezérlőpult',
         mobileLabel: 'Cockpit',
@@ -54,7 +54,7 @@ export const huLocale: LocaleConfig = {
         teaser: 'Innen indul az értékesítési történet.',
       },
       {
-        href: '/inventory',
+        href: '/demo-dashboard/inventory',
         label: 'Beszerzés és készletkockázat',
         navLabel: 'Készlet és Beszerzés',
         mobileLabel: 'Készlet',
@@ -65,7 +65,7 @@ export const huLocale: LocaleConfig = {
         teaser: 'Prioritizált beszerzési javaslatok.',
       },
       {
-        href: '/search-analytics',
+        href: '/demo-dashboard/search-analytics',
         label: 'Keresleti keresésanalitika',
         navLabel: 'Keresési Analitika',
         mobileLabel: 'Analitika',
@@ -76,7 +76,7 @@ export const huLocale: LocaleConfig = {
         teaser: 'Kielégítetlen kereslet és hiányzó termékek.',
       },
       {
-        href: '/insights',
+        href: '/demo-dashboard/insights',
         label: 'Termékkereső és cross-sell',
         navLabel: 'Termék Kereső',
         mobileLabel: 'Kereső',
@@ -87,7 +87,7 @@ export const huLocale: LocaleConfig = {
         teaser: 'Termékintelligencia és párosítások.',
       },
       {
-        href: '/frequent-items',
+        href: '/demo-dashboard/frequent-items',
         label: 'Kosárelemzés',
         navLabel: 'Gyakori Tételek',
         mobileLabel: 'Kosár',
@@ -98,7 +98,7 @@ export const huLocale: LocaleConfig = {
         teaser: 'Párok, csomagok és attach rate.',
       },
       {
-        href: '/watchlist',
+        href: '/demo-dashboard/watchlist',
         label: 'Kitűzött termékfigyelő',
         navLabel: 'Figyelőlista',
         mobileLabel: 'Watch',
@@ -142,7 +142,7 @@ export const huLocale: LocaleConfig = {
         impact: '$18.6k előrejelzett értékesítés védelme',
         urgency: 'High',
         actionLabel: 'Készlet megnyitása',
-        route: '/inventory',
+        route: '/demo-dashboard/inventory',
       },
       {
         id: 'failed-searches',
@@ -151,7 +151,7 @@ export const huLocale: LocaleConfig = {
         impact: '412 kimaradt szándékból beszerzési brief lesz',
         urgency: 'Medium',
         actionLabel: 'Keresések áttekintése',
-        route: '/search-analytics',
+        route: '/demo-dashboard/search-analytics',
       },
       {
         id: 'basket-attachment',
@@ -160,7 +160,7 @@ export const huLocale: LocaleConfig = {
         impact: 'Becsült $6.1k árrésnövekedés',
         urgency: 'Medium',
         actionLabel: 'Kosarak vizsgálata',
-        route: '/frequent-items',
+        route: '/demo-dashboard/frequent-items',
       },
     ],
     companySignals: [

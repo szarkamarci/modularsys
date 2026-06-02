@@ -1,13 +1,12 @@
 
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getCurrentClient } from '../../lib/clients/getCurrentClient';
 import { getRouteConfigMap, getScenarioConfig } from '../../lib/scenarios/scenarioRegistry';
 import { ScenarioRouteConfig } from '../../features/overview/types';
 import { useLocale } from '../../lib/locales/LocaleProvider';
 
 export default function SideNav() {
-    const pathname = useLocation().pathname;
+    const { pathname } = useLocation();
     const client = getCurrentClient();
     const { locale } = useLocale();
     const scenario = getScenarioConfig(client.scenarioId, locale);
@@ -19,36 +18,57 @@ export default function SideNav() {
 
     return (
         <nav className="hidden md:flex flex-col bg-surface-container-low w-64 h-screen border-r border-outline-variant/20 flex-shrink-0 z-30">
-            {/* Brand Header */}
-            <div className="px-6 py-6 flex items-center gap-3">
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-primary to-primary-container rounded-xl text-on-primary font-bold text-xl shadow-sm">
-                    {client.logoText || client.brandLabel.charAt(0)}
-                </div>
-                <div>
-                    <h1 className="text-xl font-headline font-black text-on-surface tracking-tight leading-tight">{client.brandLabel}</h1>
-                </div>
+            {/* Brand Header — official ModularAI wordmark */}
+            <div className="px-5 py-5 border-b border-outline-variant/10 flex-shrink-0">
+                <Link to="/" className="inline-block">
+                    <img
+                        src="/assets/brand/wordmark.svg"
+                        alt="ModularAI"
+                        className="h-9 w-auto"
+                    />
+                </Link>
             </div>
 
             {/* Scrollable Navigation Area */}
-            <div className="flex-1 overflow-y-auto px-3 py-2 space-y-1 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto px-3 py-3 space-y-1">
                 {navItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    // Exact match for overview, prefix match for sub-routes
+                    const isActive =
+                        item.href === '/demo-dashboard'
+                            ? pathname === '/demo-dashboard'
+                            : pathname.startsWith(item.href);
+
                     if (isActive) {
                         return (
-                            <Link key={item.href} href={item.href} className="flex items-center gap-3 px-3 py-2.5 bg-primary-container/40 text-on-primary-container border-r-4 border-primary rounded-l-none rounded-r-full transition-transform duration-200 translate-x-1 group">
-                                <span className="material-symbols-outlined text-xl fill-icon text-primary transition-transform group-hover:scale-110" style={{ fontVariationSettings: "'FILL' 1" }}>
+                            <Link
+                                key={item.href}
+                                to={item.href}
+                                className="flex items-center gap-3 px-3 py-2.5 bg-primary-container/40 text-on-primary-container border-r-4 border-primary rounded-l-none rounded-r-full transition-transform duration-200 translate-x-1 group"
+                            >
+                                <span
+                                    className="material-symbols-outlined text-xl fill-icon text-primary transition-transform group-hover:scale-110"
+                                    style={{ fontVariationSettings: "'FILL' 1" }}
+                                >
                                     {item.icon}
                                 </span>
-                                <span className="text-label-md font-label font-bold text-primary">{item.navLabel || item.label}</span>
+                                <span className="text-sm font-label font-bold text-primary">
+                                    {item.navLabel || item.label}
+                                </span>
                             </Link>
                         );
                     }
                     return (
-                        <Link key={item.href} href={item.href} className="flex items-center gap-3 px-3 py-2.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 group">
+                        <Link
+                            key={item.href}
+                            to={item.href}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 group"
+                        >
                             <span className="material-symbols-outlined text-xl transition-transform group-hover:scale-110">
                                 {item.icon}
                             </span>
-                            <span className="text-label-md font-label font-medium">{item.navLabel || item.label}</span>
+                            <span className="text-sm font-label font-medium">
+                                {item.navLabel || item.label}
+                            </span>
                         </Link>
                     );
                 })}
