@@ -20,8 +20,8 @@ const Header = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl ${scrolled ? 'shadow-[0px_20px_40px_rgba(87,73,194,0.06)]' : ''}`}>
       <div className="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto font-headline antialiased">
         <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center gap-2 md:gap-3">
-            <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-8 w-auto" />
+          <Link to="/" className="flex items-center gap-2 z-50">
+            <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-14 w-auto" />
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-12">

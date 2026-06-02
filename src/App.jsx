@@ -11,11 +11,23 @@ import Terms from './pages/Terms';
 import Security from './pages/Security';
 import Status from './pages/Status';
 import Demo from './pages/Demo';
-import DemoDashboard from './pages/DemoDashboard';
+import DashboardLayout from './pages/dashboard/DashboardLayout';
+import OverviewPage from './features/overview/OverviewPage';
+import InventoryPage from './features/inventory/InventoryPage';
+import FrequentItemsPage from './features/frequent-items/FrequentItemsPage';
+import InsightsPage from './features/insights/InsightsPage';
+import SearchAnalyticsPage from './features/search-analytics/SearchAnalyticsPage';
+import WatchlistPage from './features/watchlist/WatchlistPage';
+import { LocaleProvider } from './lib/locales/LocaleProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+      <LocaleProvider>
       <ScrollToTop />
       <Routes>
         {/* Pages using the common layout (Header + Footer) */}
@@ -30,11 +42,22 @@ const App = () => {
           <Route path="/status" element={<Status />} />
         </Route>
         
+        {/* Dashboard Pages */}
+        <Route path="/demo-dashboard" element={<DashboardLayout />}>
+          <Route index element={<OverviewPage />} />
+          <Route path="inventory" element={<InventoryPage />} />
+          <Route path="frequent-items" element={<FrequentItemsPage />} />
+          <Route path="insights" element={<InsightsPage />} />
+          <Route path="search-analytics" element={<SearchAnalyticsPage />} />
+          <Route path="watchlist" element={<WatchlistPage />} />
+        </Route>
+
         {/* Independent Pages */}
         <Route path="/get-started" element={<GetStarted />} />
-        <Route path="/demo-dashboard" element={<DemoDashboard />} />
         <Route path="/old-demo" element={<Demo />} />
       </Routes>
+      </LocaleProvider>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };

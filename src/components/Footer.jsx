@@ -8,7 +8,9 @@ const Footer = () => {
     <footer className="w-full rounded-t-[3rem] mt-20 bg-surface-container-low dark:bg-slate-950 font-body text-sm">
       <div className="flex flex-col md:flex-row justify-between items-center px-8 md:px-12 py-12 md:py-16 pb-32 md:pb-16 w-full max-w-7xl mx-auto text-center md:text-left">
         <div className="mb-8 md:mb-0">
-          <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-8 w-auto mx-auto md:mx-0 mb-4" />
+          <Link to="/" className="inline-block mb-6">
+            <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-16 w-auto" />
+          </Link>
           <p className="text-on-surface-variant dark:text-slate-500">{t('footer.rights')}</p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">

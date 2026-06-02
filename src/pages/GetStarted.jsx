@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import InteractiveBackground from '../components/InteractiveBackground';
+
 const GetStarted = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -17,9 +19,7 @@ const GetStarted = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-surface relative overflow-hidden font-body">
-            {/* Ambient Background Elements */}
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary/20 rounded-full blur-[100px] pointer-events-none" />
+            <InteractiveBackground />
 
             <div className="w-full max-w-md p-8 relative z-10">
                 <div className="bg-surface-container-lowest/80 backdrop-blur-3xl rounded-[2rem] p-10 shadow-[0px_20px_40px_rgba(87,73,194,0.06)] border border-outline-variant/20">
