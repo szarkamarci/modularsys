@@ -67,9 +67,6 @@ const Resources = () => {
           <button className="px-8 py-3 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-medium">
             {t('resources.filter_whitepapers')}
           </button>
-          <button className="px-8 py-3 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-medium">
-            {t('resources.filter_videos')}
-          </button>
         </div>
       </section>
 
