@@ -5,11 +5,13 @@ import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
 import GetStarted from './pages/GetStarted';
+import Audit from './pages/Audit';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Security from './pages/Security';
 import Status from './pages/Status';
 import Demo from './pages/Demo';
+import DemoDashboard from './pages/DemoDashboard';
 
 const App = () => {
   return (
@@ -21,7 +23,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/audit" element={<Audit />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/security" element={<Security />} />
@@ -29,7 +31,9 @@ const App = () => {
         </Route>
         
         {/* Independent Pages */}
-        <Route path="/demo" element={<Demo />} />
+        <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/demo-dashboard" element={<DemoDashboard />} />
+        <Route path="/old-demo" element={<Demo />} />
       </Routes>
     </BrowserRouter>
   );

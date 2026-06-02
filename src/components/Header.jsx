@@ -21,8 +21,7 @@ const Header = () => {
       <div className="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto font-headline antialiased">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2 md:gap-3">
-            <img src="/assets/favico_up.png" alt="ModularAI Logo" className="h-8 w-auto rounded opacity-90" />
-            <div className="text-xl md:text-2xl font-bold tracking-tight text-on-surface dark:text-white">ModularAI</div>
+            <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-8 w-auto" />
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-12">
@@ -36,7 +35,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Link to="/get-started" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20">
+          <Link to="/audit" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20">
             {t('header.cta')}
           </Link>
         </div>

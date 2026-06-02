@@ -1,12 +1,15 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import DotBackground from './DotBackground';
 
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32 pt-24 md:pt-32 relative">
+      <DotBackground />
       
       {/* Desktop Background Graphic: Glass Orb */}
       <div className="hidden md:block absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 -z-10 pointer-events-none opacity-40">
@@ -61,10 +64,10 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 w-full"
           >
-            <Link to="/get-started" className="w-full sm:w-auto text-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20 inline-block">
+            <Link to="/audit" className="w-full sm:w-auto text-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20 inline-block">
               {t('hero.cta_primary')}
             </Link>
-            <Link to="/demo" className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block">
+            <Link to="/get-started" className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block">
               {t('hero.cta_secondary')}
             </Link>
           </motion.div>

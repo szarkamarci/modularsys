@@ -50,7 +50,6 @@ const Demo = () => {
       messages={messages} 
       inputValue={inputValue} 
       setInputValue={setInputValue} 
-      modulesAdded={modulesAdded} 
       setModulesAdded={setModulesAdded} 
       isTyping={isTyping} 
       handleSendMessage={handleSendMessage} 
@@ -322,7 +321,7 @@ const DesktopDemo = ({ messages, inputValue, setInputValue, modulesAdded, setMod
 // =========================================================
 //            MOBILE ISOLATED LAYOUT (1:1 HTML COPY)
 // =========================================================
-const MobileDemo = ({ messages, inputValue, setInputValue, modulesAdded, setModulesAdded, isTyping, handleSendMessage }) => {
+const MobileDemo = ({ messages, inputValue, setInputValue, setModulesAdded, isTyping, handleSendMessage }) => {
   const chatEndRef = useRef(null);
 
   useEffect(() => {
