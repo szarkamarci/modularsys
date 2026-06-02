@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Resources = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const Resources = () => {
 
       {/* Featured Article: The Bento Hero */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 mb-20 md:mb-24">
-        <div className="group relative overflow-hidden rounded-2xl md:rounded-xl bg-surface-container-lowest shadow-[0px_20px_40px_rgba(87,73,194,0.06)] flex flex-col md:flex-row h-auto md:min-h-[500px]">
+        <Link to="/resources/future-of-inventory" className="group relative overflow-hidden rounded-2xl md:rounded-xl bg-surface-container-lowest shadow-[0px_20px_40px_rgba(87,73,194,0.06)] flex flex-col md:flex-row h-auto md:min-h-[500px] block">
           <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center order-2 md:order-1 relative z-10 bg-surface-container-lowest md:bg-transparent">
             <div className="flex items-center gap-2 mb-4 md:mb-6 text-primary font-semibold text-xs md:text-sm uppercase tracking-widest">
               <span className="material-symbols-outlined text-base">star</span>
@@ -35,21 +36,21 @@ const Resources = () => {
               {t('resources.featured_desc')}
             </p>
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 w-full sm:w-auto">
-              <button className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3.5 rounded-xl md:rounded-full font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <div className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3.5 rounded-xl md:rounded-full font-bold shadow-sm transition-all flex items-center justify-center gap-2 group-hover:shadow-lg">
                 {t('resources.featured_btn')}
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
+                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
               <span className="text-on-surface-variant text-sm font-medium italic mt-2 sm:mt-0">{t('resources.featured_time')}</span>
             </div>
           </div>
           <div className="flex-1 order-1 md:order-2 relative min-h-[300px] md:min-h-auto overflow-hidden">
             <img 
-              className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKugPYP8dR70nDSVEXKYquX1uT0xkLkhqOY7qWon_p1WJ6wcFw8ukeH8FOy0WVy6UaTEUtJM9W2ud8bCtUbYJZNp6DMh-KZn34Efpku5zcia-3ZOx2HpiF2RnAH53d3_AkYwV1SuUfwYuvqYSw8G9T0VFvBj1AShruq93P6hn5K-qghTwIoLk80ah6IbZMrAm4UU4cX2rgcD6lwZ2jwSMeixvAeYdWtks5gwBCpWiDJwdVf2qbADq5HG_P_0rdTFI8RrWGnH7yTMU" 
+              className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700" 
+              src="/assets/blog/featured_inventory_1780416981216.png" 
               alt="Data visualization illustration" 
             />
           </div>
-        </div>
+        </Link>
       </section>
 
       {/* Category Filters */}
@@ -74,79 +75,85 @@ const Resources = () => {
       <section className="max-w-7xl mx-auto px-8 mb-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Card 1 */}
-          <article className="group cursor-pointer">
-            <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
-              <img 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQN7waJcLan7UVJvXHUwPcxYtNE8yWT522scsopDvWRsQObEjxHe_-xSrayDeyaB1SrQN8VTjZqtvbY7WkxZprggB5zmM-HLy9M9DCGgOuvMol_2FbTjnMMmeFwVCoRHRLDZL_ocr6oLURgF7mJoLS72gHGoBm1lvSQrSDjk8AOeoaJpNE8xj9cpixlSDS3fkGG9AdgnHHs2xbeplCAiJWejAfnOMLLGB9P-LwjytXOHfBkWFJ7VBZK0HXvaXNgNrfrtgMxtEta5g" 
-                alt="Minimalist workspace" 
-              />
-            </div>
-            <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
-              <span>{t('resources.card1_tag')}</span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span>{t('resources.card1_time')}</span>
-            </div>
-            <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
-              {t('resources.card1_title')}
-            </h3>
-            <p className="text-on-surface-variant leading-relaxed mb-6">
-              {t('resources.card1_desc')}
-            </p>
-            <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary group-hover:gap-4 transition-all">
-              {t('resources.read_more')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </div>
-          </article>
+          <Link to="/resources/manual-entry-costs" className="group block">
+            <article>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  src="/assets/blog/blog_manual_entry_1780416993408.png" 
+                  alt="Minimalist workspace" 
+                />
+              </div>
+              <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
+                <span>{t('resources.card1_tag')}</span>
+                <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
+                <span>{t('resources.card1_time')}</span>
+              </div>
+              <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
+                {t('resources.card1_title')}
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-6">
+                {t('resources.card1_desc')}
+              </p>
+              <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary transition-all">
+                {t('resources.read_more')} <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
+            </article>
+          </Link>
 
           {/* Card 2 */}
-          <article className="group cursor-pointer">
-            <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
-              <img 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXhchxrPObuQKBk_URGZ-n9poSL2YFcao0cBcRW6-r3Fe3eonMSwqa9p55rvXORfQ9JcCiyN-X4NHQHz-D_OZG5zZX13nMTfFDNGs2ZP8x6cRNIv7wsK3u-pZjsGJXUQG0451Cmja9TXfkHc2S6ph9ySvLPnpJ2be__pM8UHt_dMzGHUB1xlZ5UjamTU9w7v2rLOaefDuj9qOElvSZJ2qciSlidGLXDPwUN8waVRL7R3-OhWd3YQwQL4K323xkmnVsaQQ9gH_btVA" 
-                alt="City lights" 
-              />
-            </div>
-            <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
-              <span>{t('resources.card2_tag')}</span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span>{t('resources.card2_time')}</span>
-            </div>
-            <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
-              {t('resources.card2_title')}
-            </h3>
-            <p className="text-on-surface-variant leading-relaxed mb-6">
-              {t('resources.card2_desc')}
-            </p>
-            <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary group-hover:gap-4 transition-all">
-              {t('resources.read_more')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </div>
-          </article>
+          <Link to="/resources/churn-signals" className="group block">
+            <article>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  src="/assets/blog/blog_churn_1780417006666.png" 
+                  alt="Abstract network nodes" 
+                />
+              </div>
+              <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
+                <span>{t('resources.card2_tag')}</span>
+                <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
+                <span>{t('resources.card2_time')}</span>
+              </div>
+              <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
+                {t('resources.card2_title')}
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-6">
+                {t('resources.card2_desc')}
+              </p>
+              <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary transition-all">
+                {t('resources.read_more')} <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
+            </article>
+          </Link>
 
           {/* Card 3 */}
-          <article className="group cursor-pointer">
-            <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
-              <img 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBI7vzKxo-DC-BaKOHhrDxoW1VQ67e6HEEHQzzjAX9UXTXF6fSziximge0LVOtiUzlhSD7ny2U7XbgF-tJ_NbxMWSUiJ4X88JCh5Zh3T11vyRDmllFYjY6uWhnC08esCeGI-5KS2VgOr8IhbGqJr6Jpj5UYN6qufY-e7hhfiiYeNuKvoQd9yYdJ7Sjg2FoJz_LTHbIKLWzoLq1MoNC_DrKTLzvpxkzopA7LPHPX2qlN2DVweQXOwjAMU4kOl6voKUdnn3ljrUdZFA" 
-                alt="Server panel" 
-              />
-            </div>
-            <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
-              <span>{t('resources.card3_tag')}</span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span>{t('resources.card3_time')}</span>
-            </div>
-            <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
-              {t('resources.card3_title')}
-            </h3>
-            <p className="text-on-surface-variant leading-relaxed mb-6">
-              {t('resources.card3_desc')}
-            </p>
-            <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary group-hover:gap-4 transition-all">
-              {t('resources.read_more')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </div>
-          </article>
+          <Link to="/resources/agile-vs-legacy" className="group block">
+            <article>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface-container-low shadow-sm">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  src="/assets/blog/blog_agile_1780417021768.png" 
+                  alt="Agile light vs heavy block" 
+                />
+              </div>
+              <div className="flex items-center gap-3 mb-4 text-xs font-bold text-primary tracking-widest uppercase">
+                <span>{t('resources.card3_tag')}</span>
+                <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
+                <span>{t('resources.card3_time')}</span>
+              </div>
+              <h3 className="text-2xl font-headline font-bold text-on-surface mb-4 group-hover:text-primary transition-colors leading-tight">
+                {t('resources.card3_title')}
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-6">
+                {t('resources.card3_desc')}
+              </p>
+              <div className="inline-flex items-center gap-2 font-bold text-on-surface group-hover:text-primary transition-all">
+                {t('resources.read_more')} <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
+            </article>
+          </Link>
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import Resources from './pages/Resources';
+import BlogPost from './pages/BlogPost';
 import GetStarted from './pages/GetStarted';
 import Audit from './pages/Audit';
 import Privacy from './pages/Privacy';
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/:slug" element={<BlogPost />} />
           <Route path="/audit" element={<Audit />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
