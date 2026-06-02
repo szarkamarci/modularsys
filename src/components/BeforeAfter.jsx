@@ -31,24 +31,12 @@ const BeforeAfter = () => {
             <span className="material-symbols-outlined text-primary">auto_awesome</span>
             {t('beforeAfter.after_label')}
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-lg shadow-2xl shadow-primary/10 border border-primary/5">
-            <div className="flex flex-col gap-6">
-              <div className="flex justify-between items-end">
-                <div>
-                  <h4 className="text-on-surface-variant text-sm font-bold uppercase tracking-widest">{t('beforeAfter.health_label')}</h4>
-                  <p className="text-4xl font-headline font-extrabold text-primary">{t('beforeAfter.health_status')}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-on-surface-variant">{t('beforeAfter.order_label')}</p>
-                  <p className="text-xl font-bold text-on-surface">{t('beforeAfter.order_value')}</p>
-                </div>
-              </div>
-              <img 
-                className="rounded-lg w-full h-48 object-cover" 
-                alt="clean minimalist data dashboard" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF_xE_TTqZZ2HO-vSpvAnyQ1FSFzTkY0xz5k0xMOSjvjvMVQuQnLjG1G9lWJXsLRVWp_1tsTHRklwSpRZdhMxFMy7NizLnQtOOmJxGw7b81joznoBJP7b_7J8ieWseRA_S_MyNdYfYaMJyzWRfTUlhRQpoDn3YLYvYMkB4bozPRj3a6SaCIETWSAdw-DWd6h9TNfbhtBgMfvKK_3LDJgPahgtAxAMRB73R4MGbLURFtRlolHj9glQRFIK62RLDtYEoIAREzhuBHuU"
-              />
-            </div>
+          <div className="bg-surface-container-lowest p-2 rounded-lg shadow-2xl shadow-primary/10 border border-primary/5">
+            <img 
+              className="rounded-lg w-full h-auto object-cover border border-outline-variant/10" 
+              alt="ModularAI Dashboard Example" 
+              src="/dashboard_example.png"
+            />
           </div>
         </div>
       </div>

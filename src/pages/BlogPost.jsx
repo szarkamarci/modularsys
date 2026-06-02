@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 // Define the static content for our 4 blog posts
-const BLOG_POSTS = {
+const BLOG_POSTS_EN = {
   'future-of-inventory': {
     title: 'Moving Beyond Spreadsheets: The Future of Inventory Management',
     tag: 'Featured Guide',
@@ -119,9 +121,128 @@ const BLOG_POSTS = {
   },
 };
 
+const BLOG_POSTS_HU = {
+  'future-of-inventory': {
+    title: 'Táblázatokon Túl: A Készletkezelés Jövője',
+    tag: 'Kiemelt Útmutató',
+    date: '2026. Június 2.',
+    readTime: '12 perc olvasás',
+    image: '/assets/blog/featured_inventory_1780416981216.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-10 font-light">
+          A kézi adatbevitel és a szigetszerű rendszerek időt és pénzt emésztenek fel. Íme, hogyan alakítja át az ellátási lánc átláthatóságát a prediktív elemzés és a központosított műszerfal.
+        </p>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A Varázsgömb Stratégia</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          A kiskereskedelmi vezetők évtizedekig múltbeli táblázatokra és "megérzésekre" hagyatkoztak a készletszükségletek előrejelzésében. A mai gyorsan változó piacon ez gyakorlatilag egyenértékű egy Varázsgömb megrázásával és a reménykedéssel.
+        </p>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-10">
+          Amikor az ellátási láncok el vannak vágva a valós idejű értékesítési adatoktól, az elkerülhetetlen eredmény: a keresett cikkek hiánya és a raktárak túlzsúfolása holt készlettel.
+        </p>
+
+        <div className="bg-surface-container-low border-l-4 border-primary p-8 rounded-r-xl my-12">
+          <p className="text-xl font-headline font-medium text-on-surface italic">
+            "Nem azok a szervezetek nyernek, akiknek a legtöbb adatuk van, hanem azok, akiknek a leginkább összekapcsolt adataik vannak."
+          </p>
+        </div>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A ModularAI Megközelítés</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Azért hoztuk létre a ModularAI-t, hogy a Varázsgömböt egy igazi kristálygömbre cseréljük. Az ERP készletszintek, a beszállítói átfutási idők és a webshop keresési trendek egyetlen egységes nézetbe történő aggregálásával prediktív modelljeink pontosan meghatározzák, mit kell rendelnie—hetekkel a készlethiány bekövetkezése előtt.
+        </p>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Ne a múltra reagáljon. Kezdje el megjósolni a jövőt.
+        </p>
+      </>
+    ),
+  },
+  'manual-entry-costs': {
+    title: 'A Kézi Adatbevitel Rejtett Költsége a Kiskereskedelemben',
+    tag: 'Blog',
+    date: '2026. Május 28.',
+    readTime: '8 perc olvasás',
+    image: '/assets/blog/blog_manual_entry_1780416993408.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-10 font-light">
+          A másolás és beillesztés általános iskolai feladat, nem vállalati ellátási lánc menedzsment. Fedezze fel, hogyan vezetnek az elszigetelt adatsilók költséges hibákhoz.
+        </p>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A Hétvége Tolvaja</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Minden péntek délután magasan fizetett elemzők ezrei töltenek órákat azzal, hogy CSV fájlokat exportálnak manuálisan az egyik rendszerből, és importálják a másikba. Ezt "Hétvége Tolvajának" hívjuk. Nemcsak lélekölő, de a kézi bevitel során vétett emberi hibák évente dollármilliókban mérhető hibás rendeléseket okoznak.
+        </p>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">Szerezze Vissza az Idejét</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Egy integrált adatökoszisztéma nem luxus, hanem szükségszerűség. Azáltal, hogy automatizálja az adatcsatornákat a POS, a raktárkezelő és az e-kereskedelmi platformok között, a ModularAI biztosítja, hogy csapata az elemzésekkel tölthesse az idejét, ne az oszlopok formázásával.
+        </p>
+      </>
+    ),
+  },
+  'churn-signals': {
+    title: 'Lemorzsolódási Jelek Azonosítása Még Időben',
+    tag: 'Stratégia',
+    date: '2026. Május 15.',
+    readTime: '5 perc olvasás',
+    image: '/assets/blog/blog_churn_1780417006666.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-10 font-light">
+          A vásárlói viselkedés adatai gyakran a megtartás kulcsát jelentik. Ismerje fel a korai lemorzsolódási indikátorokat automatikus anomália-észleléssel.
+        </p>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A Csendes Búcsú</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Az ügyfelek ritkán hívnak fel, hogy bejelentsék távozásukat; egyszerűen eltűnnek. Nem jelentkeznek be többet, csökken a keresési gyakoriságuk, és zsugorodik a kosaruk mérete. Mire egy hagyományos jelentés megmutatja a bevételek visszaesését, az ügyfél már rég elment.
+        </p>
+
+        <div className="bg-surface-container-low border-l-4 border-warning p-8 rounded-r-xl my-12">
+          <p className="text-xl font-headline font-medium text-on-surface italic">
+            "A lemorzsolódás jelei hangosabbak, mint gondolná. Csak a megfelelő antennára van szükség."
+          </p>
+        </div>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">Viselkedési Anomália Észlelés</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          A ModularAI folyamatosan figyeli ezeket a finom viselkedési változásokat. Amikor egy kiemelt ügyfél eltér a megszokott vásárlási ritmusától, rendszerünk azonnal jelez, így az ügyfélszolgálati csapat még azelőtt beavatkozhat, hogy a kapcsolat végleg kihűlne.
+        </p>
+      </>
+    ),
+  },
+  'agile-vs-legacy': {
+    title: 'Agilis Analitika vs. Hagyományos ERP-k: Az Egyensúly Megtalálása',
+    tag: 'Összehasonlítás',
+    date: '2026. Április 30.',
+    readTime: '15 perc olvasás',
+    image: '/assets/blog/blog_agile_1780417021768.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed mb-10 font-light">
+          A hagyományos rendszerek erősek, de lassan alkalmazkodnak. Nézze meg, hogyan gyorsítja fel a döntéshozatalt egy intelligens adatréteg a meglévő eszközök felett.
+        </p>
+
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A Góliát Probléma</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          A hagyományos ERP rendszerek hihetetlenül jól tárolnak hatalmas mennyiségű tranzakciós adatot. De lekérdezni azokat? Valós idejű meglátásokat kinyerni belőlük? Ehhez gyakran külön IT hibajegyre és kéthetes várakozásra van szükség.
+        </p>
+        
+        <h3 className="text-2xl font-headline font-bold text-on-surface mt-12 mb-6">A Dávid Megoldás</h3>
+        <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
+          Nem kell lecserélnie a meglévő ERP-t, hogy adatalapúvá váljon. A modern megközelítés az, hogy egy agilis analitikai platformot építünk a meglévő infrastruktúrára. A ModularAI közvetlenül csatlakozik a régi adatbázisokhoz, és egy gyors, intelligens felületbe húzza be az adatokat, amit az üzleti felhasználók is megértenek.
+        </p>
+      </>
+    ),
+  },
+};
+
 const BlogPost = () => {
   const { slug } = useParams();
+  const { i18n } = useTranslation();
   
+  const BLOG_POSTS = i18n.language === 'hu' ? BLOG_POSTS_HU : BLOG_POSTS_EN;
   const post = BLOG_POSTS[slug];
 
   // Scroll to top on mount
