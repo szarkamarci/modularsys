@@ -4,10 +4,12 @@ import BeforeAfter from '../components/BeforeAfter';
 import Features from '../components/Features';
 import HowItWorks from '../components/HowItWorks';
 import CTA from '../components/CTA';
+import InteractiveBackground from '../components/InteractiveBackground';
 
 const Home = () => {
   return (
     <main className="overflow-x-hidden pt-12 md:pt-0">
+      <InteractiveBackground variant="hero" />
       <Hero />
       <Testimonial />
       <BeforeAfter />
