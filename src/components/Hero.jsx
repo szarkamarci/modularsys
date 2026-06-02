@@ -77,31 +77,13 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="lg:w-2/5 relative"
         >
-          <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
-          <div className="relative bg-surface-container-lowest p-8 rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)] border border-outline-variant/10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-tertiary-fixed-variant">query_stats</span>
-              </div>
-              <div>
-                <p className="text-xs text-on-surface-variant uppercase tracking-widest font-bold">{t('hero.stat_badge')}</p>
-                <p className="font-headline font-bold">{t('hero.stat_title')}</p>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "75%" }}
-                  transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
-                  className="h-full bg-primary rounded-full"
-                ></motion.div>
-              </div>
-              <div className="flex justify-between text-sm font-semibold">
-                <span className="text-on-surface-variant">{t('hero.stat_label')}</span>
-                <span className="text-primary">+42.8%</span>
-              </div>
-            </div>
+          <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full"></div>
+          <div className="relative rounded-2xl overflow-hidden shadow-[0px_20px_40px_rgba(87,73,194,0.15)] border border-outline-variant/20 transform transition-transform duration-700 hover:scale-[1.02]">
+            <img 
+              src="/dashboard_example.png" 
+              alt="ModularAI Dashboard Example" 
+              className="w-full h-auto block"
+            />
           </div>
         </motion.div>
       </div>
