@@ -24,7 +24,7 @@ export default function SideNav() {
                     <img
                         src="/assets/brand/wordmark.svg"
                         alt="ModularAI"
-                        className="h-9 w-auto"
+                        className="h-14 w-auto"
                     />
                 </Link>
             </div>
