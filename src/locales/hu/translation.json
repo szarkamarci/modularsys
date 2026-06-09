@@ -6,23 +6,24 @@
     "cta": "Mentsd Meg az Adataimat"
   },
   "hero": {
-    "badge": "A Találgatások Vége",
-    "title_start": "Ne hagyatkozz ",
-    "title_highlight": "táblázatokra",
-    "title_end": " és megérzésekre a készletkezelésben.",
-    "subtitle": "A ModularAI a széttöredezett üzleti adatokat élő műszerfalakká, készlet-előrejelzésekké és automatizált ajánlásokká alakítja — vállalati komplexitás nélkül.",
+    "badge": "Operatív Intelligencia Réteg",
+    "title_start": "A Találgatások ",
+    "title_highlight": "Vége",
+    "title_end": "",
+    "subtitle": "Alakítsa a működési adatokat olyan döntésekké, amelyek alapján a csapata lépni tud.",
+    "supporting": "A ModularAI a széttöredezett üzleti adatokat műszerfalakká, előrejelzésekké, kockázati jelzésekké és gyakorlati ajánlásokká alakítja — vállalati komplexitás nélkül.",
     "cta_primary": "Mentsd Meg az Adataimat (Ingyenes Audit)",
     "cta_secondary": "Nézd meg a Demót",
     "stat_badge": "Élő Státusz",
-    "stat_title": "Prediktív Raktárszinkronizáció",
-    "stat_label": "Hatékonyság"
+    "stat_title": "Élő Döntéstámogatás",
+    "stat_label": "Döntési Készenlét"
   },
   "trustbar": {
     "quote": "AI specialisták építették. Üzleti csapatoknak tervezve."
   },
   "beforeAfter": {
     "title": "Az Adattranszformáció",
-    "subtitle": "Tapasztald meg egy modern spa nap tisztaságát a táblázataid számára.",
+    "subtitle": "A szétszórt adatoktól a működési tisztánlátásig.",
     "before_label": "Az Agyad Táblázatokkal",
     "after_label": "Az Agyad a ModularAI-val",
     "health_label": "Készlet Egészsége",
@@ -31,19 +32,64 @@
     "order_value": "+577 egység"
   },
   "features": {
-    "feat1_title": "A Kristálygömb",
-    "feat1_subtitle": "(Készlet Előrejelzés)",
-    "feat1_desc": "Prediktív előrejelzés, ami tényleg működik. Elemzi a történelmi trendeket, hogy előre lássa a jövőt, mielőtt az hatással lenne a mérlegre.",
-    "feat1_stat": "Automatikus Beszerzés Javasolt",
-    "feat2_title": "Adatszellemirtó",
-    "feat2_desc": "Automatikusan megkeresi és eltünteti a duplikált rekordokat, a fantomkészletet és a \"halott\" adatokat, amik a produktivitásodat kísértik.",
-    "feat2_stat_label": "Figyelmeztető Jelzés",
-    "feat2_stat_val": "100% Csökkenés",
-    "feat3_title": "A 'Kérsz Hozzá Krumplit?' Motor",
-    "feat3_desc": "Intelligens keresztértékesítési ajánlórendszer, amely valós idejű vásárlói viselkedés alapján határozza meg a tökéletes termékpárosításokat.",
-    "feat3_item1": "Gyakran Együtt Vásárolt",
-    "feat3_item2": "Prémium Támogatási Csomag",
-    "feat3_item3": "Növelt Akkumulátor Élettartam"
+    "feat1_title": "Előrejelzések és korai jelzések",
+    "feat1_subtitle": "",
+    "feat1_desc": "Vegye észre időben a keresletváltozást, kapacitásgondot, készlethiányt vagy folyamatbeli elakadást, mielőtt valódi költséggé válik.",
+    "feat1_stat": "Korai jelzés",
+    "feat2_title": "Adatminőség és hibajelzések",
+    "feat2_desc": "Kerüljenek elő a duplikált rekordok, hiányzó adatok, szokatlan visszaesések, ellentmondó riportok és rejtett adatproblémák.",
+    "feat2_stat_label": "Figyelmeztetés",
+    "feat2_stat_val": "Adathiány",
+    "feat3_title": "Ajánlások és üzleti lehetőségek",
+    "feat3_desc": "Látszódjon, mit érdemes újrarendelni, mit kellene kiemelni, mely ügyfél vagy partner igényel figyelmet, és hol marad bent érték a folyamatban.",
+    "feat3_item1": "Rendelési prioritások",
+    "feat3_item2": "Figyelmet kérő ügyfelek",
+    "feat3_item3": "Elvesző keresések",
+    "feat4_title": "Vezetői összefoglalók",
+    "feat4_desc": "A szétszórt működési adatokból legyen áttekinthető dashboard, rövid összefoglaló és megosztható vezetői riport.",
+    "feat4_stat": "Megosztható riportok"
+  },
+  "use_cases": {
+    "title": "Az adataikhoz igazítva",
+    "intro": "A ModularAI nem egyetlen iparágra készül: ugyanaz a döntéstámogató réteg más-más adatforrásokra és üzleti kérdésekre szabható.",
+    "case1_title": "Kereskedelem, nagyker és készlet",
+    "case1_desc": "Készlethiány, rendelési javaslatok, termékteljesítmény, kosárelemzés és raktári átláthatóság.",
+    "case2_title": "Toborzási és munkaerő-platformok",
+    "case2_desc": "Álláskereslet, jelöltaktivitás, illesztési minőség, keresési minták, partneri teljesítmény és lemorzsolódási pontok.",
+    "case3_title": "Értékesítés és ügyfélkezelés",
+    "case3_desc": "Ügyfélaktivitás, gyengülő kapcsolatok, upsell jelek, teljesítménytrendek és bent maradó bevétel.",
+    "case4_title": "Operáció és adminisztráció",
+    "case4_desc": "Manuális riportok, ismétlődő elakadások, késések, adatminőségi hibák és csapatszintű átláthatóság."
+  },
+  "demo_selector": {
+    "badge": "ModularAI bemutató",
+    "title": "Melyik működési helyzet ismerős?",
+    "subtitle": "Válasszon egy példát, és nézze meg, hogyan lesz a szétszórt adatokból vezetői nézet, korai jelzés és gyakorlati következő lépés.",
+    "open_demo": "Bemutató megnyitása",
+    "contact": "Kérdése van?",
+    "back": "Vissza a ModularAI oldalra",
+    "cards": {
+      "retail": {
+        "title": "Kereskedelem, nagyker és készlet",
+        "desc": "Készlethiány, rendelési prioritások, termékteljesítmény, kosárminták és raktári átláthatóság.",
+        "badge": "Részletes bemutató"
+      },
+      "workforce": {
+        "title": "Toborzási és munkaerő-platformok",
+        "desc": "Álláskereslet, jelöltmozgás, illesztési minőség, keresési minták és partneri teljesítmény egy helyen.",
+        "badge": "Rövid bemutató"
+      },
+      "sales": {
+        "title": "Értékesítés és ügyfélkezelés",
+        "desc": "Gyengülő ügyfelek, upsell jelek, megújítási kockázat, elmaradt utánkövetés és bevételi lehetőség.",
+        "badge": "Rövid bemutató"
+      },
+      "operations": {
+        "title": "Operáció és adminisztráció",
+        "desc": "Manuális riportok, folyamatkésések, adathibák, visszatérő elakadások és vezetői összefoglalók.",
+        "badge": "Rövid bemutató"
+      }
+    }
   },
   "cta": {
     "title": "Készen állsz a kaotikus adatok tiszta döntésekké alakítására?",
@@ -158,6 +204,7 @@
     "field3_placeholder": "Írd le az adatkáoszt...",
     "submit_btn": "Mentsétek meg az adataim (Ingyenes Audit)",
     "submitting_btn": "Adatok mentése folyamatban...",
+    "prefer_email": "Inkább emailben írna?",
     "success_title": "Jelzés megérkezett!",
     "success_body": "Hamarosan keresünk, még mielőtt egy újabb FKERES-t kellene írnod.",
     "promise_title": "A 'Dinoszaurusz-mentes' Garanciánk",
@@ -174,9 +221,9 @@
   "how_it_works": {
     "title": "Hogyan működik a ModularAI?",
     "step1_title": "Adataudit",
-    "step1_desc": "Áttekintjük táblázatait, ERP exportjait, adatbázisait, webshop adatait vagy meglévő riportálási folyamatait.",
+    "step1_desc": "Áttekintjük táblázatait, ERP exportjait, adatbázisait, webshop adatait, platformaktivitását vagy meglévő riportálási folyamatait.",
     "step2_title": "Kísérleti Műszerfal",
-    "step2_desc": "Építünk egy fókuszált műszerfalat egy kiemelt üzleti problémára, mint például a készlet, értékesítés vagy termékteljesítmény.",
+    "step2_desc": "Építünk egy fókuszált műszerfalat egy kiemelt üzleti problémára, például készletre, értékesítésre, toborzásra, operációra, platformaktivitásra vagy riportálásra.",
     "step3_title": "Prediktív Réteg",
     "step3_desc": "Előrejelzéseket, ajánlásokat, anomália-észlelést vagy AI-támogatott jelentéseket adunk hozzá ott, ahol mérhető értéket teremt.",
     "step4_title": "Automatizáció és Integráció",

@@ -12,6 +12,12 @@ const Footer = () => {
             <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-16 w-auto" />
           </Link>
           <p className="text-on-surface-variant dark:text-slate-500">{t('footer.rights')}</p>
+          <a
+            href="mailto:hello@modularsys.ai"
+            className="mt-3 inline-block text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300"
+          >
+            hello@modularsys.ai
+          </a>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           <Link className="text-on-surface-variant dark:text-slate-500 hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" to="/privacy">{t('footer.privacy')}</Link>

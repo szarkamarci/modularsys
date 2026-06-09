@@ -6,23 +6,24 @@
     "cta": "Rescue My Data"
   },
   "hero": {
-    "badge": "The End of Guesswork",
-    "title_start": "Stop relying on ",
-    "title_highlight": "spreadsheets",
-    "title_end": " and gut feeling to manage your inventory.",
-    "subtitle": "ModularAI turns fragmented business data into live dashboards, stock forecasts, and automated recommendations — without enterprise complexity.",
+    "badge": "Operational Intelligence Layer",
+    "title_start": "The End of ",
+    "title_highlight": "Guesswork",
+    "title_end": "",
+    "subtitle": "Turn operational data into decisions your team can act on.",
+    "supporting": "ModularAI turns fragmented business data into dashboards, forecasts, risk signals, and practical recommendations — without enterprise complexity.",
     "cta_primary": "Rescue My Data (Free Audit)",
     "cta_secondary": "Watch the Demo",
     "stat_badge": "Live Status",
-    "stat_title": "Predictive Warehouse Sync",
-    "stat_label": "Efficiency"
+    "stat_title": "Live Decision Support",
+    "stat_label": "Decision Readiness"
   },
   "trustbar": {
     "quote": "Built by AI specialists. Designed for business teams."
   },
   "beforeAfter": {
     "title": "The Data Transformation",
-    "subtitle": "Experience the clarity of a modern spa day for your spreadsheets.",
+    "subtitle": "From scattered data to operational clarity.",
     "before_label": "Your Brain on Spreadsheets",
     "after_label": "Your Brain on ModularAI",
     "health_label": "Inventory Health",
@@ -31,19 +32,64 @@
     "order_value": "+577 units"
   },
   "features": {
-    "feat1_title": "The Crystal Ball",
-    "feat1_subtitle": "(Stock Forecast)",
-    "feat1_desc": "Predictive forecasting that actually works. We scan your historical trends to see the future before it hits your balance sheet.",
-    "feat1_stat": "Auto-Procurement Suggested",
-    "feat2_title": "Data Ghostbuster",
-    "feat2_desc": "Automatically find and eliminate duplicate records, phantom inventory, and \"dead\" data that haunts your productivity.",
+    "feat1_title": "Forecasting & Risk Signals",
+    "feat1_subtitle": "",
+    "feat1_desc": "Detect demand changes, capacity issues, stockout risks, weak processes, or operational bottlenecks before they become expensive problems.",
+    "feat1_stat": "Risk Signal Identified",
+    "feat2_title": "Data Quality & Anomaly Detection",
+    "feat2_desc": "Find duplicate records, missing data, unusual drops, inconsistent reports, and hidden issues inside your existing business data.",
     "feat2_stat_label": "Warning Signal",
-    "feat2_stat_val": "100% Drop",
-    "feat3_title": "The 'Fries With That?' Engine",
-    "feat3_desc": "An intelligent cross-sell recommender that identifies perfect product pairings based on real-time buyer behavior.",
-    "feat3_item1": "Frequently Bought Together",
-    "feat3_item2": "Premium Support Bundle",
-    "feat3_item3": "Extended Battery Life"
+    "feat2_stat_val": "Data Gap",
+    "feat3_title": "Recommendation & Opportunity Engine",
+    "feat3_desc": "Identify what to reorder, what to promote, which customers or partners need attention, which searches are not converting, or where your team should focus next.",
+    "feat3_item1": "Reorder Priorities",
+    "feat3_item2": "Accounts Needing Attention",
+    "feat3_item3": "Unconverted Searches",
+    "feat4_title": "Executive Reporting",
+    "feat4_desc": "Turn scattered operational data into clear dashboards, summaries, and exportable reports that managers can actually use.",
+    "feat4_stat": "Exportable Reports"
+  },
+  "use_cases": {
+    "title": "Built Around Your Business Data",
+    "intro": "ModularAI is configurable: the same decision-support layer can be adapted to different businesses, data sources, and operational problems.",
+    "case1_title": "Retail, Wholesale & Inventory",
+    "case1_desc": "Stockout risks, reorder suggestions, product performance, basket analysis, warehouse visibility.",
+    "case2_title": "Recruitment & Workforce Platforms",
+    "case2_desc": "Job demand, candidate activity, matching quality, search behavior, partner performance, and drop-off points.",
+    "case3_title": "Sales & Account Management",
+    "case3_desc": "Customer activity, weak accounts, upsell opportunities, performance trends, missed revenue signals.",
+    "case4_title": "Operations & Admin Workflows",
+    "case4_desc": "Manual reporting, repeated bottlenecks, process delays, data quality issues, team-level visibility."
+  },
+  "demo_selector": {
+    "badge": "ModularAI Demo Platform",
+    "title": "Choose a business workflow",
+    "subtitle": "Explore how the same decision-support layer adapts to different operational data, risks, recommendations, and reporting needs.",
+    "open_demo": "Open demo",
+    "contact": "Questions?",
+    "back": "Back to ModularAI",
+    "cards": {
+      "retail": {
+        "title": "Retail, Wholesale & Inventory",
+        "desc": "Stockout risk, reorder priorities, product performance, basket signals, and warehouse visibility.",
+        "badge": "Deep demo"
+      },
+      "workforce": {
+        "title": "Recruitment & Workforce Platforms",
+        "desc": "Job demand, candidate activity, matching quality, search behavior, partner performance, and drop-off points.",
+        "badge": "Cockpit demo"
+      },
+      "sales": {
+        "title": "Sales & Account Management",
+        "desc": "Weak accounts, upsell opportunities, renewal risk, missed follow-ups, and revenue signals.",
+        "badge": "Cockpit demo"
+      },
+      "operations": {
+        "title": "Operations & Admin Workflows",
+        "desc": "Manual reporting, workflow delays, data quality issues, repeated bottlenecks, and manager summaries.",
+        "badge": "Cockpit demo"
+      }
+    }
   },
   "cta": {
     "title": "Ready to turn messy data into clear decisions?",
@@ -159,6 +205,7 @@
     "field3_placeholder": "Describe your data chaos...",
     "submit_btn": "Rescue My Data (Free Audit)",
     "submitting_btn": "Untangling Data...",
+    "prefer_email": "Prefer email?",
     "success_title": "Signal Received!",
     "success_body": "We'll be in touch before you have to untangle another vlookup.",
     "promise_title": "Our 'No-Dinosaur' Guarantee",
@@ -175,9 +222,9 @@
   "how_it_works": {
     "title": "How ModularAI Works",
     "step1_title": "Data Audit",
-    "step1_desc": "We review your spreadsheets, ERP exports, databases, webshop data, or existing reporting workflows.",
+    "step1_desc": "We review your spreadsheets, ERP exports, databases, webshop data, platform activity, or existing reporting workflows.",
     "step2_title": "Pilot Dashboard",
-    "step2_desc": "We build a focused dashboard around one high-value business problem, such as inventory, sales, or product performance.",
+    "step2_desc": "We build a focused dashboard around one high-value business problem, such as inventory, sales, recruitment, operations, platform activity, or reporting.",
     "step3_title": "Predictive Layer",
     "step3_desc": "We add forecasting, recommendations, anomaly detection, or AI-assisted reporting where it creates measurable value.",
     "step4_title": "Automation & Integration",

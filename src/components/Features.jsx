@@ -7,14 +7,14 @@ const Features = () => {
     <section className="max-w-7xl mx-auto px-8 mb-40">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         
-        {/* Feature 1: The Crystal Ball */}
+        {/* Feature 1 */}
         <div className="md:col-span-8 bg-surface-container-low rounded-lg p-10 flex flex-col justify-between overflow-hidden relative group">
           <div className="max-w-md relative z-10">
             <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-8 shadow-lg shadow-primary/30">
               <span className="material-symbols-outlined text-white text-3xl">article</span>
             </div>
             <h3 className="font-headline text-3xl font-bold mb-4">
-              {t('features.feat1_title')} <span className="hidden md:block text-primary-container text-lg font-medium opacity-70 mt-1">{t('features.feat1_subtitle')}</span>
+              {t('features.feat1_title')}
             </h3>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-4 md:mb-8">
               {t('features.feat1_desc')}
@@ -29,7 +29,7 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Feature 2: The Ghostbuster */}
+        {/* Feature 2 */}
         <div className="md:col-span-4 bg-surface-container-lowest border border-surface-container rounded-lg p-10 flex flex-col justify-between shadow-[0px_20px_40px_rgba(87,73,194,0.03)]">
           <div>
             <div className="w-14 h-14 rounded-2xl bg-tertiary-container flex items-center justify-center mb-8">
@@ -51,7 +51,7 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Feature 3: Fries With That? */}
+        {/* Feature 3 */}
         <div className="md:col-span-12 bg-white rounded-lg p-10 flex flex-col md:flex-row gap-12 items-center shadow-[0px_40px_80px_rgba(87,73,194,0.05)] border border-primary/5">
           <div className="md:w-1/2">
             <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-8">
@@ -88,6 +88,25 @@ const Features = () => {
                 <span className="material-symbols-outlined">add_circle</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Feature 4 */}
+        <div className="md:col-span-12 bg-surface-container-low rounded-lg p-10 flex flex-col md:flex-row gap-8 md:items-center justify-between border border-outline-variant/10">
+          <div className="flex flex-col md:flex-row md:items-center gap-6">
+            <div className="w-14 h-14 rounded-2xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-3xl">summarize</span>
+            </div>
+            <div>
+              <h3 className="font-headline text-2xl md:text-3xl font-bold mb-3">{t('features.feat4_title')}</h3>
+              <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
+                {t('features.feat4_desc')}
+              </p>
+            </div>
+          </div>
+          <div className="hidden lg:flex items-center gap-2 text-primary font-bold bg-white px-5 py-3 rounded-full shadow-sm border border-outline-variant/10">
+            <span className="material-symbols-outlined">download</span>
+            <span>{t('features.feat4_stat')}</span>
           </div>
         </div>
         

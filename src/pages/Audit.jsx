@@ -109,6 +109,12 @@ const Audit = () => {
                     {isSubmitting ? t('get_started.submitting_btn') : t('get_started.submit_btn')}
                     {isSubmitting && <span className="material-symbols-outlined animate-spin text-lg">autorenew</span>}
                   </button>
+                  <p className="text-center text-sm text-[#474553]">
+                    {t('get_started.prefer_email')}{' '}
+                    <a className="font-bold text-[#5749c2] underline underline-offset-4" href="mailto:hello@modularsys.ai">
+                      hello@modularsys.ai
+                    </a>
+                  </p>
                 </form>
               )}
 

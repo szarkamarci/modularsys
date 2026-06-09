@@ -88,4 +88,14 @@ export type OverviewData = {
     label: string;
     value: string;
   }>;
+  assistant?: {
+    title: string;
+    status: string;
+    greeting: string;
+    note: string;
+    prompts: Array<{
+      question: string;
+      answer: string;
+    }>;
+  };
 };

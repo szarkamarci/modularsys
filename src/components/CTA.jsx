@@ -16,7 +16,7 @@ const CTA = () => {
           <p className="text-primary-fixed text-lg md:text-xl mb-10 md:mb-12 max-w-xl mx-auto opacity-90 leading-relaxed">
             {t('cta.subtitle')}
           </p>
-          <Link to="/get-started" className="block text-center w-full md:w-auto bg-white text-primary px-10 py-4 md:py-5 rounded-xl md:rounded-full font-extrabold text-lg md:text-xl hover:bg-primary-fixed transition-colors active:scale-95 duration-200">
+          <Link to="/audit" className="block text-center w-full md:w-auto bg-white text-primary px-10 py-4 md:py-5 rounded-xl md:rounded-full font-extrabold text-lg md:text-xl hover:bg-primary-fixed transition-colors active:scale-95 duration-200">
             {t('cta.button')}
           </Link>
           <p className="text-white/60 text-xs md:text-sm mt-8 font-medium">{t('cta.disclaimer')}</p>

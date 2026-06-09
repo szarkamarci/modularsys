@@ -7,6 +7,7 @@ import {
   getWatchlistData,
   normalizeLocale
 } from '../../../config/scenarios/demo-retail';
+import { getDemoOverviewData } from '../../../config/scenarios/demo-cases';
 
 function getLocaleFromParams(params: unknown) {
   if (params && typeof params === 'object' && 'locale' in params) {
@@ -19,7 +20,10 @@ function getLocaleFromParams(params: unknown) {
 export const demoMockProvider: DashboardDataProvider = {
   async getOverviewData(params?: unknown) {
     await new Promise(resolve => setTimeout(resolve, 300));
-    return getDemoRetailOverviewData(getLocaleFromParams(params));
+    const scenarioId = params && typeof params === 'object' && 'scenarioId' in params
+      ? (params as { scenarioId?: unknown }).scenarioId
+      : undefined;
+    return getDemoOverviewData(typeof scenarioId === 'string' ? scenarioId : undefined, getLocaleFromParams(params));
   },
 
   async getInventoryPredictions() {

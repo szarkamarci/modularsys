@@ -53,6 +53,9 @@ const App = () => {
           <Route path="search-analytics" element={<SearchAnalyticsPage />} />
           <Route path="watchlist" element={<WatchlistPage />} />
         </Route>
+        <Route path="/demo-dashboard/scenario/:scenarioId" element={<DashboardLayout />}>
+          <Route index element={<OverviewPage />} />
+        </Route>
 
         {/* Independent Pages */}
         <Route path="/get-started" element={<GetStarted />} />

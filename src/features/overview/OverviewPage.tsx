@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { GlassPanel } from '../../components/ui/GlassPanel';
@@ -101,7 +101,7 @@ function RecommendationCard({
           <p className="text-sm font-semibold text-on-surface">{recommendation.impact}</p>
         </div>
         <Link
-          href={recommendation.route}
+          to={recommendation.route}
           className="inline-flex w-max items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-label font-bold text-on-primary transition hover:bg-on-primary-fixed-variant"
         >
           {recommendation.actionLabel}
@@ -109,6 +109,148 @@ function RecommendationCard({
         </Link>
       </div>
     </div>
+  );
+}
+
+type ChatMessage = {
+  role: 'assistant' | 'user';
+  text: string;
+};
+
+function AssistantChat({ assistant }: { assistant: NonNullable<OverviewData['assistant']> }) {
+  const isHu = assistant.status.toLowerCase().includes('asszisztens');
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState('');
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    { role: 'assistant', text: assistant.greeting },
+    { role: 'assistant', text: assistant.note },
+  ]);
+
+  const addPrompt = (question: string, answer: string) => {
+    setOpen(true);
+    setMessages((current) => [
+      ...current,
+      { role: 'user', text: question },
+      { role: 'assistant', text: answer },
+    ]);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const question = draft.trim();
+    if (!question) return;
+
+    setMessages((current) => [
+      ...current,
+      { role: 'user', text: question },
+      {
+        role: 'assistant',
+        text: isHu
+          ? 'Ez most bemutató mód, ezért előre megírt válaszokkal dolgozom. A lényeg: megmutatni, hogyan lesz a szétszórt adatokból érthető vezetői kép és konkrét teendő.'
+          : 'This demo uses prepared responses: ModularAI shows how scattered data becomes KPIs, risk signals, recommendations, and a management-ready summary.',
+      },
+    ]);
+    setDraft('');
+  };
+
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="fixed left-4 bottom-24 md:left-6 md:bottom-6 z-50 flex items-center gap-3 rounded-full bg-surface-container-lowest border border-outline-variant/20 px-4 py-3 shadow-[0_18px_48px_rgba(87,73,194,0.18)] hover:-translate-y-0.5 transition-all"
+      >
+        <img src="/assets/chatbot_icon.svg" alt="" className="h-9 w-9" />
+        <span className="hidden sm:block text-sm font-label font-black text-on-surface">
+          {isHu ? 'Kérdezze az elemzőt' : 'Ask the analyst'}
+        </span>
+      </button>
+    );
+  }
+
+  return (
+    <div className="fixed left-4 bottom-24 md:left-6 md:bottom-6 z-50 w-[calc(100vw-2rem)] max-w-[390px] rounded-3xl bg-surface-container-lowest border border-outline-variant/20 shadow-[0_24px_80px_rgba(25,28,30,0.18)] overflow-hidden">
+      <div className="flex items-center justify-between gap-4 border-b border-outline-variant/10 px-4 py-3 bg-surface-container-lowest/95">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="h-11 w-11 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+            <img src="/assets/chatbot_thinking.svg" alt="" className="h-10 w-10" />
+          </div>
+          <div className="min-w-0">
+            <p className="text-xs font-label font-bold uppercase tracking-wider text-primary">{assistant.status}</p>
+            <h2 className="text-base font-headline font-black text-on-surface truncate">{assistant.title}</h2>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="h-9 w-9 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center"
+          aria-label={isHu ? 'Chat bezárása' : 'Close chat'}
+        >
+          <span className="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div className="max-h-[360px] overflow-y-auto px-4 py-4 space-y-3 bg-surface">
+        {messages.map((message, index) => (
+          <div
+            key={`${message.role}-${index}`}
+            className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                message.role === 'user'
+                  ? 'bg-primary text-on-primary'
+                  : 'bg-surface-container-lowest border border-outline-variant/15 text-on-surface-variant'
+              }`}
+            >
+              {message.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="px-4 py-3 border-t border-outline-variant/10 bg-surface-container-lowest">
+        <div className="flex gap-2 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+          {assistant.prompts.map((prompt) => (
+            <button
+              key={prompt.question}
+              type="button"
+              onClick={() => addPrompt(prompt.question, prompt.answer)}
+              className="shrink-0 rounded-full bg-surface-container-low px-3 py-2 text-xs font-label font-bold text-on-surface-variant hover:text-primary transition-colors"
+            >
+              {prompt.question}
+            </button>
+          ))}
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex items-center gap-2">
+          <input
+            value={draft}
+            onChange={(event) => setDraft(event.target.value)}
+            placeholder={isHu ? 'Írjon egy rövid kérdést...' : 'Ask a short question...'}
+            className="min-w-0 flex-1 rounded-full bg-surface-container-low px-4 py-3 text-sm text-on-surface outline-none border border-outline-variant/10 focus:border-primary/40"
+          />
+          <button
+            type="submit"
+            className="h-11 w-11 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 active:scale-95 transition-transform"
+            aria-label={isHu ? 'Küldés' : 'Send'}
+          >
+            <span className="material-symbols-outlined text-[20px]">send</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function DemoSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section>
+      <div className="flex items-center justify-between gap-4 mb-4">
+        <h2 className="text-lg md:text-xl font-headline font-bold text-on-surface">{title}</h2>
+      </div>
+      {children}
+    </section>
   );
 }
 
@@ -197,18 +339,14 @@ export default function OverviewPage() {
         </div>
       </div>
 
-      <section>
-        <div className="flex items-center justify-between gap-4 mb-4">
-          <h2 className="text-xl font-headline font-bold text-on-surface">{scenario.labels.kpis}</h2>
-        </div>
+      <DemoSection title={scenario.labels.kpis}>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {data.kpis.map((kpi) => <KpiCard key={kpi.id} kpi={kpi} />)}
         </div>
-      </section>
+      </DemoSection>
 
       <div className="grid grid-cols-1 xl:grid-cols-[1.25fr_0.75fr] gap-6">
-        <section>
-          <h2 className="text-xl font-headline font-bold text-on-surface mb-4">{scenario.labels.recommendations}</h2>
+        <DemoSection title={scenario.labels.recommendations}>
           <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-4">
             {data.recommendations.map((recommendation) => (
               <RecommendationCard
@@ -218,21 +356,19 @@ export default function OverviewPage() {
               />
             ))}
           </div>
-        </section>
+        </DemoSection>
 
-        <section>
-          <h2 className="text-xl font-headline font-bold text-on-surface mb-4">{scenario.labels.companyContext}</h2>
+        <DemoSection title={scenario.labels.companyContext}>
           <GlassPanel className="space-y-5">
             <div>
               <p className="text-xs font-label font-bold uppercase tracking-wider text-primary mb-2">{scenario.company.industry}</p>
               <h3 className="text-2xl font-headline font-black text-on-surface">{scenario.company.name}</h3>
               <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{scenario.company.demoNarrative}</p>
             </div>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-3">
               {[
                 [scenario.labels.contextFootprint, scenario.company.footprint],
                 [scenario.labels.contextOperatingModel, scenario.company.operatingModel],
-                [scenario.labels.contextDataReality, scenario.company.dataReality],
                 ...data.companySignals.map((signal) => [signal.label, signal.value]),
               ].map(([label, value]) => (
                 <div key={label} className="rounded-xl bg-surface-container-low px-4 py-3">
@@ -242,40 +378,41 @@ export default function OverviewPage() {
               ))}
             </div>
           </GlassPanel>
-        </section>
+        </DemoSection>
       </div>
 
-      <section>
-        <h2 className="text-xl font-headline font-bold text-on-surface mb-4">{scenario.labels.modules}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {visibleModules.map((route) => (
-            <Link
-              key={route.href}
-              href={route.href}
-              className="group bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-5 soft-shadow hover-lift min-h-[190px] flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="h-11 w-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                    <span className="material-symbols-outlined text-[23px]">{route.icon}</span>
+      {visibleModules.length > 1 && (
+        <DemoSection title={scenario.labels.modules}>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {visibleModules.map((route) => (
+              <Link
+                key={route.href}
+                to={route.href}
+                className="group bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-5 soft-shadow hover-lift min-h-[190px] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="h-11 w-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                      <span className="material-symbols-outlined text-[23px]">{route.icon}</span>
+                    </div>
+                    {route.statusLabel && (
+                      <span className="rounded-full bg-surface-container-low px-2.5 py-1 text-[11px] font-label font-bold text-on-surface-variant">
+                        {route.statusLabel}
+                      </span>
+                    )}
                   </div>
-                  {route.statusLabel && (
-                    <span className="rounded-full bg-surface-container-low px-2.5 py-1 text-[11px] font-label font-bold text-on-surface-variant">
-                      {route.statusLabel}
-                    </span>
-                  )}
+                  <h3 className="text-lg font-headline font-bold text-on-surface">{route.label}</h3>
+                  <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{route.description}</p>
                 </div>
-                <h3 className="text-lg font-headline font-bold text-on-surface">{route.label}</h3>
-                <p className="mt-2 text-sm text-on-surface-variant leading-relaxed">{route.description}</p>
-              </div>
-              <div className="mt-5 flex items-center justify-between gap-3 text-sm font-label font-bold text-primary">
-                <span>{route.teaser}</span>
-                <span className="material-symbols-outlined text-[19px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+                <div className="mt-5 flex items-center justify-between gap-3 text-sm font-label font-bold text-primary">
+                  <span>{route.teaser}</span>
+                  <span className="material-symbols-outlined text-[19px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </DemoSection>
+      )}
 
       <section className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-6">
         <GlassPanel className="bg-primary text-on-primary overflow-hidden">
@@ -301,6 +438,8 @@ export default function OverviewPage() {
           ))}
         </div>
       </section>
+
+      {data.assistant && <AssistantChat assistant={data.assistant} />}
     </div>
   );
 }

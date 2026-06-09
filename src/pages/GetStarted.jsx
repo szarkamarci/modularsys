@@ -1,90 +1,101 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import InteractiveBackground from '../components/InteractiveBackground';
 
+const demoCards = [
+  {
+    key: 'retail',
+    icon: 'inventory_2',
+    href: '/demo-dashboard',
+  },
+  {
+    key: 'workforce',
+    icon: 'groups',
+    href: '/demo-dashboard/scenario/workforce',
+  },
+  {
+    key: 'sales',
+    icon: 'account_circle',
+    href: '/demo-dashboard/scenario/sales',
+  },
+  {
+    key: 'operations',
+    icon: 'pending_actions',
+    href: '/demo-dashboard/scenario/operations',
+  },
+];
+
 const GetStarted = () => {
-    const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        // Simulate network delay for mock login
-        setTimeout(() => {
-            setIsLoading(false);
-            navigate('/demo-dashboard');
-        }, 1200);
-    };
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-surface relative overflow-hidden font-body px-4 py-16">
+      <InteractiveBackground />
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-surface relative overflow-hidden font-body">
-            <InteractiveBackground />
-
-            <div className="w-full max-w-md p-8 relative z-10">
-                <div className="bg-surface-container-lowest/80 backdrop-blur-3xl rounded-[2rem] p-10 shadow-[0px_20px_40px_rgba(87,73,194,0.06)] border border-outline-variant/20">
-                    <div className="flex flex-col items-center mb-8 text-center">
-                        <div className="w-14 h-14 mb-4 flex items-center justify-center">
-                            <img src="/assets/brand/mark.svg" alt="ModularAI" className="w-full h-full drop-shadow-sm" />
-                        </div>
-                        <h1 className="text-3xl font-black font-headline text-on-surface tracking-tight">Demo Platform</h1>
-                        <p className="text-on-surface-variant font-medium mt-2 text-sm">Experience the ModularAI predictive engine in action.</p>
-                    </div>
-
-                    <form onSubmit={handleLogin} className="space-y-6">
-                        <div className="space-y-4">
-                            <div className="relative group">
-                                <input
-                                    type="email"
-                                    defaultValue="demo@modularai.com"
-                                    className="w-full bg-surface-container-low text-on-surface px-5 py-3.5 rounded-xl border border-outline-variant/20 focus:bg-surface-container-lowest focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body text-sm placeholder:text-on-surface-variant/50"
-                                    placeholder="Work Email"
-                                    required
-                                />
-                            </div>
-                            <div className="relative group">
-                                <input
-                                    type="password"
-                                    defaultValue="predictive123"
-                                    className="w-full bg-surface-container-low text-on-surface px-5 py-3.5 rounded-xl border border-outline-variant/20 focus:bg-surface-container-lowest focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body text-sm placeholder:text-on-surface-variant/50"
-                                    placeholder="Password"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={isLoading}
-                            className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-3.5 rounded-xl hover:scale-105 disabled:opacity-70 disabled:hover:scale-100 transition-transform shadow-xl shadow-primary/20 flex justify-center items-center gap-2"
-                        >
-                            {isLoading ? (
-                                <>
-                                    <span className="animate-spin material-symbols-outlined text-[20px]">progress_activity</span>
-                                    <span>Entering Sandbox...</span>
-                                </>
-                            ) : (
-                                <span>Enter Demo</span>
-                            )}
-                        </button>
-                    </form>
-
-                    <div className="mt-6 text-center">
-                        <p className="text-[11px] text-on-surface-variant/70 font-label uppercase tracking-wider font-bold">
-                            Frontend-only Sandbox.
-                        </p>
-                    </div>
-                </div>
-                
-                <div className="mt-8 text-center">
-                  <button onClick={() => navigate('/')} className="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2 mx-auto">
-                    <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-                    Back to ModularAI
-                  </button>
-                </div>
-            </div>
+      <div className="w-full max-w-6xl relative z-10">
+        <div className="text-center mb-10">
+          <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center">
+            <img src="/assets/brand/mark.svg" alt="ModularAI" className="w-full h-full drop-shadow-sm" />
+          </div>
+          <p className="inline-flex items-center rounded-full bg-primary-fixed px-4 py-1.5 text-sm font-bold text-on-primary-fixed-variant mb-5">
+            {t('demo_selector.badge')}
+          </p>
+          <h1 className="font-headline text-4xl md:text-6xl font-black tracking-tight text-on-surface mb-5">
+            {t('demo_selector.title')}
+          </h1>
+          <p className="text-on-surface-variant text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            {t('demo_selector.subtitle')}
+          </p>
         </div>
-    );
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+          {demoCards.map((card) => (
+            <Link
+              key={card.key}
+              to={card.href}
+              className="group bg-surface-container-lowest/85 backdrop-blur-3xl rounded-2xl p-6 min-h-[300px] border border-outline-variant/20 shadow-[0px_20px_40px_rgba(87,73,194,0.06)] hover:-translate-y-1 hover:shadow-[0px_28px_60px_rgba(87,73,194,0.1)] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-start justify-between gap-4 mb-7">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                    <span className="material-symbols-outlined text-3xl">{card.icon}</span>
+                  </div>
+                  <span className="rounded-full bg-surface-container-low px-3 py-1 text-[11px] font-label font-black uppercase tracking-wider text-on-surface-variant">
+                    {t(`demo_selector.cards.${card.key}.badge`)}
+                  </span>
+                </div>
+                <h2 className="font-headline text-2xl font-black text-on-surface leading-tight mb-4">
+                  {t(`demo_selector.cards.${card.key}.title`)}
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed">
+                  {t(`demo_selector.cards.${card.key}.desc`)}
+                </p>
+              </div>
+              <div className="mt-8 inline-flex items-center gap-2 text-primary font-label font-black">
+                {t('demo_selector.open_demo')}
+                <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <a
+            href="mailto:hello@modularsys.ai"
+            className="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors"
+          >
+            {t('demo_selector.contact')} hello@modularsys.ai
+          </a>
+          <button onClick={() => navigate('/')} className="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+            {t('demo_selector.back')}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default GetStarted;
