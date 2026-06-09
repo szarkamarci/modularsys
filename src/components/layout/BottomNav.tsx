@@ -49,9 +49,12 @@ export default function BottomNav() {
                 style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
             >
                 {navItems.map((item) => {
+                    const isScenarioOverview = /^\/demo-dashboard\/scenario\/[^/]+$/.test(item.href);
                     const isActive =
-                        item.href === '/demo-dashboard'
+                        item.href === '/demo-dashboard' || isScenarioOverview
                             ? pathname === '/demo-dashboard'
+                                ? item.href === '/demo-dashboard'
+                                : pathname === item.href
                             : pathname.startsWith(item.href);
 
                     return (

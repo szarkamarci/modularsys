@@ -99,3 +99,35 @@ export type OverviewData = {
     }>;
   };
 };
+
+export type ScenarioModuleTone = OverviewTone;
+
+export type ScenarioModuleMetric = {
+  id: string;
+  label: string;
+  value: string;
+  caption: string;
+  icon: string;
+  tone: ScenarioModuleTone;
+};
+
+export type ScenarioModuleRow = {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+  impact: string;
+};
+
+export type ScenarioModuleData = {
+  title: string;
+  eyebrow: string;
+  description: string;
+  metrics: ScenarioModuleMetric[];
+  sections: Array<{
+    title: string;
+    description: string;
+    rows: ScenarioModuleRow[];
+  }>;
+  assistant?: OverviewData['assistant'];
+};

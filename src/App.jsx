@@ -13,6 +13,7 @@ import Security from './pages/Security';
 import Status from './pages/Status';
 import Demo from './pages/Demo';
 import DashboardLayout from './pages/dashboard/DashboardLayout';
+import ScenarioModulePage from './pages/dashboard/ScenarioModulePage';
 import OverviewPage from './features/overview/OverviewPage';
 import InventoryPage from './features/inventory/InventoryPage';
 import FrequentItemsPage from './features/frequent-items/FrequentItemsPage';
@@ -55,6 +56,7 @@ const App = () => {
         </Route>
         <Route path="/demo-dashboard/scenario/:scenarioId" element={<DashboardLayout />}>
           <Route index element={<OverviewPage />} />
+          <Route path=":moduleId" element={<ScenarioModulePage />} />
         </Route>
 
         {/* Independent Pages */}

@@ -1,6 +1,6 @@
 import { getClientConfig } from './clientRegistry';
 import { ClientConfig } from './types';
-import { DEMO_SCENARIO_PATHS, normalizeDemoScenarioId } from '../../config/scenarios/demo-cases';
+import { getDemoScenarioRoutePaths, normalizeDemoScenarioId } from '../../config/scenarios/demo-cases';
 
 export function getCurrentClient(): ClientConfig {
   const client = getClientConfig('demo');
@@ -19,7 +19,7 @@ export function getCurrentClient(): ClientConfig {
   return {
     ...client,
     displayName: displayNames[scenarioId],
-    enabledRoutes: [DEMO_SCENARIO_PATHS[scenarioId]],
+    enabledRoutes: getDemoScenarioRoutePaths(scenarioId),
     scenarioId,
   };
 }

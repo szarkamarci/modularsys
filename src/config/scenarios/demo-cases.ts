@@ -1,5 +1,5 @@
 import { getDemoRetailOverviewData, getDemoRetailScenario } from './demo-retail';
-import { DemoScenarioConfig, OverviewData } from '../../features/overview/types';
+import { DemoScenarioConfig, OverviewData, ScenarioModuleData } from '../../features/overview/types';
 
 export const DEMO_SCENARIO_IDS = [
   'demo-retail',
@@ -16,6 +16,13 @@ export const DEMO_SCENARIO_PATHS: Record<DemoScenarioId, string> = {
   'demo-sales': '/demo-dashboard/scenario/sales',
   'demo-operations': '/demo-dashboard/scenario/operations',
 };
+
+const WORKFORCE_MODULE_PATHS = {
+  jobs: '/demo-dashboard/scenario/workforce/jobs',
+  candidates: '/demo-dashboard/scenario/workforce/candidates',
+  search: '/demo-dashboard/scenario/workforce/search',
+  partners: '/demo-dashboard/scenario/workforce/partners',
+} as const;
 
 export function normalizeDemoScenarioId(scenarioId?: string): DemoScenarioId {
   if (scenarioId === 'workforce' || scenarioId === 'demo-workforce') return 'demo-workforce';
@@ -49,6 +56,82 @@ function route(
       teaser: hu ? 'Kezdje az üzleti helyzettel.' : 'Start with the business narrative.',
     },
   ];
+}
+
+function recruitmentRoutes(locale?: string): DemoScenarioConfig['routes'] {
+  const hu = isHu(locale);
+
+  return [
+    {
+      href: DEMO_SCENARIO_PATHS['demo-workforce'],
+      label: hu ? 'Vezetői áttekintés' : 'Executive Overview',
+      navLabel: hu ? 'Áttekintés' : 'Overview',
+      mobileLabel: hu ? 'Nézet' : 'View',
+      description: hu
+        ? 'A teljes platform képe: partneri igények, jelöltút, keresések, illesztés és teendők.'
+        : 'The full platform view: partner demand, candidate journey, searches, matching, and next actions.',
+      icon: 'dashboard',
+      keywords: ['overview', 'recruitment', 'toborzas', 'jelolt', 'partner'],
+      statusLabel: hu ? 'Bemutató' : 'Live demo',
+      teaser: hu ? 'Innen indul a vezetői beszélgetés.' : 'Start here for the leadership story.',
+    },
+    {
+      href: WORKFORCE_MODULE_PATHS.jobs,
+      label: hu ? 'Hirdetések teljesítménye' : 'Job Ad Performance',
+      navLabel: hu ? 'Hirdetések' : 'Job Ads',
+      mobileLabel: hu ? 'Állások' : 'Jobs',
+      description: hu
+        ? 'Melyik hirdetés hoz jelöltet, melyik csak kattintást, és hol kell szöveget vagy címkézést javítani.'
+        : 'See which ads create candidates, which only create clicks, and where copy or labels need work.',
+      icon: 'campaign',
+      keywords: ['jobs', 'ads', 'hirdetes', 'allas'],
+      statusLabel: hu ? 'Fókusz' : 'Focus',
+      teaser: hu ? 'Kattintásból legyen jelentkezés.' : 'Turn clicks into applications.',
+    },
+    {
+      href: WORKFORCE_MODULE_PATHS.candidates,
+      label: hu ? 'Jelöltút és lemorzsolódás' : 'Candidate Journey',
+      navLabel: hu ? 'Jelöltút' : 'Candidates',
+      mobileLabel: hu ? 'Jelölt' : 'Flow',
+      description: hu
+        ? 'Hol akadnak el a jelöltek, melyik lépés rontja a konverziót, és mit érdemes először javítani.'
+        : 'Find where candidates stall, which step hurts conversion, and what to fix first.',
+      icon: 'conversion_path',
+      keywords: ['candidate', 'journey', 'jelolt', 'lemorzsolodas'],
+      statusLabel: hu ? 'Aha' : 'Aha',
+      teaser: hu ? 'Itt tűnnek el csendben a jó jelöltek.' : 'Where good candidates quietly vanish.',
+    },
+    {
+      href: WORKFORCE_MODULE_PATHS.search,
+      label: hu ? 'Keresések és rejtett igények' : 'Search Demand',
+      navLabel: hu ? 'Keresések' : 'Search',
+      mobileLabel: hu ? 'Keresés' : 'Search',
+      description: hu
+        ? 'Mit keresnek a jelöltek, mire nincs jó találat, és milyen hirdetések vagy szinonimák hiányoznak.'
+        : 'See what candidates search for, what returns weak results, and which ads or synonyms are missing.',
+      icon: 'manage_search',
+      keywords: ['search', 'demand', 'kereses', 'igeny'],
+      statusLabel: hu ? 'Jel' : 'Signal',
+      teaser: hu ? 'A kereső sokszor őszintébb, mint a kérdőív.' : 'Search is often more honest than surveys.',
+    },
+    {
+      href: WORKFORCE_MODULE_PATHS.partners,
+      label: hu ? 'Partneri igények és prioritások' : 'Partner Priorities',
+      navLabel: hu ? 'Partnerek' : 'Partners',
+      mobileLabel: hu ? 'Partner' : 'Partner',
+      description: hu
+        ? 'Mely partnerek kérnek gyors reakciót, hol nő az igény, és hol kell account szintű utánkövetés.'
+        : 'Prioritize partners by demand growth, weak fulfillment, and account follow-up needs.',
+      icon: 'handshake',
+      keywords: ['partner', 'employer', 'account', 'prioritas'],
+      statusLabel: hu ? 'Teendő' : 'Action',
+      teaser: hu ? 'Ne minden partner legyen egyszerre sürgős.' : 'Not every partner can be urgent at once.',
+    },
+  ];
+}
+
+export function getDemoScenarioRoutePaths(scenarioId?: string) {
+  return getDemoScenario(scenarioId).routes.map((item) => item.href);
 }
 
 function retailAssistant(locale?: string): OverviewData['assistant'] {
@@ -110,14 +193,7 @@ export function getDemoScenario(scenarioId?: string, locale?: string): DemoScena
           ? 'A TalentBridge-nél sok minden történik egyszerre: egyes hirdetések pörögnek, máshol eltűnnek a jelöltek, a partnerek pedig tegnapra kérnének embert. A demo ezt rendezi át egy tiszta képpé.'
           : 'TalentBridge has a lively platform: some job ads are buzzing, candidates disappear at specific steps, and partners need people yesterday. The demo turns that noise into a clear operating view.',
       },
-      routes: route(
-        normalized,
-        locale,
-        hu ? 'Hirdetések, jelöltek és illesztés' : 'Jobs, Candidates, and Matching',
-        hu
-          ? 'Partneri igények, jelöltaktivitás, keresések és lemorzsolódási pontok egy nézetben.'
-          : 'Track partner demand, candidate activity, searches, and drop-off points in one executive view.'
-      ),
+      routes: recruitmentRoutes(locale),
       report: {
         title: hu ? 'Heti toborzási riport' : 'Weekly recruitment report preview',
         description: hu
@@ -499,4 +575,232 @@ export function getDemoOverviewData(scenarioId?: string, locale?: string): Overv
           ],
         },
       };
+}
+
+export function getScenarioModuleData(
+  scenarioId: string | undefined,
+  moduleId: string | undefined,
+  locale?: string
+): ScenarioModuleData | null {
+  const normalized = normalizeDemoScenarioId(scenarioId);
+  const hu = isHu(locale);
+
+  if (normalized !== 'demo-workforce' || !moduleId) return null;
+
+  const assistant: ScenarioModuleData['assistant'] = hu
+    ? {
+        title: 'Toborzási elemző',
+        status: 'Bemutató asszisztens',
+        greeting: 'Ebben a fülben csak az adott terület jeleit mutatom, hogy ne kelljen egyszerre mindent nézni.',
+        note: 'A jó demo itt az, amikor a csapat ránéz, és azt mondja: igen, ezt mi most Excelben, Slackben és fejben rakjuk össze.',
+        prompts: [
+          { question: 'Mit nézzek először?', answer: 'A piros vagy sárga jelzéseket: ezek mutatják, hol csúszik jelölt, hirdetés vagy partneri igény.' },
+          { question: 'Miért hasznos?', answer: 'Mert nem csak adatot mutat, hanem döntési sorrendet: mit javítsunk ma, mit vigyünk heti egyeztetésre, és mit lehet automatizálni.' },
+          { question: 'Ez testre szabható?', answer: 'Igen. A valós demóban a mezők, KPI-k és teendők a platform saját folyamataihoz igazodnak.' },
+        ],
+      }
+    : {
+        title: 'Recruitment analyst',
+        status: 'Demo assistant',
+        greeting: 'This tab narrows the demo to one operating area so the user does not have to read everything at once.',
+        note: 'The nice moment is when the team realizes: this is what we currently assemble from spreadsheets, chat threads, and memory.',
+        prompts: [
+          { question: 'What should I check first?', answer: 'Start with the warning signals. They show where a candidate, job ad, or partner request is slipping.' },
+          { question: 'Why is it useful?', answer: 'It does not only show data. It helps order the decisions: fix today, review weekly, or automate next.' },
+          { question: 'Can this fit our platform?', answer: 'Yes. In a real pilot, fields, KPIs, and actions are shaped around the platform’s own workflow.' },
+        ],
+      };
+
+  const data: Record<string, ScenarioModuleData> = {
+    jobs: hu
+      ? {
+          eyebrow: 'Hirdetésfigyelés',
+          title: 'Mely hirdetések dolgoznak, és melyek csak zajt csinálnak?',
+          description: 'A cél nem több hirdetés, hanem jobb döntés: melyik hirdetést kell átírni, kiemelni vagy partnerrel újraegyeztetni.',
+          metrics: [
+            { id: 'views', label: 'Megtekintés', value: '12 840', caption: 'utolsó 14 nap', icon: 'visibility', tone: 'primary' },
+            { id: 'apply-rate', label: 'Jelentkezési arány', value: '8,7%', caption: 'hirdetésről jelentkezésre', icon: 'how_to_reg', tone: 'success' },
+            { id: 'weak-ads', label: 'Gyenge hirdetés', value: '9', caption: 'sok kattintás, kevés jelentkező', icon: 'campaign', tone: 'warning' },
+            { id: 'urgent', label: 'Sürgős partneri igény', value: '5', caption: 'héten kezelendő', icon: 'priority_high', tone: 'danger' },
+          ],
+          sections: [
+            {
+              title: 'Hirdetések, ahol a forgalom nem válik jelentkezéssé',
+              description: 'Ezek tipikusan nem forgalmi problémák. A jelölt megérkezik, körbenéz, majd csendben távozik.',
+              rows: [
+                { id: 'warehouse-night', title: 'Éjszakai raktári műszak', description: 'Sok megtekintés, de alacsony jelentkezési arány. A bérsáv és a beosztás nincs elég korán tisztázva.', status: 'Javítandó', impact: '+18-24 jelentkezés/hó' },
+                { id: 'student-event', title: 'Rendezvényes diákmunka', description: 'A keresések alapján népszerű, de a hirdetés címkézése túl általános.', status: 'Gyors nyereség', impact: 'Jobb találati arány' },
+                { id: 'admin-temp', title: 'Adminisztratív beugrós munka', description: 'Partneri igény nő, a hirdetés viszont nem emeli ki a rugalmas időbeosztást.', status: 'Partneri egyeztetés', impact: 'Kevesebb elvesző megbízás' },
+              ],
+            },
+          ],
+          assistant,
+        }
+      : {
+          eyebrow: 'Job ad intelligence',
+          title: 'Which job ads work, and which ones only create noise?',
+          description: 'The point is not more ads. It is knowing which ads to rewrite, promote, or discuss with a partner.',
+          metrics: [
+            { id: 'views', label: 'Views', value: '12,840', caption: 'last 14 days', icon: 'visibility', tone: 'primary' },
+            { id: 'apply-rate', label: 'Apply rate', value: '8.7%', caption: 'view to application', icon: 'how_to_reg', tone: 'success' },
+            { id: 'weak-ads', label: 'Weak ads', value: '9', caption: 'clicks without applicants', icon: 'campaign', tone: 'warning' },
+            { id: 'urgent', label: 'Urgent demand', value: '5', caption: 'handle this week', icon: 'priority_high', tone: 'danger' },
+          ],
+          sections: [
+            {
+              title: 'Ads where traffic does not become applications',
+              description: 'These are often not traffic problems. Candidates arrive, look around, and quietly leave.',
+              rows: [
+                { id: 'warehouse-night', title: 'Night warehouse shift', description: 'High views, low apply rate. Pay range and schedule are not clear early enough.', status: 'Needs fix', impact: '+18-24 applications/month' },
+                { id: 'student-event', title: 'Student event work', description: 'Popular in search, but the ad labels are too generic.', status: 'Quick win', impact: 'Better match rate' },
+                { id: 'admin-temp', title: 'Temporary admin work', description: 'Partner demand is rising, but the ad does not highlight flexible scheduling.', status: 'Partner sync', impact: 'Fewer lost requests' },
+              ],
+            },
+          ],
+          assistant,
+        },
+    candidates: hu
+      ? {
+          eyebrow: 'Jelöltút',
+          title: 'Hol tűnnek el a jelöltek?',
+          description: 'A jelöltút fül megmutatja, melyik lépésnél kell beavatkozni: profil, jelentkezés, visszahívás vagy partneri válasz.',
+          metrics: [
+            { id: 'started', label: 'Elindított jelentkezés', value: '1 286', caption: 'utolsó 14 nap', icon: 'start', tone: 'primary' },
+            { id: 'dropoff', label: 'Lemorzsolódás', value: '31%', caption: 'profil után', icon: 'person_off', tone: 'danger' },
+            { id: 'callback', label: 'Visszahívásra vár', value: '74', caption: '24 órán túl', icon: 'phone_in_talk', tone: 'warning' },
+            { id: 'ready', label: 'Azonnal mozgósítható', value: '142', caption: 'jó illeszkedés', icon: 'bolt', tone: 'success' },
+          ],
+          sections: [
+            {
+              title: 'A jelöltút kritikus pontjai',
+              description: 'Nem minden lemorzsolódás baj. A baj az, ha ugyanott történik újra és újra.',
+              rows: [
+                { id: 'profile', title: 'Profilmegtekintés után visszaesés', description: 'A jelöltek megnézik a részleteket, majd nem jelentkeznek. Jellemzően hiányzik a bér, helyszín vagy műszakpontosság.', status: 'Első javítás', impact: 'Több jelentkezés ugyanabból a forgalomból' },
+                { id: 'callback', title: 'Lassú visszahívási kör', description: 'A jó jelöltek egy része 24 órán túl vár reakcióra.', status: 'Operációs teendő', impact: 'Gyorsabb betöltés' },
+                { id: 'pool', title: 'Alvó, de releváns jelöltek', description: 'Korábbi jelentkezők között van olyan csoport, amely új hirdetésekhez jól illeszkedik.', status: 'Újraaktiválás', impact: 'Olcsóbb, mint új forgalmat venni' },
+              ],
+            },
+          ],
+          assistant,
+        }
+      : {
+          eyebrow: 'Candidate journey',
+          title: 'Where do candidates disappear?',
+          description: 'This tab shows where to intervene: profile view, application, callback, or partner response.',
+          metrics: [
+            { id: 'started', label: 'Started applications', value: '1,286', caption: 'last 14 days', icon: 'start', tone: 'primary' },
+            { id: 'dropoff', label: 'Drop-off', value: '31%', caption: 'after profile view', icon: 'person_off', tone: 'danger' },
+            { id: 'callback', label: 'Waiting callback', value: '74', caption: 'over 24 hours', icon: 'phone_in_talk', tone: 'warning' },
+            { id: 'ready', label: 'Ready to activate', value: '142', caption: 'good fit', icon: 'bolt', tone: 'success' },
+          ],
+          sections: [
+            {
+              title: 'Critical points in the candidate journey',
+              description: 'Not every drop-off is bad. The problem is when it repeats at the same step.',
+              rows: [
+                { id: 'profile', title: 'Drop after profile view', description: 'Candidates read the details, then do not apply. Pay, location, or shift clarity is usually missing.', status: 'Fix first', impact: 'More applications from the same traffic' },
+                { id: 'callback', title: 'Slow callback loop', description: 'Some strong candidates wait over 24 hours for a response.', status: 'Ops action', impact: 'Faster placement' },
+                { id: 'pool', title: 'Dormant but relevant candidates', description: 'Past applicants include groups that fit new jobs well.', status: 'Reactivate', impact: 'Cheaper than buying new traffic' },
+              ],
+            },
+          ],
+          assistant,
+        },
+    search: hu
+      ? {
+          eyebrow: 'Keresési minták',
+          title: 'Mit akar a jelölt, amit a platform nem ad vissza elég jól?',
+          description: 'A keresésekből gyakran hamarabb látszik az igény, mint a riportokból. Itt jönnek elő a hiányzó címkék, rossz szinonimák és félrecsúszó találatok.',
+          metrics: [
+            { id: 'failed', label: 'Gyenge találat', value: '428', caption: '14 nap alatt', icon: 'search_off', tone: 'danger' },
+            { id: 'themes', label: 'Keresési téma', value: '6', caption: 'AI csoportosítás', icon: 'hub', tone: 'primary' },
+            { id: 'synonyms', label: 'Szinonima-javítás', value: '11', caption: 'gyors módosítás', icon: 'tune', tone: 'success' },
+            { id: 'hidden', label: 'Elrejtett relevancia', value: '37%', caption: 'van ajánlat, rossz találat', icon: 'visibility_off', tone: 'warning' },
+          ],
+          sections: [
+            {
+              title: 'Keresések, amelyek mögött valós igény van',
+              description: 'A jelölt néha nem szakmai taxonómiában gondolkodik. Meglepő, de a „könnyű esti meló” is adat.',
+              rows: [
+                { id: 'evening', title: '„esti munka egyetem mellett”', description: 'Van kapcsolódó ajánlat, de a címkék nem hozzák fel elég jól.', status: 'Szinonima', impact: 'Több releváns találat' },
+                { id: 'weekly-pay', title: '„heti fizetés”', description: 'Gyakori keresés, kevés hirdetés emeli ki egyértelműen.', status: 'Hirdetés szöveg', impact: 'Magasabb jelentkezési arány' },
+                { id: 'remote-admin', title: '„otthoni adminisztráció”', description: 'Kereslet van, de a partneri ajánlatok vegyesen vannak címkézve.', status: 'Kategória tisztítás', impact: 'Kevesebb elvesző keresés' },
+              ],
+            },
+          ],
+          assistant,
+        }
+      : {
+          eyebrow: 'Search patterns',
+          title: 'What do candidates want that the platform does not return well enough?',
+          description: 'Search often reveals demand before reports do. This is where missing labels, weak synonyms, and bad matches appear.',
+          metrics: [
+            { id: 'failed', label: 'Weak results', value: '428', caption: 'last 14 days', icon: 'search_off', tone: 'danger' },
+            { id: 'themes', label: 'Search themes', value: '6', caption: 'AI clustered', icon: 'hub', tone: 'primary' },
+            { id: 'synonyms', label: 'Synonym fixes', value: '11', caption: 'quick changes', icon: 'tune', tone: 'success' },
+            { id: 'hidden', label: 'Hidden relevance', value: '37%', caption: 'role exists, result weak', icon: 'visibility_off', tone: 'warning' },
+          ],
+          sections: [
+            {
+              title: 'Searches that hide real demand',
+              description: 'Candidates do not always think in professional taxonomy. Funny enough, “easy evening work” is data.',
+              rows: [
+                { id: 'evening', title: '"evening job next to university"', description: 'Relevant jobs exist, but labels do not surface them well enough.', status: 'Synonym', impact: 'More relevant results' },
+                { id: 'weekly-pay', title: '"weekly pay"', description: 'Common search, but few ads make it explicit.', status: 'Ad copy', impact: 'Higher application rate' },
+                { id: 'remote-admin', title: '"remote admin work"', description: 'Demand exists, but partner offers are inconsistently labeled.', status: 'Category cleanup', impact: 'Fewer lost searches' },
+              ],
+            },
+          ],
+          assistant,
+        },
+    partners: hu
+      ? {
+          eyebrow: 'Partneri prioritások',
+          title: 'Melyik partnerhez nyúljon először a csapat?',
+          description: 'A partneri igények nem egyformán sürgősek. Ez a nézet segít sorrendet rakni kereslet, jelöltellátottság és üzleti hatás alapján.',
+          metrics: [
+            { id: 'urgent-partners', label: 'Kiemelt partner', value: '5', caption: 'héten kezelendő', icon: 'handshake', tone: 'danger' },
+            { id: 'open-roles', label: 'Nyitott pozíció', value: '186', caption: 'aktív igény', icon: 'assignment', tone: 'warning' },
+            { id: 'coverage', label: 'Jelöltfedezet', value: '72%', caption: 'megfelelő jelölt', icon: 'groups', tone: 'primary' },
+            { id: 'expected', label: 'Várható érték', value: '24,5k $', caption: 'közeli lehetőség', icon: 'trending_up', tone: 'success' },
+          ],
+          sections: [
+            {
+              title: 'Heti partneri teendők',
+              description: 'Ez nem CRM-helyettesítő. Ez egy vezetői sorrend: kivel kell ma beszélni, és miért.',
+              rows: [
+                { id: 'retail-chain', title: 'Nagy kereskedelmi partner', description: 'Nő az igény hétvégi műszakokra, de a jelöltfedezet gyenge.', status: 'Mai hívás', impact: 'Elvesző megbízások csökkentése' },
+                { id: 'event-agency', title: 'Rendezvényes partner', description: 'Szezonális csúcs jön, a korábbi jelöltpool jól újraaktiválható.', status: 'Kampány', impact: 'Gyors feltöltés' },
+                { id: 'office-admin', title: 'Irodai admin partner', description: 'Jó jelöltfedezet, de lassú partneri válaszidő.', status: 'Utánkövetés', impact: 'Rövidebb betöltési idő' },
+              ],
+            },
+          ],
+          assistant,
+        }
+      : {
+          eyebrow: 'Partner priorities',
+          title: 'Which partner should the team handle first?',
+          description: 'Partner requests are not equally urgent. This view orders them by demand, candidate coverage, and business impact.',
+          metrics: [
+            { id: 'urgent-partners', label: 'Priority partners', value: '5', caption: 'handle this week', icon: 'handshake', tone: 'danger' },
+            { id: 'open-roles', label: 'Open roles', value: '186', caption: 'active demand', icon: 'assignment', tone: 'warning' },
+            { id: 'coverage', label: 'Candidate coverage', value: '72%', caption: 'good-fit candidates', icon: 'groups', tone: 'primary' },
+            { id: 'expected', label: 'Expected value', value: '$24.5k', caption: 'near-term opportunity', icon: 'trending_up', tone: 'success' },
+          ],
+          sections: [
+            {
+              title: 'This week’s partner actions',
+              description: 'This is not a CRM replacement. It is a leadership order: who needs attention today, and why.',
+              rows: [
+                { id: 'retail-chain', title: 'Large retail partner', description: 'Weekend shift demand is rising, but candidate coverage is weak.', status: 'Call today', impact: 'Reduce lost requests' },
+                { id: 'event-agency', title: 'Event partner', description: 'Seasonal peak is coming, and the past candidate pool can be reactivated.', status: 'Campaign', impact: 'Faster fill' },
+                { id: 'office-admin', title: 'Office admin partner', description: 'Good candidate coverage, but partner response time is slow.', status: 'Follow-up', impact: 'Shorter time-to-fill' },
+              ],
+            },
+          ],
+          assistant,
+        },
+  };
+
+  return data[moduleId] || null;
 }

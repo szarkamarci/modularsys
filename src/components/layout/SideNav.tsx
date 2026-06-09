@@ -33,9 +33,12 @@ export default function SideNav() {
             <div className="flex-1 overflow-y-auto px-3 py-3 space-y-1">
                 {navItems.map((item) => {
                     // Exact match for overview, prefix match for sub-routes
+                    const isScenarioOverview = /^\/demo-dashboard\/scenario\/[^/]+$/.test(item.href);
                     const isActive =
-                        item.href === '/demo-dashboard'
+                        item.href === '/demo-dashboard' || isScenarioOverview
                             ? pathname === '/demo-dashboard'
+                                ? item.href === '/demo-dashboard'
+                                : pathname === item.href
                             : pathname.startsWith(item.href);
 
                     if (isActive) {
