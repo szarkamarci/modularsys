@@ -1,25 +1,30 @@
 {
   "header": {
-    "features": "Features",
-    "pricing": "Pricing",
-    "resources": "Resources",
-    "cta": "Rescue My Data"
+    "solution": "Solution",
+    "how_it_works": "How It Works",
+    "use_cases": "Use Cases",
+    "demo": "Demo",
+    "cta": "Free Funnel Review"
   },
   "hero": {
     "badge": "Operational Intelligence Layer",
-    "title_start": "The End of ",
-    "title_highlight": "Guesswork",
-    "title_end": "",
-    "subtitle": "Turn operational data into decisions your team can act on.",
-    "supporting": "ModularAI turns fragmented business data into dashboards, forecasts, risk signals, and practical recommendations — without enterprise complexity.",
-    "cta_primary": "Rescue My Data (Free Audit)",
-    "cta_secondary": "Watch the Demo",
-    "stat_badge": "Live Status",
-    "stat_title": "Live Decision Support",
-    "stat_label": "Decision Readiness"
+    "headline": "Stop optimizing for clicks. Start optimizing for outcomes.",
+    "subtitle": "ModularAI connects your advertising, website and business data to show which campaigns, products and offers actually lead to registrations, purchases, qualified leads and revenue.",
+    "supporting": "Discover where users drop out, what is worth scaling and where your advertising budget is generating traffic without meaningful business results.",
+    "cta_primary": "Book a Free Funnel Review",
+    "cta_secondary": "See the Demo",
+    "trust_note": "20-minute discovery call. No technical preparation required.",
+    "funnel_title": "Campaign Funnel",
+    "funnel_demo_label": "Demo Data",
+    "funnel_stage1": "Ad Clicks",
+    "funnel_stage2": "Landing Visits",
+    "funnel_stage3": "Registrations",
+    "funnel_stage4": "Qualified Outcomes",
+    "funnel_insight": "Largest drop-off: Registration form"
   },
   "trustbar": {
-    "quote": "Built by AI specialists. Designed for business teams."
+    "quote": "Your ad platform measures clicks. ModularAI helps connect them to real business outcomes.",
+    "subtext": "No black-box promises. Just clear data connections and practical insights."
   },
   "beforeAfter": {
     "title": "The Data Transformation",
@@ -32,22 +37,21 @@
     "order_value": "+577 units"
   },
   "features": {
-    "feat1_title": "Forecasting & Risk Signals",
-    "feat1_subtitle": "",
-    "feat1_desc": "Detect demand changes, capacity issues, stockout risks, weak processes, or operational bottlenecks before they become expensive problems.",
-    "feat1_stat": "Risk Signal Identified",
-    "feat2_title": "Data Quality & Anomaly Detection",
-    "feat2_desc": "Find duplicate records, missing data, unusual drops, inconsistent reports, and hidden issues inside your existing business data.",
-    "feat2_stat_label": "Warning Signal",
-    "feat2_stat_val": "Data Gap",
-    "feat3_title": "Recommendation & Opportunity Engine",
-    "feat3_desc": "Identify what to reorder, what to promote, which customers or partners need attention, which searches are not converting, or where your team should focus next.",
-    "feat3_item1": "Reorder Priorities",
-    "feat3_item2": "Accounts Needing Attention",
-    "feat3_item3": "Unconverted Searches",
-    "feat4_title": "Executive Reporting",
-    "feat4_desc": "Turn scattered operational data into clear dashboards, summaries, and exportable reports that managers can actually use.",
-    "feat4_stat": "Exportable Reports"
+    "feat1_title": "Campaign-to-Conversion Intelligence",
+    "feat1_desc": "See which Meta and Google campaigns generate real registrations, purchases, applications, qualified leads or revenue — not just clicks.",
+    "feat1_stat": "Campaign funnel example",
+    "feat2_title": "Funnel Drop-off Analysis",
+    "feat2_desc": "Identify where users disappear between the ad, landing page, form, registration, application or purchase.",
+    "feat2_stat_label": "Drop-off detected",
+    "feat2_stat_val": "Form step",
+    "feat3_title": "Product & Offer Intelligence",
+    "feat3_desc": "Understand which products, jobs, services or offers are worth promoting based on real downstream business results.",
+    "feat3_item1": "Scale this campaign",
+    "feat3_item2": "Investigate this offer",
+    "feat3_item3": "Reduce low-quality traffic",
+    "feat4_title": "Clear Recommendations",
+    "feat4_desc": "Turn fragmented campaign and business data into clear priorities, management summaries and practical next steps.",
+    "feat4_stat": "Actionable reports"
   },
   "use_cases": {
     "title": "Built Around Your Business Data",

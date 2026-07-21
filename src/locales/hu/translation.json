@@ -1,25 +1,30 @@
 {
   "header": {
-    "features": "Funkciók",
-    "pricing": "Árazás",
-    "resources": "Erőforrások",
-    "cta": "Mentsd Meg az Adataimat"
+    "solution": "Megoldás",
+    "how_it_works": "Hogyan működik?",
+    "use_cases": "Felhasználási területek",
+    "demo": "Demó",
+    "cta": "Ingyenes felmérés"
   },
   "hero": {
-    "badge": "Operatív Intelligencia Réteg",
-    "title_start": "A Találgatások ",
-    "title_highlight": "Vége",
-    "title_end": "",
-    "subtitle": "Alakítsa a működési adatokat olyan döntésekké, amelyek alapján a csapata lépni tud.",
-    "supporting": "A ModularAI a széttöredezett üzleti adatokat műszerfalakká, előrejelzésekké, kockázati jelzésekké és gyakorlati ajánlásokká alakítja — vállalati komplexitás nélkül.",
-    "cta_primary": "Mentsd Meg az Adataimat (Ingyenes Audit)",
-    "cta_secondary": "Nézd meg a Demót",
-    "stat_badge": "Élő Státusz",
-    "stat_title": "Élő Döntéstámogatás",
-    "stat_label": "Döntési Készenlét"
+    "badge": "Üzleti döntéstámogató platform",
+    "headline": "Ne csak a kattintásokat mérd. Lásd a valódi eredményeket.",
+    "subtitle": "A ModularAI összekapcsolja a hirdetési, weboldal- és üzleti adatokat, hogy lásd, mely kampányok, termékek és ajánlatok hoznak valódi regisztrációt, vásárlást, minőségi érdeklődőt vagy bevételt.",
+    "supporting": "Tudd meg, hol vesznek el a felhasználók, mit érdemes tovább skálázni, és mely hirdetések hoznak csak forgalmat valódi üzleti eredmény nélkül.",
+    "cta_primary": "Ingyenes funnel-felmérés",
+    "cta_secondary": "Demó megtekintése",
+    "trust_note": "20 perces egyeztetés. Nincs szükség technikai előkészületre.",
+    "funnel_title": "Kampányfunnel",
+    "funnel_demo_label": "Példaadatok",
+    "funnel_stage1": "Hirdetési kattintások",
+    "funnel_stage2": "Landing látogatások",
+    "funnel_stage3": "Regisztrációk",
+    "funnel_stage4": "Minőségi eredmények",
+    "funnel_insight": "Legnagyobb lemorzsolódás: regisztrációs űrlap"
   },
   "trustbar": {
-    "quote": "AI specialisták építették. Üzleti csapatoknak tervezve."
+    "quote": "A hirdetési platform méri a kattintást. A ModularAI segít összekötni azt a valódi üzleti eredménnyel.",
+    "subtext": "Nincs fekete doboz és túlzó êgéretek. Csak átlátható adatkapcsolatok és gyakorlati meglátások."
   },
   "beforeAfter": {
     "title": "Az Adattranszformáció",
@@ -32,22 +37,21 @@
     "order_value": "+577 egység"
   },
   "features": {
-    "feat1_title": "Előrejelzések és korai jelzések",
-    "feat1_subtitle": "",
-    "feat1_desc": "Vegye észre időben a keresletváltozást, kapacitásgondot, készlethiányt vagy folyamatbeli elakadást, mielőtt valódi költséggé válik.",
-    "feat1_stat": "Korai jelzés",
-    "feat2_title": "Adatminőség és hibajelzések",
-    "feat2_desc": "Kerüljenek elő a duplikált rekordok, hiányzó adatok, szokatlan visszaesések, ellentmondó riportok és rejtett adatproblémák.",
-    "feat2_stat_label": "Figyelmeztetés",
-    "feat2_stat_val": "Adathiány",
-    "feat3_title": "Ajánlások és üzleti lehetőségek",
-    "feat3_desc": "Látszódjon, mit érdemes újrarendelni, mit kellene kiemelni, mely ügyfél vagy partner igényel figyelmet, és hol marad bent érték a folyamatban.",
-    "feat3_item1": "Rendelési prioritások",
-    "feat3_item2": "Figyelmet kérő ügyfelek",
-    "feat3_item3": "Elvesző keresések",
-    "feat4_title": "Vezetői összefoglalók",
-    "feat4_desc": "A szétszórt működési adatokból legyen áttekinthető dashboard, rövid összefoglaló és megosztható vezetői riport.",
-    "feat4_stat": "Megosztható riportok"
+    "feat1_title": "Kampánytól a konverzióig",
+    "feat1_desc": "Lásd, mely Meta- és Google-kampányok hoznak valódi regisztrációt, vásárlást, jelent kezést, minőségi érdeklődőt vagy bevételt — nem csak kattintást.",
+    "feat1_stat": "Kampányfunnel-példa",
+    "feat2_title": "Lemorzsolódási pontok feltárása",
+    "feat2_desc": "Azonosítsd, hol vesznek el a felhasználók a hirdetés, a landing oldal, az űrlap, a regisztráció, a jelent kezés vagy a vásárlás között.",
+    "feat2_stat_label": "Lemorzsolódás észlelve",
+    "feat2_stat_val": "Űrlaplépés",
+    "feat3_title": "Termék- és ajánlatintelligencia",
+    "feat3_desc": "Tudd meg, mely termékeket, állásokat, szolgáltatásokat vagy ajánlatokat érdemes hirdetni a tényleges üzleti eredmények alapján.",
+    "feat3_item1": "Kampány skálázása",
+    "feat3_item2": "Ajánlat felülvizsgálata",
+    "feat3_item3": "Gyenge minőségű forgalom csökkentése",
+    "feat4_title": "Egyértelmű javaslatok",
+    "feat4_desc": "Alakítsd a szétszórt kampány- és üzleti adatokat világos prioritásokká, vezetői összefoglalókká és konkrét következő lépésekké.",
+    "feat4_stat": "Gyakorlati riportok"
   },
   "use_cases": {
     "title": "Az adataikhoz igazítva",

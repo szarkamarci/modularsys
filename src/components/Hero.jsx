@@ -3,11 +3,76 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+const FunnelCard = ({ t }) => {
+  const stages = [
+    { key: 'hero.funnel_stage1', value: '2,140', icon: 'ads_click' },
+    { key: 'hero.funnel_stage2', value: '1,680', icon: 'web' },
+    { key: 'hero.funnel_stage3', value: '186', icon: 'how_to_reg', highlight: true },
+    { key: 'hero.funnel_stage4', value: '43', icon: 'verified' },
+  ];
+
+  return (
+    <div className="relative bg-surface-container-lowest p-6 rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.08)] border border-outline-variant/10">
+      {/* Card header */}
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <p className="font-headline font-bold text-on-surface">{t('hero.funnel_title')}</p>
+          <span className="inline-block mt-0.5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary rounded-full">
+            {t('hero.funnel_demo_label')}
+          </span>
+        </div>
+        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+          <span className="material-symbols-outlined text-primary text-xl">conversion_path</span>
+        </div>
+      </div>
+
+      {/* Funnel stages */}
+      <div className="space-y-2">
+        {stages.map((stage, i) => {
+          const maxVal = 2140;
+          const val = parseInt(stage.value.replace(',', ''));
+          const pct = Math.round((val / maxVal) * 100);
+          const isDropoff = stage.highlight;
+
+          return (
+            <div
+              key={i}
+              className={`rounded-lg px-3 py-2.5 ${isDropoff ? 'bg-error/5 border border-error/20' : 'bg-surface-container-low'}`}
+            >
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-2">
+                  <span className={`material-symbols-outlined text-base ${isDropoff ? 'text-error' : 'text-primary'}`}>{stage.icon}</span>
+                  <span className={`text-xs font-semibold ${isDropoff ? 'text-error' : 'text-on-surface-variant'}`}>
+                    {t(stage.key)}
+                  </span>
+                </div>
+                <span className={`text-sm font-bold ${isDropoff ? 'text-error' : 'text-on-surface'}`}>{stage.value}</span>
+              </div>
+              <div className="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${isDropoff ? 'bg-error/60' : 'bg-primary/60'}`}
+                  style={{ width: `${pct}%` }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Footer insight */}
+      <div className="mt-4 pt-3 border-t border-outline-variant/10 flex items-center gap-2">
+        <span className="material-symbols-outlined text-error text-sm">warning</span>
+        <p className="text-xs text-on-surface-variant">{t('hero.funnel_insight')}</p>
+      </div>
+    </div>
+  );
+};
+
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32 pt-24 md:pt-32 relative">
+    <section id="solution" className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32 pt-24 md:pt-32 relative">
       
       {/* Desktop Background Graphic: Glass Orb */}
       <div className="hidden md:block absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 -z-10 pointer-events-none opacity-40">
@@ -44,14 +109,14 @@ const Hero = () => {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-on-surface mb-6 md:mb-8 leading-[1.1]"
           >
-            {t('hero.title_start')}<span className="text-primary italic">{t('hero.title_highlight')}</span>{t('hero.title_end')}
+            {t('hero.headline')}
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-on-surface-variant text-lg md:text-2xl leading-relaxed mb-8 md:mb-10 max-w-2xl"
+            className="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-4 md:mb-6 max-w-2xl"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -60,7 +125,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.8 }}
-            className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-2xl"
+            className="text-on-surface-variant text-base leading-relaxed mb-8 md:mb-10 max-w-2xl"
           >
             {t('hero.supporting')}
           </motion.p>
@@ -74,43 +139,30 @@ const Hero = () => {
             <Link to="/audit" className="w-full sm:w-auto text-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20 inline-block">
               {t('hero.cta_primary')}
             </Link>
-            <Link to="/get-started" className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block">
+            <Link to="/demo-dashboard" className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block">
               {t('hero.cta_secondary')}
             </Link>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-4 text-sm text-on-surface-variant"
+          >
+            {t('hero.trust_note')}
+          </motion.p>
         </div>
         
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="lg:w-2/5 relative"
+          className="lg:w-2/5 w-full relative"
         >
           <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
-          <div className="relative bg-surface-container-lowest p-8 rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.06)] border border-outline-variant/10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-tertiary-fixed-variant">query_stats</span>
-              </div>
-              <div>
-                <p className="text-xs text-on-surface-variant uppercase tracking-widest font-bold">{t('hero.stat_badge')}</p>
-                <p className="font-headline font-bold">{t('hero.stat_title')}</p>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "75%" }}
-                  transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
-                  className="h-full bg-primary rounded-full"
-                ></motion.div>
-              </div>
-              <div className="flex justify-between text-sm font-semibold">
-                <span className="text-on-surface-variant">{t('hero.stat_label')}</span>
-                <span className="text-primary">+42.8%</span>
-              </div>
-            </div>
+          <div className="relative">
+            <FunnelCard t={t} />
           </div>
         </motion.div>
       </div>

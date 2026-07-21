@@ -24,18 +24,15 @@ const Header = () => {
             <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-14 w-auto" />
           </Link>
         </div>
-        <div className="hidden md:flex items-center gap-12">
-          <Link to="/" className={`font-semibold transition-colors duration-300 ${location.pathname === '/' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>{t('header.features')}</Link>
-          <Link to="/pricing" className={`font-semibold transition-colors duration-300 ${location.pathname === '/pricing' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>
-            {t('header.pricing')}
-          </Link>
-          <Link to="/resources" className={`font-semibold transition-colors duration-300 ${location.pathname === '/resources' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>
-            {t('header.resources')}
-          </Link>
+        <div className="hidden md:flex items-center gap-8">
+          <a href="/#features" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.solution')}</a>
+          <a href="/#how-it-works" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.how_it_works')}</a>
+          <a href="/#use-cases" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.use_cases')}</a>
+          <Link to="/demo-dashboard" className={`font-semibold transition-colors duration-300 ${location.pathname.startsWith('/demo-dashboard') ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>{t('header.demo')}</Link>
         </div>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Link to="/audit" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20">
+          <Link to="/audit" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20 whitespace-nowrap">
             {t('header.cta')}
           </Link>
         </div>

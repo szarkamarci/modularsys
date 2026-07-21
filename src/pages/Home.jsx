@@ -1,5 +1,4 @@
 import Hero from '../components/Hero';
-import Testimonial from '../components/Testimonial';
 import BeforeAfter from '../components/BeforeAfter';
 import Features from '../components/Features';
 import UseCases from '../components/UseCases';
@@ -12,7 +11,6 @@ const Home = () => {
     <main className="overflow-x-hidden pt-12 md:pt-0">
       <InteractiveBackground variant="hero" />
       <Hero />
-      <Testimonial />
       <BeforeAfter />
       <Features />
       <UseCases />
