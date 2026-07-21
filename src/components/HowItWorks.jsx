@@ -7,33 +7,33 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      num: "1",
+      num: '1',
       title: t('how_it_works.step1_title'),
       desc: t('how_it_works.step1_desc'),
-      icon: "search"
+      icon: 'forum',
     },
     {
-      num: "2",
+      num: '2',
       title: t('how_it_works.step2_title'),
       desc: t('how_it_works.step2_desc'),
-      icon: "dashboard"
+      icon: 'database',
     },
     {
-      num: "3",
+      num: '3',
       title: t('how_it_works.step3_title'),
       desc: t('how_it_works.step3_desc'),
-      icon: "insights"
+      icon: 'dashboard',
     },
     {
-      num: "4",
+      num: '4',
       title: t('how_it_works.step4_title'),
       desc: t('how_it_works.step4_desc'),
-      icon: "rocket_launch"
-    }
+      icon: 'autorenew',
+    },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-32 relative">
+    <section id="how-it-works" className="max-w-7xl mx-auto px-4 md:px-8 mb-32 relative scroll-mt-24">
       <div className="text-center mb-16">
         <h2 className="font-headline text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-4">
           {t('how_it_works.title')}
@@ -42,13 +42,13 @@ const HowItWorks = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
         {steps.map((step, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
-            className="bg-surface-container-lowest glass-card rounded-2xl p-8 shadow-md border border-outline-variant/10 relative overflow-hidden"
+            className="bg-surface-container-lowest glass-card rounded-2xl p-8 shadow-md border border-outline-variant/10 relative overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300"
           >
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl pointer-events-none"></div>
             
@@ -66,7 +66,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Security / Trust Block */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -75,8 +75,8 @@ const HowItWorks = () => {
       >
         <div className="md:w-1/3 flex justify-center">
           <div className="w-24 h-24 rounded-full bg-secondary-container flex items-center justify-center relative">
-             <div className="absolute inset-0 bg-secondary/10 rounded-full animate-ping opacity-75"></div>
-             <span className="material-symbols-outlined text-4xl text-on-secondary-container" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
+            <div className="absolute inset-0 bg-secondary/10 rounded-full animate-ping opacity-75"></div>
+            <span className="material-symbols-outlined text-4xl text-on-secondary-container" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
           </div>
         </div>
         <div className="md:w-2/3 text-center md:text-left">

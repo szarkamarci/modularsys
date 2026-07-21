@@ -33,7 +33,7 @@ const Features = () => {
         <div className="md:col-span-4 bg-surface-container-lowest border border-surface-container rounded-lg p-10 flex flex-col justify-between shadow-[0px_20px_40px_rgba(87,73,194,0.03)]">
           <div>
             <div className="w-14 h-14 rounded-2xl bg-tertiary-container flex items-center justify-center mb-8">
-              <span className="material-symbols-outlined text-white text-3xl">funnel</span>
+              <span className="material-symbols-outlined text-white text-3xl">filter_alt</span>
             </div>
             <h3 className="font-headline text-2xl font-bold mb-4">{t('features.feat2_title')}</h3>
             <p className="text-on-surface-variant leading-relaxed mb-6">

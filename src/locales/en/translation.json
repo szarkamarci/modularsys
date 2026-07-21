@@ -54,16 +54,16 @@
     "feat4_stat": "Actionable reports"
   },
   "use_cases": {
-    "title": "Built Around Your Business Data",
-    "intro": "ModularAI is configurable: the same decision-support layer can be adapted to different businesses, data sources, and operational problems.",
-    "case1_title": "Retail, Wholesale & Inventory",
-    "case1_desc": "Stockout risks, reorder suggestions, product performance, basket analysis, warehouse visibility.",
+    "title": "Built Around Real Business Outcomes",
+    "intro": "Start with one measurable funnel or decision problem, then expand ModularAI into wider sales, operational, inventory and reporting use cases.",
+    "case1_title": "E-commerce & Product Businesses",
+    "case1_desc": "Connect campaigns to product views, carts, purchases and revenue. Identify which products and offers are worth promoting and where customers leave the funnel.",
     "case2_title": "Recruitment & Workforce Platforms",
-    "case2_desc": "Job demand, candidate activity, matching quality, search behavior, partner performance, and drop-off points.",
-    "case3_title": "Sales & Account Management",
-    "case3_desc": "Customer activity, weak accounts, upsell opportunities, performance trends, missed revenue signals.",
-    "case4_title": "Operations & Admin Workflows",
-    "case4_desc": "Manual reporting, repeated bottlenecks, process delays, data quality issues, team-level visibility."
+    "case2_desc": "Track the journey from campaign to registration, application and successful placement. Understand candidate activity, job demand and application drop-off.",
+    "case3_title": "Service & Lead-Generation Businesses",
+    "case3_desc": "Measure which campaigns create qualified leads, completed forms, sales opportunities and customers — not only low-cost traffic.",
+    "case4_title": "Operational Decision Support",
+    "case4_desc": "Expand into reporting, forecasting, anomaly detection, inventory insights and management recommendations once the first use case creates value."
   },
   "demo_selector": {
     "badge": "ModularAI Demo Platform",
@@ -96,10 +96,10 @@
     }
   },
   "cta": {
-    "title": "Ready to turn messy data into clear decisions?",
-    "subtitle": "Start with a free data audit and discover where ModularAI can create value in your current workflow.",
-    "button": "Rescue My Data (Free Audit)",
-    "disclaimer": "No credit card required. Start with a free data audit."
+    "title": "Ready to see what happens after the click?",
+    "subtitle": "Start with a short funnel review and identify what can currently be measured, where visibility is missing and whether a focused pilot could create value.",
+    "button": "Book a Free Funnel Review",
+    "disclaimer": "20-minute discovery call. No technical preparation required."
   },
   "footer": {
     "rights": "© 2026 ModularAI. All rights reserved.",
@@ -225,20 +225,20 @@
   },
   "how_it_works": {
     "title": "How ModularAI Works",
-    "step1_title": "Data Audit",
-    "step1_desc": "We review your spreadsheets, ERP exports, databases, webshop data, platform activity, or existing reporting workflows.",
-    "step2_title": "Pilot Dashboard",
-    "step2_desc": "We build a focused dashboard around one high-value business problem, such as inventory, sales, recruitment, operations, platform activity, or reporting.",
-    "step3_title": "Predictive Layer",
-    "step3_desc": "We add forecasting, recommendations, anomaly detection, or AI-assisted reporting where it creates measurable value.",
-    "step4_title": "Automation & Integration",
-    "step4_desc": "We connect insights into your daily workflow so reports, alerts, and recommendations become actionable.",
+    "step1_title": "Short Discovery Call",
+    "step1_desc": "We identify one measurable business question worth solving. No technical preparation is required.",
+    "step2_title": "Data Review",
+    "step2_desc": "We review the relevant campaign, website, CRM, registration, sales or operational data.",
+    "step3_title": "Focused Pilot",
+    "step3_desc": "We analyse one funnel or decision problem and present the findings in a clear dashboard or report.",
+    "step4_title": "Recurring Intelligence",
+    "step4_desc": "If the pilot creates value, we turn the analysis into recurring reports, recommendations and integrations.",
     "trust_title": "Your data stays under control.",
-    "trust_desc": "ModularAI can work with private databases, controlled access, and custom integrations depending on your company's security and workflow requirements.",
-    "trust_bullet1": "Private or controlled deployment options",
+    "trust_desc": "ModularAI works with agreed data access, controlled integrations and deployment options suited to the project's security and workflow requirements.",
+    "trust_bullet1": "Controlled or private deployment options",
     "trust_bullet2": "Role-based access possibilities",
     "trust_bullet3": "Custom integrations with existing systems",
-    "trust_bullet4": "No unnecessary data exposure"
+    "trust_bullet4": "Only the data necessary for the agreed purpose"
   },
   "testimonial": {
     "quote": "\"ModularAI helped us turn scattered operational data into a clear dashboard our team can actually use.\"",

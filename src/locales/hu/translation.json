@@ -54,16 +54,16 @@
     "feat4_stat": "Gyakorlati riportok"
   },
   "use_cases": {
-    "title": "Az adataikhoz igazítva",
-    "intro": "A ModularAI nem egyetlen iparágra készül: ugyanaz a döntéstámogató réteg más-más adatforrásokra és üzleti kérdésekre szabható.",
-    "case1_title": "Kereskedelem, nagyker és készlet",
-    "case1_desc": "Készlethiány, rendelési javaslatok, termékteljesítmény, kosárelemzés és raktári átláthatóság.",
-    "case2_title": "Toborzási és munkaerő-platformok",
-    "case2_desc": "Álláskereslet, jelöltaktivitás, illesztési minőség, keresési minták, partneri teljesítmény és lemorzsolódási pontok.",
-    "case3_title": "Értékesítés és ügyfélkezelés",
-    "case3_desc": "Ügyfélaktivitás, gyengülő kapcsolatok, upsell jelek, teljesítménytrendek és bent maradó bevétel.",
-    "case4_title": "Operáció és adminisztráció",
-    "case4_desc": "Manuális riportok, ismétlődő elakadások, késések, adatminőségi hibák és csapatszintű átláthatóság."
+    "title": "Valódi üzleti eredményekre építve",
+    "intro": "Indulj el egy mérhető funnel- vagy döntési problémával, majd bővítsd a ModularAI használatát értékesítési, működési, készletgazdálkodási és riporting területekre.",
+    "case1_title": "Webshopok és termékatalapú vállalkozások",
+    "case1_desc": "Kapcsold össze a kampányokat a termékmegtekintésekkel, kosarakkal, vásárlásokkal és bevétellel. Tudd meg, mely termékeket és ajánlatokat érdemes hirdetni, és hol vesznek el a vásárlók.",
+    "case2_title": "Toborzási és munkaerő-közvetítő platformok",
+    "case2_desc": "Kövesd végig az utat a kampánytól a regisztráción és jelent kezésen át a sikeres elhelyezésig. Lásd a jelöltaktivitást, az álláskeresletet és a jelent kezési lemorzsolódást.",
+    "case3_title": "Szolgáltatók és leadgeneráló vállalkozások",
+    "case3_desc": "Mérd, mely kampányok hoznak minőségi érdeklődőket, kitöltött űrlapokat, értékesítési lehetőségeket és ügyfeleket — nem csak olcsó forgalmat.",
+    "case4_title": "Operatív döntéstámogatás",
+    "case4_desc": "Bővítsd a rendszert riportinggal, előrejelzéssel, anomáliaészleléssel, készletinformációkkal és vezetői javaslatokkal, miután az első use case már értéket teremt."
   },
   "demo_selector": {
     "badge": "ModularAI bemutató",
@@ -96,10 +96,10 @@
     }
   },
   "cta": {
-    "title": "Készen állsz a kaotikus adatok tiszta döntésekké alakítására?",
-    "subtitle": "Kezdd egy fókuszált adataudittal, és fedezd fel, hol teremthet értéket a prediktív elemzés.",
-    "button": "Mentsd Meg az Adataimat (Ingyenes Audit)",
-    "disclaimer": "Nincs szükség bankkártyára. Kezdd egy ingyenes adataudittal."
+    "title": "Szeretnéd látni, mi történik a kattintás után?",
+    "subtitle": "Indulj egy rövid funnel-felméréssel, és nézzük meg, mi mérhető jelenleg, hol hiányzik az átláthatóság, és teremthet-e értéket egy fókuszált pilot.",
+    "button": "Ingyenes funnel-felmérés",
+    "disclaimer": "20 perces egyeztetés. Nincs szükség technikai előkészületre."
   },
   "footer": {
     "rights": "© 2026 ModularAI. Minden jog fenntartva.",
@@ -224,20 +224,20 @@
   },
   "how_it_works": {
     "title": "Hogyan működik a ModularAI?",
-    "step1_title": "Adataudit",
-    "step1_desc": "Áttekintjük táblázatait, ERP exportjait, adatbázisait, webshop adatait, platformaktivitását vagy meglévő riportálási folyamatait.",
-    "step2_title": "Kísérleti Műszerfal",
-    "step2_desc": "Építünk egy fókuszált műszerfalat egy kiemelt üzleti problémára, például készletre, értékesítésre, toborzásra, operációra, platformaktivitásra vagy riportálásra.",
-    "step3_title": "Prediktív Réteg",
-    "step3_desc": "Előrejelzéseket, ajánlásokat, anomália-észlelést vagy AI-támogatott jelentéseket adunk hozzá ott, ahol mérhető értéket teremt.",
-    "step4_title": "Automatizáció és Integráció",
-    "step4_desc": "Bekötjük a meglátásokat a napi munkafolyamatba, hogy a jelentések, riasztások és ajánlások gyakorlati lépésekké váljanak.",
-    "trust_title": "Az adatai biztonságban maradnak.",
-    "trust_desc": "A ModularAI képes privát adatbázisokkal, szabályozott hozzáféréssel és egyedi integrációkkal működni az Ön cégének biztonsági és munkafolyamat követelményeitől függően.",
-    "trust_bullet1": "Privát vagy szabályozott telepítési opciók",
-    "trust_bullet2": "Szerepkör-alapú hozzáférési lehetőségek",
-    "trust_bullet3": "Egyedi integrációk meglévő rendszerekkel",
-    "trust_bullet4": "Nincs felesleges adatexpozíció"
+    "step1_title": "Rövid egyeztetés",
+    "step1_desc": "Kiválasztunk egy mérhető üzleti kérdést, amelyet érdemes megoldani. Nincs szükség technikai előkészületre.",
+    "step2_title": "Adattáttekintés",
+    "step2_desc": "Áttekintjük a releváns kampány-, weboldal-, CRM-, regisztrációs, értékesítési vagy működési adatokat.",
+    "step3_title": "Fókuszált pilot",
+    "step3_desc": "Egy konkrét funnel- vagy döntési problémát elemzünk, az eredményeket pedig érthető dashboardon vagy riportban mutatjuk be.",
+    "step4_title": "Folyamatos döntéstámogatás",
+    "step4_desc": "Ha a pilot valódi értéket teremt, az elemzést rendszeres riportokká, javaslatokká és integrációkká alakítjuk.",
+    "trust_title": "Az adataid kontroll alatt maradnak.",
+    "trust_desc": "A ModularAI előre egyeztetett adathozzáféréssel, kontrollált integrációkkal és a projekt biztonsági, illetve működési igényeihez illeszkeddő telepítési lehetőségekkel dolgozik.",
+    "trust_bullet1": "Kontrollált vagy privát telepítési lehetőségek",
+    "trust_bullet2": "Szerepköralapú hozzáférés",
+    "trust_bullet3": "Egyedi integrációk a meglévő rendszerekkel",
+    "trust_bullet4": "Csak az egyeztetett célhoz szükséges adatok kezelése"
   },
   "testimonial": {
     "quote": "\"A ModularAI segített a szétszórt működési adatainkat egy olyan tiszta műszerfallá alakítani, amit a csapatunk ténylegesen használni is tud.\"",
