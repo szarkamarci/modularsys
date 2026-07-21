@@ -3,55 +3,71 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+const STAGE_COLORS = [
+  { bar: 'bg-primary', num: 'bg-primary text-white' },
+  { bar: 'bg-primary/65', num: 'bg-primary/20 text-primary' },
+  { bar: 'bg-error', num: 'bg-error text-white' },
+  { bar: 'bg-primary/25', num: 'bg-primary/10 text-primary/60' },
+];
+
 const FunnelCard = ({ t }) => {
   const stages = [
-    { key: 'hero.funnel_stage1', value: '2,140', icon: 'ads_click' },
-    { key: 'hero.funnel_stage2', value: '1,680', icon: 'web' },
-    { key: 'hero.funnel_stage3', value: '186', icon: 'how_to_reg', highlight: true },
-    { key: 'hero.funnel_stage4', value: '43', icon: 'verified' },
+    { key: 'hero.funnel_stage1', value: '2,140', pct: 100 },
+    { key: 'hero.funnel_stage2', value: '1,680', pct: 79  },
+    { key: 'hero.funnel_stage3', value: '186',   pct: 11, highlight: true },
+    { key: 'hero.funnel_stage4', value: '43',    pct: 2   },
   ];
 
   return (
-    <div className="relative bg-surface-container-lowest p-6 rounded-xl shadow-[0px_20px_40px_rgba(87,73,194,0.08)] border border-outline-variant/10">
-      {/* Card header */}
-      <div className="flex items-center justify-between mb-5">
-        <div>
-          <p className="font-headline font-bold text-on-surface">{t('hero.funnel_title')}</p>
-          <span className="inline-block mt-0.5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary rounded-full">
-            {t('hero.funnel_demo_label')}
-          </span>
+    <div className="relative bg-surface-container-lowest rounded-2xl shadow-[0px_28px_56px_rgba(87,73,194,0.12)] border border-outline-variant/10 overflow-hidden">
+
+      {/* Header */}
+      <div className="px-5 pt-5 pb-4 border-b border-outline-variant/10 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+            <span className="material-symbols-outlined text-primary" style={{ fontSize: '16px' }}>conversion_path</span>
+          </div>
+          <div>
+            <p className="font-headline font-bold text-on-surface text-sm leading-none">{t('hero.funnel_title')}</p>
+          </div>
         </div>
-        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-          <span className="material-symbols-outlined text-primary text-xl">conversion_path</span>
-        </div>
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-primary/8 text-primary rounded-full border border-primary/15">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0"></span>
+          {t('hero.funnel_demo_label')}
+        </span>
       </div>
 
       {/* Funnel stages */}
-      <div className="space-y-2">
+      <div className="px-5 py-4 space-y-2.5">
         {stages.map((stage, i) => {
-          const maxVal = 2140;
-          const val = parseInt(stage.value.replace(',', ''));
-          const pct = Math.round((val / maxVal) * 100);
+          const colors = STAGE_COLORS[i];
           const isDropoff = stage.highlight;
 
           return (
-            <div
-              key={i}
-              className={`rounded-lg px-3 py-2.5 ${isDropoff ? 'bg-error/5 border border-error/20' : 'bg-surface-container-low'}`}
-            >
-              <div className="flex items-center justify-between mb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`material-symbols-outlined text-base ${isDropoff ? 'text-error' : 'text-primary'}`}>{stage.icon}</span>
-                  <span className={`text-xs font-semibold ${isDropoff ? 'text-error' : 'text-on-surface-variant'}`}>
+            <div key={i} className={`rounded-xl p-3 ${isDropoff ? 'bg-error/5 border border-error/15' : 'bg-surface-container-low/70'}`}>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black shrink-0 ${colors.num}`}>
+                    {i + 1}
+                  </span>
+                  <span className={`text-xs font-semibold truncate ${isDropoff ? 'text-error' : 'text-on-surface-variant'}`}>
                     {t(stage.key)}
                   </span>
+                  {isDropoff && (
+                    <span className="shrink-0 text-[9px] font-bold uppercase tracking-wide text-error bg-error/10 px-1.5 py-0.5 rounded-full">
+                      drop-off
+                    </span>
+                  )}
                 </div>
-                <span className={`text-sm font-bold ${isDropoff ? 'text-error' : 'text-on-surface'}`}>{stage.value}</span>
+                <span className={`text-sm font-bold tabular-nums ml-2 shrink-0 ${isDropoff ? 'text-error' : 'text-on-surface'}`}>
+                  {stage.value}
+                </span>
               </div>
-              <div className="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+              {/* Progress bar */}
+              <div className="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all ${isDropoff ? 'bg-error/60' : 'bg-primary/60'}`}
-                  style={{ width: `${pct}%` }}
+                  className={`h-full rounded-full ${colors.bar}`}
+                  style={{ width: `${stage.pct}%` }}
                 />
               </div>
             </div>
@@ -59,10 +75,10 @@ const FunnelCard = ({ t }) => {
         })}
       </div>
 
-      {/* Footer insight */}
-      <div className="mt-4 pt-3 border-t border-outline-variant/10 flex items-center gap-2">
-        <span className="material-symbols-outlined text-error text-sm">warning</span>
-        <p className="text-xs text-on-surface-variant">{t('hero.funnel_insight')}</p>
+      {/* Insight footer */}
+      <div className="mx-5 mb-5 bg-error/5 border border-error/15 rounded-xl px-4 py-3 flex items-start gap-2.5">
+        <span className="material-symbols-outlined text-error shrink-0" style={{ fontSize: '15px', lineHeight: '1.4' }}>warning</span>
+        <p className="text-xs text-on-surface-variant leading-relaxed">{t('hero.funnel_insight')}</p>
       </div>
     </div>
   );
