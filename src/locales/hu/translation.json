@@ -14,13 +14,16 @@
     "cta_primary": "Ingyenes funnel-felmérés",
     "cta_secondary": "Demó megtekintése",
     "trust_note": "20 perces egyeztetés. Nincs szükség technikai előkészületre.",
-    "funnel_title": "Kampányfunnel",
+    "funnel_card_title": "Kampányfunnel-elemzés",
+    "funnel_subtitle": "Meta Ads + Google Search \u00b7 Elmúlt 30 nap \u00b7 Szinkronizálva 4 perce",
     "funnel_demo_label": "Példaadatok",
     "funnel_stage1": "Hirdetési kattintások",
     "funnel_stage2": "Landing látogatások",
     "funnel_stage3": "Regisztrációk",
     "funnel_stage4": "Minőségi eredmények",
-    "funnel_insight": "Legnagyobb lemorzsolódás: regisztrációs űrlap"
+    "funnel_insight_title": "Legnagyobb lemorzsolódás: regisztrációs űrlap",
+    "funnel_insight_desc": "A felhasználók elérik a landing oldalt, de a legtöbben az űrlap kitöltése előtt leépnek. Vizsgáld meg az űrlap hosszát, a bizalmi jelzéseket és a mobilos betöltési sebességet.",
+    "funnel_insight_cta": "Javaslat megtekintése"
   },
   "trustbar": {
     "quote": "A hirdetési platform méri a kattintást. A ModularAI segít összekötni azt a valódi üzleti eredménnyel.",

@@ -3,82 +3,171 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const STAGE_COLORS = [
-  { bar: 'bg-primary', num: 'bg-primary text-white' },
-  { bar: 'bg-primary/65', num: 'bg-primary/20 text-primary' },
-  { bar: 'bg-error', num: 'bg-error text-white' },
-  { bar: 'bg-primary/25', num: 'bg-primary/10 text-primary/60' },
-];
-
 const FunnelCard = ({ t }) => {
   const stages = [
-    { key: 'hero.funnel_stage1', value: '2,140', pct: 100 },
-    { key: 'hero.funnel_stage2', value: '1,680', pct: 79  },
-    { key: 'hero.funnel_stage3', value: '186',   pct: 11, highlight: true },
-    { key: 'hero.funnel_stage4', value: '43',    pct: 2   },
+    {
+      key: 'hero.funnel_stage1',
+      value: '2,140',
+      pct: null,
+      barPct: 100,
+      bottleneck: false,
+    },
+    {
+      key: 'hero.funnel_stage2',
+      value: '1,680',
+      pct: '78.5%',
+      barPct: 78,
+      bottleneck: false,
+    },
+    {
+      key: 'hero.funnel_stage3',
+      value: '186',
+      pct: '11.1%',
+      barPct: 11,
+      bottleneck: true,
+    },
+    {
+      key: 'hero.funnel_stage4',
+      value: '43',
+      pct: '23.1%',
+      barPct: 2,
+      bottleneck: false,
+    },
   ];
 
   return (
-    <div className="relative bg-surface-container-lowest rounded-2xl shadow-[0px_28px_56px_rgba(87,73,194,0.12)] border border-outline-variant/10 overflow-hidden">
+    <div
+      className="relative bg-white rounded-xl overflow-hidden"
+      style={{
+        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.04), 0 20px 48px -8px rgba(87,73,194,0.10), 0 0 0 1px rgba(0,0,0,0.05)',
+      }}
+    >
+      {/* Top bar — status strip */}
+      <div className="h-0.5 w-full bg-gradient-to-r from-primary/60 via-primary to-primary/40" />
 
       {/* Header */}
-      <div className="px-5 pt-5 pb-4 border-b border-outline-variant/10 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-primary" style={{ fontSize: '16px' }}>conversion_path</span>
-          </div>
-          <div>
-            <p className="font-headline font-bold text-on-surface text-sm leading-none">{t('hero.funnel_title')}</p>
+      <div className="px-5 pt-4 pb-3 border-b border-zinc-100">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <p className="font-headline font-bold text-zinc-900 text-sm tracking-tight">
+                {t('hero.funnel_card_title')}
+              </p>
+              <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-zinc-400 bg-zinc-100 px-1.5 py-0.5 rounded">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                {t('hero.funnel_demo_label')}
+              </span>
+            </div>
+            <p className="text-[11px] text-zinc-400 mt-0.5 leading-none font-medium">
+              {t('hero.funnel_subtitle')}
+            </p>
           </div>
         </div>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-primary/8 text-primary rounded-full border border-primary/15">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0"></span>
-          {t('hero.funnel_demo_label')}
-        </span>
+
+        {/* Source chips */}
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {['Meta', 'Google', 'CRM'].map((src) => (
+            <span
+              key={src}
+              className="text-[10px] font-semibold text-zinc-500 bg-zinc-50 border border-zinc-200 px-2 py-0.5 rounded-md leading-none"
+            >
+              {src}
+            </span>
+          ))}
+        </div>
       </div>
 
-      {/* Funnel stages */}
-      <div className="px-5 py-4 space-y-2.5">
-        {stages.map((stage, i) => {
-          const colors = STAGE_COLORS[i];
-          const isDropoff = stage.highlight;
-
-          return (
-            <div key={i} className={`rounded-xl p-3 ${isDropoff ? 'bg-error/5 border border-error/15' : 'bg-surface-container-low/70'}`}>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black shrink-0 ${colors.num}`}>
-                    {i + 1}
+      {/* Funnel rows */}
+      <div className="px-5 py-3 space-y-1.5">
+        {stages.map((stage, i) => (
+          <div
+            key={i}
+            className={`rounded-lg px-3 py-2.5 ${
+              stage.bottleneck
+                ? 'bg-rose-50 border border-rose-200/60'
+                : 'bg-zinc-50 border border-transparent'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <div className="flex items-center gap-2 min-w-0 flex-1">
+                <span
+                  className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                    stage.bottleneck ? 'bg-rose-400' : i === 0 ? 'bg-primary' : 'bg-zinc-300'
+                  }`}
+                />
+                <span
+                  className={`text-xs font-medium truncate ${
+                    stage.bottleneck ? 'text-rose-700' : 'text-zinc-600'
+                  }`}
+                >
+                  {t(stage.key)}
+                </span>
+                {stage.bottleneck && (
+                  <span className="shrink-0 text-[9px] font-bold uppercase tracking-wide text-rose-500 bg-rose-100 border border-rose-200 px-1.5 py-0.5 rounded-sm leading-none">
+                    Bottleneck
                   </span>
-                  <span className={`text-xs font-semibold truncate ${isDropoff ? 'text-error' : 'text-on-surface-variant'}`}>
-                    {t(stage.key)}
+                )}
+              </div>
+              <div className="flex items-center gap-2 ml-2 shrink-0">
+                {stage.pct && (
+                  <span
+                    className={`text-[11px] font-semibold tabular-nums ${
+                      stage.bottleneck ? 'text-rose-500' : 'text-zinc-400'
+                    }`}
+                  >
+                    {stage.pct}
                   </span>
-                  {isDropoff && (
-                    <span className="shrink-0 text-[9px] font-bold uppercase tracking-wide text-error bg-error/10 px-1.5 py-0.5 rounded-full">
-                      drop-off
-                    </span>
-                  )}
-                </div>
-                <span className={`text-sm font-bold tabular-nums ml-2 shrink-0 ${isDropoff ? 'text-error' : 'text-on-surface'}`}>
+                )}
+                <span
+                  className={`text-sm font-bold tabular-nums ${
+                    stage.bottleneck ? 'text-rose-700' : 'text-zinc-800'
+                  }`}
+                >
                   {stage.value}
                 </span>
               </div>
-              {/* Progress bar */}
-              <div className="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full ${colors.bar}`}
-                  style={{ width: `${stage.pct}%` }}
-                />
-              </div>
             </div>
-          );
-        })}
+
+            {/* Progress bar */}
+            <div className="h-1 w-full bg-zinc-200/60 rounded-full overflow-hidden">
+              <div
+                className={`h-full rounded-full transition-all ${
+                  stage.bottleneck
+                    ? 'bg-rose-400'
+                    : i === 0
+                    ? 'bg-primary'
+                    : i === 1
+                    ? 'bg-primary/55'
+                    : 'bg-primary/20'
+                }`}
+                style={{ width: `${stage.barPct}%` }}
+              />
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Insight footer */}
-      <div className="mx-5 mb-5 bg-error/5 border border-error/15 rounded-xl px-4 py-3 flex items-start gap-2.5">
-        <span className="material-symbols-outlined text-error shrink-0" style={{ fontSize: '15px', lineHeight: '1.4' }}>warning</span>
-        <p className="text-xs text-on-surface-variant leading-relaxed">{t('hero.funnel_insight')}</p>
+      {/* AI insight box */}
+      <div className="mx-5 mb-5 bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3">
+        <div className="flex items-start gap-2.5">
+          <span
+            className="material-symbols-outlined text-primary shrink-0 mt-0.5"
+            style={{ fontSize: '14px' }}
+          >
+            lightbulb
+          </span>
+          <div className="min-w-0">
+            <p className="text-xs font-semibold text-zinc-800 leading-snug mb-1">
+              {t('hero.funnel_insight_title')}
+            </p>
+            <p className="text-[11px] text-zinc-500 leading-relaxed">
+              {t('hero.funnel_insight_desc')}
+            </p>
+            <button className="mt-2 text-[11px] font-semibold text-primary hover:text-primary/80 transition-colors leading-none">
+              {t('hero.funnel_insight_cta')} →
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -104,22 +193,23 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Mobile Background Graphic: Magic Spheres */}
+      {/* Mobile Background Graphic */}
       <div className="block md:hidden absolute -top-10 -right-20 w-80 h-80 rounded-full magic-sphere pointer-events-none"></div>
       <div className="block md:hidden absolute top-20 -left-20 w-64 h-64 rounded-full bg-secondary-container/10 hero-bg-blur pointer-events-none"></div>
       <div className="block md:hidden absolute -bottom-10 right-0 w-48 h-48 border-[1.5px] border-primary/20 rounded-full hero-bg-blur opacity-20 pointer-events-none"></div>
 
       <div className="flex flex-col lg:flex-row gap-12 md:gap-20 items-center relative z-10">
+        {/* Left: copy */}
         <div className="lg:w-3/5">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-semibold tracking-wide"
           >
             {t('hero.badge')}
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
@@ -127,8 +217,8 @@ const Hero = () => {
           >
             {t('hero.headline')}
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -145,17 +235,23 @@ const Hero = () => {
           >
             {t('hero.supporting')}
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 w-full"
           >
-            <Link to="/audit" className="w-full sm:w-auto text-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20 inline-block">
+            <Link
+              to="/audit"
+              className="w-full sm:w-auto text-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-primary/20 inline-block"
+            >
               {t('hero.cta_primary')}
             </Link>
-            <Link to="/demo-dashboard" className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block">
+            <Link
+              to="/demo-dashboard"
+              className="w-full sm:w-auto text-center bg-surface-container-low text-primary md:text-on-surface px-8 py-4 rounded-xl md:rounded-full font-bold text-lg hover:bg-surface-container transition-colors shadow-sm md:shadow-none inline-block"
+            >
               {t('hero.cta_secondary')}
             </Link>
           </motion.div>
@@ -169,14 +265,16 @@ const Hero = () => {
             {t('hero.trust_note')}
           </motion.p>
         </div>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
+
+        {/* Right: Funnel card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4, ease: 'easeOut' }}
           className="lg:w-2/5 w-full relative"
         >
-          <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
+          {/* Ambient glow */}
+          <div className="absolute -inset-6 bg-primary/8 blur-2xl rounded-3xl pointer-events-none" />
           <div className="relative">
             <FunnelCard t={t} />
           </div>
