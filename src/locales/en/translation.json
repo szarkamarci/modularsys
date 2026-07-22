@@ -14,16 +14,13 @@
     "cta_primary": "Book a Free Funnel Review",
     "cta_secondary": "See the Demo",
     "trust_note": "20-minute discovery call. No technical preparation required.",
-    "funnel_card_title": "Campaign Funnel Analysis",
-    "funnel_subtitle": "Meta Ads + Google Search \u00b7 Last 30 days \u00b7 Synced 4 min ago",
+    "funnel_title": "Campaign Funnel",
     "funnel_demo_label": "Demo data",
     "funnel_stage1": "Ad Clicks",
     "funnel_stage2": "Landing Visits",
     "funnel_stage3": "Registrations",
     "funnel_stage4": "Qualified Outcomes",
-    "funnel_insight_title": "Largest drop-off: Registration form",
-    "funnel_insight_desc": "Users are reaching the landing page, but most abandon before completing the form. Review form length, trust signals, and mobile loading speed.",
-    "funnel_insight_cta": "View recommendation"
+    "funnel_insight": "Largest drop-off: Registration form"
   },
   "trustbar": {
     "quote": "Your ad platform measures clicks. ModularAI helps connect them to real business outcomes.",
