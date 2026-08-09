@@ -14,35 +14,35 @@ const UseCases = () => {
   }));
 
   return (
-    <section id="use-cases" className="max-w-7xl mx-auto px-4 md:px-8 mb-32 scroll-mt-24">
-      <div className="max-w-3xl mb-12 md:mb-16">
-        <h2 className="font-headline text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-5">
+    <section id="use-cases" className="max-w-7xl mx-auto px-4 md:px-8 mb-24 md:mb-32 scroll-mt-24">
+      <div className="max-w-2xl mb-10 md:mb-12">
+        <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight mb-4">
           {t('use_cases.title')}
         </h2>
-        <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed">
+        <p className="text-on-surface-variant text-lg leading-relaxed">
           {t('use_cases.intro')}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         {cases.map((item, index) => (
           <motion.div
             key={item.title}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.08, duration: 0.5 }}
-            className="bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/10 hover:shadow-md hover:border-primary/20 transition-all duration-300"
+            transition={{ delay: index * 0.07, duration: 0.45 }}
+            className="bg-surface-container-lowest rounded-lg p-6 border border-outline-variant/10 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
           >
-            <div className="flex items-start gap-5">
-              <div className="w-11 h-11 shrink-0 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
-                <span className="material-symbols-outlined text-xl">{item.icon}</span>
+            <div className="flex items-start gap-4">
+              <div className="w-9 h-9 shrink-0 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+                <span className="material-symbols-outlined" style={{ fontSize: '17px' }}>{item.icon}</span>
               </div>
               <div>
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-on-surface mb-3">
+                <h3 className="font-headline text-base font-bold text-on-surface mb-1.5">
                   {item.title}
                 </h3>
-                <p className="text-on-surface-variant leading-relaxed">
+                <p className="text-on-surface-variant text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -50,6 +50,10 @@ const UseCases = () => {
           </motion.div>
         ))}
       </div>
+
+      <p className="mt-8 text-sm text-on-surface-variant/70 text-center italic">
+        {t('use_cases.bottom_line')}
+      </p>
     </section>
   );
 };

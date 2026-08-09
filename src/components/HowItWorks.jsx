@@ -34,8 +34,8 @@ const HowItWorks = () => {
 
   return (
     <section id="how-it-works" className="max-w-7xl mx-auto px-4 md:px-8 mb-32 relative scroll-mt-24">
-      <div className="text-center mb-16">
-        <h2 className="font-headline text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-4">
+      <div className="text-center mb-12">
+        <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight mb-4">
           {t('how_it_works.title')}
         </h2>
       </div>

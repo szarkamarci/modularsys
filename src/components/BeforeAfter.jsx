@@ -4,16 +4,16 @@ const BeforeAfter = () => {
   const { t } = useTranslation();
   
   return (
-    <section className="max-w-7xl mx-auto px-8 mb-40">
-      <div className="text-center mb-20">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-on-surface">{t('beforeAfter.title')}</h2>
-        <p className="text-on-surface-variant text-lg">{t('beforeAfter.subtitle')}</p>
+    <section className="max-w-7xl mx-auto px-4 md:px-8 mb-28 md:mb-36">
+      <div className="text-center mb-12 md:mb-16">
+        <h2 className="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">{t('beforeAfter.title')}</h2>
+        <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">{t('beforeAfter.subtitle')}</p>
       </div>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Before */}
         <div className="group">
-          <div className="mb-4 flex items-center gap-2 text-error font-bold bg-error/10 px-4 py-2 rounded-lg w-fit">
-            <span className="material-symbols-outlined text-error">warning</span>
+          <div className="mb-3 flex items-center gap-2 text-zinc-500 font-semibold bg-zinc-100 px-3 py-1.5 rounded-md w-fit text-sm">
+            <span className="material-symbols-outlined text-zinc-500" style={{fontSize:'16px'}}>grid_view</span>
             {t('beforeAfter.before_label')}
           </div>
           <div className="bg-surface-container-high/50 p-1 rounded-lg grayscale opacity-70 group-hover:grayscale-0 transition-all duration-500">
@@ -27,8 +27,8 @@ const BeforeAfter = () => {
         
         {/* After */}
         <div>
-          <div className="mb-4 flex items-center gap-2 text-primary font-bold bg-primary/10 px-4 py-2 rounded-lg w-fit">
-            <span className="material-symbols-outlined text-primary">auto_awesome</span>
+          <div className="mb-3 flex items-center gap-2 text-primary font-semibold bg-primary/8 px-3 py-1.5 rounded-md w-fit text-sm">
+            <span className="material-symbols-outlined text-primary" style={{fontSize:'16px'}}>hub</span>
             {t('beforeAfter.after_label')}
           </div>
           <div className="bg-surface-container-lowest p-2 rounded-lg shadow-2xl shadow-primary/10 border border-primary/5">

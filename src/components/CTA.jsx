@@ -12,14 +12,14 @@ const CTA = () => {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-container/40 rounded-full -ml-32 -mb-32 blur-3xl"></div>
         
         <div className="relative z-10">
-          <h2 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-6 md:mb-8 tracking-tight">{t('cta.title')}</h2>
-          <p className="text-primary-fixed text-lg md:text-xl mb-10 md:mb-12 max-w-xl mx-auto opacity-90 leading-relaxed">
+          <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-white mb-5 md:mb-6 tracking-tight">{t('cta.title')}</h2>
+          <p className="text-primary-fixed text-base md:text-lg mb-8 md:mb-10 max-w-xl mx-auto opacity-90 leading-relaxed">
             {t('cta.subtitle')}
           </p>
-          <Link to="/audit" className="inline-block bg-white text-primary px-10 py-4 md:py-5 rounded-xl md:rounded-full font-extrabold text-lg md:text-xl hover:bg-primary-fixed transition-colors active:scale-95 duration-200">
+          <Link to="/audit" className="inline-block bg-white text-primary px-8 py-3.5 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-fixed transition-colors active:scale-95 duration-200">
             {t('cta.button')}
           </Link>
-          <p className="text-white/60 text-xs md:text-sm mt-8 font-medium">{t('cta.disclaimer')}</p>
+          <p className="text-white/60 text-xs md:text-sm mt-6 font-medium">{t('cta.disclaimer')}</p>
         </div>
       </div>
     </section>

@@ -32,10 +32,11 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Link to="/audit" className="hidden sm:block bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:shadow-lg hover:shadow-primary/20 whitespace-nowrap">
+          <Link to="/audit" className="hidden sm:block bg-primary text-white px-5 py-2 rounded-full font-semibold active:scale-95 duration-200 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 whitespace-nowrap text-sm">
             {t('header.cta')}
           </Link>
         </div>
+
       </div>
     </nav>
   );
