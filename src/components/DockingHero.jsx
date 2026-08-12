@@ -247,45 +247,48 @@ const DataPaths = ({ scenario, phase }) => {
 const SignalReadout = ({ scenario, t }) => (
   <motion.div
     key={scenario}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="mt-6 space-y-4"
+    initial={{ opacity: 0, height: 0 }}
+    animate={{ opacity: 1, height: 'auto' }}
+    exit={{ opacity: 0, height: 0 }}
+    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} // Elegant spring-like easing
+    className="overflow-hidden"
   >
-    {/* Minimal AI indicator */}
-    <motion.div
-      initial={{ opacity: 0, y: 5 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="flex items-center gap-2 text-primary text-[11px] font-bold tracking-widest uppercase"
-    >
-      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-      ModularAI Output
-    </motion.div>
-
-    {/* Clean staggered content */}
-    <div className="space-y-4 pl-3.5 border-l-2 border-primary/20">
-      <motion.div 
-        initial={{ opacity: 0, x: -10 }} 
-        animate={{ opacity: 1, x: 0 }} 
-        transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
+    <div className="mt-6 space-y-4 pb-2">
+      {/* Minimal AI indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        className="flex items-center gap-2 text-primary text-[11px] font-bold tracking-widest uppercase"
       >
-        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.signal_label')}</p>
-        <p className="text-sm font-semibold text-on-surface leading-snug">
-          {t(`hero.scenario_${scenario}_signal`)}
-        </p>
+        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        ModularAI Output
       </motion.div>
 
-      <motion.div 
-        initial={{ opacity: 0, x: -10 }} 
-        animate={{ opacity: 1, x: 0 }} 
-        transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
-      >
-        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.action_label')}</p>
-        <p className="text-sm text-on-surface-variant leading-snug">
-          {t(`hero.scenario_${scenario}_action`)}
-        </p>
-      </motion.div>
+      {/* Clean staggered content */}
+      <div className="space-y-4 pl-3.5 border-l-2 border-primary/20">
+        <motion.div 
+          initial={{ opacity: 0, x: -10 }} 
+          animate={{ opacity: 1, x: 0 }} 
+          transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
+        >
+          <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.signal_label')}</p>
+          <p className="text-sm font-semibold text-on-surface leading-snug">
+            {t(`hero.scenario_${scenario}_signal`)}
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: -10 }} 
+          animate={{ opacity: 1, x: 0 }} 
+          transition={{ delay: 1.0, duration: 0.6, ease: "easeOut" }}
+        >
+          <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.action_label')}</p>
+          <p className="text-sm text-on-surface-variant leading-snug">
+            {t(`hero.scenario_${scenario}_action`)}
+          </p>
+        </motion.div>
+      </div>
     </div>
   </motion.div>
 );
