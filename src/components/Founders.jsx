@@ -22,11 +22,11 @@ const Founders = () => {
           <div className="md:w-1/2 flex flex-col gap-4 w-full">
             <div className="flex flex-col sm:flex-row gap-5 bg-white dark:bg-slate-900 rounded-2xl px-6 py-6 border border-outline-variant/20 shadow-sm shadow-primary/5">
               
-              <div className="shrink-0">
+              <div className="shrink-0 relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-md shadow-primary/10 border-2 border-white dark:border-slate-800">
                 <img 
                   src="/profile.jpg" 
                   alt={t('founders.name1')} 
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-md shadow-primary/10 border-2 border-white dark:border-slate-800"
+                  className="absolute inset-0 w-full h-full object-cover scale-[1.35] origin-[50%_30%]"
                 />
               </div>
               
