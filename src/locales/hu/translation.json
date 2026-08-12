@@ -213,9 +213,11 @@
   },
 
   "founders": {
-    "title": "Valódi üzleti problémák közelében építve",
-    "desc": "A ModularAI-t AI- és szoftverszakemberek építik, akik a szétszórt operatív adatok gyakorlati üzleti döntésekké alakítására fókuszálnak.",
+    "title": "Valós üzleti problémákra építve",
+    "desc": "A ModularAI-t mesterséges intelligencia és szoftverfejlesztő szakemberek építik, akik a töredezett működési adatok gyakorlati üzleti döntésekké alakítására fókuszálnak.",
     "name1": "Szarka Marcell",
-    "role1": "Társalapító · AI / Termék / Üzletfejlesztés"
+    "role1": "Társalapító · AI / Termék / Üzletfejlesztés",
+    "bio1": "Mesterséges Intelligencia PhD kutató az ELTE-n.",
+    "team_note": "Egy elkötelezett AI és mérnök csapat támogatásával a háttérben."
   }
 }

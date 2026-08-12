@@ -27,8 +27,7 @@ const Process = () => {
             </defs>
             <line x1="0" y1="0" x2="0" y2="100%" stroke="#e3e2e7" strokeWidth="1.5" strokeDasharray="4 4" />
             <circle r="3" fill="#5749c2" filter="url(#processGlowMob)">
-              <animate attributeName="cy" values="0%; 100%" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0%; 100%" dur="5s" repeatCount="indefinite" />
             </circle>
           </svg>
         </div>
@@ -46,8 +45,7 @@ const Process = () => {
             </defs>
             <line x1="0" y1="0" x2="100%" y2="0" stroke="#e3e2e7" strokeWidth="1.5" strokeDasharray="4 4" />
             <circle r="3" fill="#5749c2" filter="url(#processGlowDesk)">
-              <animate attributeName="cx" values="0%; 100%" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+              <animate attributeName="cx" values="0%; 100%" dur="5s" repeatCount="indefinite" />
             </circle>
           </svg>
         </div>
