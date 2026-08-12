@@ -22,7 +22,7 @@ const BottomNavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isDemo = location.pathname.startsWith('/demo-dashboard');
+  const isDemo = location.pathname.startsWith('/get-started');
 
   return (
     <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]">
@@ -49,7 +49,7 @@ const BottomNavBar = () => {
         </a>
 
         {/* Demo */}
-        <Link to="/demo-dashboard" className="relative flex flex-col items-center group">
+        <Link to="/get-started" className="relative flex flex-col items-center group">
           <span className={`material-symbols-outlined transition-colors ${isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
             search
           </span>

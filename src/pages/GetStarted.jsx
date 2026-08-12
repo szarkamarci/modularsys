@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 import InteractiveBackground from '../components/InteractiveBackground';
 
@@ -33,6 +34,11 @@ const GetStarted = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-surface relative overflow-hidden font-body px-4 py-16">
       <InteractiveBackground />
+      
+      {/* Absolute top right language switcher */}
+      <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
+        <LanguageSwitcher />
+      </div>
 
       <div className="w-full max-w-6xl relative z-10">
         <div className="text-center mb-10">

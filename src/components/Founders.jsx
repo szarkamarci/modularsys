@@ -24,7 +24,7 @@ const Founders = () => {
               
               <div className="shrink-0">
                 <img 
-                  src="/assets/team/marcell.png" 
+                  src="/profile.jpg" 
                   alt={t('founders.name1')} 
                   className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-md shadow-primary/10 border-2 border-white dark:border-slate-800"
                 />
