@@ -57,9 +57,9 @@ export default {
         "on-secondary": "#ffffff"
       },
       fontFamily: {
-        "headline": ["Plus Jakarta Sans"],
-        "body": ["Manrope"],
-        "label": ["Manrope"]
+        "headline": ["'Plus Jakarta Sans'", "sans-serif"],
+        "body": ["Manrope", "sans-serif"],
+        "label": ["Manrope", "sans-serif"]
       },
       borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
     },

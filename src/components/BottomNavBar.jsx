@@ -27,8 +27,12 @@ const BottomNavBar = () => {
   const isDemo = location.pathname.startsWith('/get-started');
 
   return (
-    <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] w-full max-w-[360px] px-4">
-      <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl shadow-[0px_12px_40px_rgba(87,73,194,0.18)] rounded-full px-4 py-2 border border-white/50 dark:border-slate-700/50 flex items-center justify-between">
+    <>
+      {/* Bottom gradient mask to hide scrolling content behind the gap in Safari */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#faf9fe] to-transparent z-[50] pointer-events-none" />
+      
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] w-full max-w-[360px] px-4">
+        <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl shadow-[0px_12px_40px_rgba(87,73,194,0.18)] rounded-full px-4 py-2 border border-white/50 dark:border-slate-700/50 flex items-center justify-between">
         
         {/* Home / Solutions */}
         <a href="/#solutions" className={`relative flex flex-col items-center justify-center flex-1 min-w-[70px] transition-colors ${activeSection === 'solutions' && !isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
@@ -75,7 +79,7 @@ const BottomNavBar = () => {
         </Link>
 
       </div>
-    </div>
+    </>
   );
 };
 
