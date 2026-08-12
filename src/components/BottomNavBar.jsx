@@ -31,44 +31,44 @@ const BottomNavBar = () => {
       <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl shadow-[0px_12px_40px_rgba(87,73,194,0.18)] rounded-full px-4 py-2 border border-white/50 dark:border-slate-700/50 flex items-center justify-between">
         
         {/* Home / Solutions */}
-        <a href="/#solutions" className={`relative flex flex-col items-center justify-center w-16 transition-colors ${activeSection === 'solutions' && !isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
+        <a href="/#solutions" className={`relative flex flex-col items-center justify-center flex-1 min-w-[70px] transition-colors ${activeSection === 'solutions' && !isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
           <span className="material-symbols-outlined text-[22px]" style={activeSection === 'solutions' && !isDemo ? { fontVariationSettings: "'FILL' 1" } : {}}>
             grid_view
           </span>
-          <span className="text-[10px] font-bold mt-0.5 tracking-tight">{t('header.solution')}</span>
+          <span className="text-[10px] font-bold mt-0.5 tracking-tight truncate w-full text-center">{t('header.solution')}</span>
           {activeSection === 'solutions' && !isDemo && (
             <span className="absolute -bottom-2 w-1 h-1 rounded-full bg-primary" />
           )}
         </a>
 
         {/* How it works */}
-        <a href="/#how-it-works" className={`relative flex flex-col items-center justify-center w-16 transition-colors ${activeSection === 'how-it-works' && !isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
+        <a href="/#how-it-works" className={`relative flex flex-col items-center justify-center flex-1 min-w-[70px] transition-colors ${activeSection === 'how-it-works' && !isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
           <span className="material-symbols-outlined text-[22px]" style={activeSection === 'how-it-works' && !isDemo ? { fontVariationSettings: "'FILL' 1" } : {}}>
             route
           </span>
-          <span className="text-[10px] font-bold mt-0.5 tracking-tight">{t('header.how_it_works')}</span>
+          <span className="text-[10px] font-bold mt-0.5 tracking-tight truncate w-full text-center">{t('header.how_it_works')}</span>
           {activeSection === 'how-it-works' && !isDemo && (
             <span className="absolute -bottom-2 w-1 h-1 rounded-full bg-primary" />
           )}
         </a>
 
         {/* Demo */}
-        <Link to="/get-started" className={`relative flex flex-col items-center justify-center w-16 transition-colors ${isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
+        <Link to="/get-started" className={`relative flex flex-col items-center justify-center flex-1 min-w-[70px] transition-colors ${isDemo ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
           <span className="material-symbols-outlined text-[22px]" style={isDemo ? { fontVariationSettings: "'FILL' 1" } : {}}>
             play_circle
           </span>
-          <span className="text-[10px] font-bold mt-0.5 tracking-tight">{t('header.demo')}</span>
+          <span className="text-[10px] font-bold mt-0.5 tracking-tight truncate w-full text-center">{t('header.demo')}</span>
           {isDemo && (
             <span className="absolute -bottom-2 w-1 h-1 rounded-full bg-primary" />
           )}
         </Link>
 
         {/* CTA / Contact */}
-        <Link to="/audit" className={`relative flex flex-col items-center justify-center w-16 transition-colors ${location.pathname === '/audit' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
+        <Link to="/audit" className={`relative flex flex-col items-center justify-center flex-1 min-w-[70px] transition-colors ${location.pathname === '/audit' ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400'}`}>
           <span className="material-symbols-outlined text-[22px]" style={location.pathname === '/audit' ? { fontVariationSettings: "'FILL' 1" } : {}}>
             forum
           </span>
-          <span className="text-[10px] font-bold mt-0.5 tracking-tight">{t('header.cta')}</span>
+          <span className="text-[10px] font-bold mt-0.5 tracking-tight truncate w-full text-center">{t('header.cta')}</span>
           {location.pathname === '/audit' && (
             <span className="absolute -bottom-2 w-1 h-1 rounded-full bg-primary" />
           )}

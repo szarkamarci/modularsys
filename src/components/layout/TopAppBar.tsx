@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getCurrentClient } from '../../lib/clients/getCurrentClient';
 import { getRouteConfigMap, getScenarioConfig } from '../../lib/scenarios/scenarioRegistry';
 import { useLocale } from '../../lib/locales/LocaleProvider';
