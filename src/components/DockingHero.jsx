@@ -4,29 +4,63 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-/* ─── constants ─── */
+/* ─── Helper for rounded SVG paths ─── */
+const roundedPath = (pts, r = 6) => {
+  let d = `M${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const dx1 = Math.sign(p1.x - p0.x);
+    const dy1 = Math.sign(p1.y - p0.y);
+    const dx2 = Math.sign(p2.x - p1.x);
+    const dy2 = Math.sign(p2.y - p1.y);
+    const cx1 = p1.x - dx1 * r;
+    const cy1 = p1.y - dy1 * r;
+    const cx2 = p1.x + dx2 * r;
+    const cy2 = p1.y + dy2 * r;
+    d += ` L${cx1} ${cy1} Q${p1.x} ${p1.y} ${cx2} ${cy2}`;
+  }
+  const last = pts[pts.length - 1];
+  d += ` L${last.x} ${last.y}`;
+  return d;
+};
+
+/* ─── Constants ─── */
 const MODULES = [
   { id: 'erp', key: 'module_erp', x: 0, y: 0, w: 120, h: 56 },
   { id: 'webshop', key: 'module_webshop', x: 140, y: 0, w: 120, h: 56 },
   { id: 'crm', key: 'module_crm', x: 0, y: 72, w: 120, h: 56 },
   { id: 'inventory', key: 'module_inventory', x: 140, y: 72, w: 120, h: 56 },
-  { id: 'campaigns', key: 'module_campaigns', x: 60, y: 144, w: 140, h: 56 },
+  { id: 'campaigns', key: 'module_campaigns', x: 0, y: 144, w: 120, h: 56 },
 ];
 
 const DOCK_SLOT = { x: 280, y: 72, w: 120, h: 56 };
-
 const PHASES = ['initial', 'approach', 'align', 'dock', 'activate', 'ready'];
 
-/* ─── Data paths (SVG coordinates) ─── */
+/* ─── Data paths ─── */
+const PATH_DATA = {
+  'erp-inv': roundedPath([{x:120, y:28}, {x:130, y:28}, {x:130, y:100}, {x:140, y:100}]),
+  'inv-mod': roundedPath([{x:260, y:100}, {x:280, y:100}]),
+  'camp-web': roundedPath([{x:120, y:172}, {x:130, y:172}, {x:130, y:28}, {x:140, y:28}]),
+  'crm-web': roundedPath([{x:120, y:100}, {x:130, y:100}, {x:130, y:28}, {x:140, y:28}]),
+  'web-mod': roundedPath([{x:260, y:28}, {x:340, y:28}, {x:340, y:72}])
+};
+
 const PATHS_INVENTORY = [
-  { from: 'erp', d: 'M120 28 L280 28 L280 72', active: true },
-  { from: 'inventory', d: 'M260 100 L280 100', active: true },
-  { from: 'webshop', d: 'M260 28 L280 50', active: false },
+  { id: 'erp-inv', d: PATH_DATA['erp-inv'], active: true },
+  { id: 'inv-mod', d: PATH_DATA['inv-mod'], active: true },
+  { id: 'camp-web', d: PATH_DATA['camp-web'], active: false },
+  { id: 'crm-web', d: PATH_DATA['crm-web'], active: false },
+  { id: 'web-mod', d: PATH_DATA['web-mod'], active: false }
 ];
+
 const PATHS_CONVERSION = [
-  { from: 'campaigns', d: 'M200 172 L300 172 L300 128', active: true },
-  { from: 'webshop', d: 'M260 28 L340 28 L340 72', active: true },
-  { from: 'crm', d: 'M120 100 L280 100', active: false },
+  { id: 'camp-web', d: PATH_DATA['camp-web'], active: true },
+  { id: 'crm-web', d: PATH_DATA['crm-web'], active: true },
+  { id: 'web-mod', d: PATH_DATA['web-mod'], active: true },
+  { id: 'erp-inv', d: PATH_DATA['erp-inv'], active: false },
+  { id: 'inv-mod', d: PATH_DATA['inv-mod'], active: false }
 ];
 
 /* ─── Module shape (the notch is the brand element) ─── */
@@ -62,13 +96,13 @@ const SystemModule = ({ mod, t, isActive, phase }) => {
       transform={`translate(${mod.x}, ${mod.y})`}
       role="group"
       aria-label={t(`hero.${mod.key}`)}
+      className={`transition-all duration-700 ${!isActive ? 'max-sm:opacity-0 max-sm:pointer-events-none' : 'opacity-100'}`}
     >
       <ModuleShape
         w={mod.w} h={mod.h}
         fill={active ? '#f8f7fe' : '#fafafa'}
         strokeColor={active ? '#c6bfff' : '#e3e2e7'}
       />
-      {/* Small activity indicator */}
       <circle
         cx={mod.w - 14} cy={14} r={3}
         fill={active ? '#5749c2' : '#d4d3d9'}
@@ -99,7 +133,6 @@ const DockSlot = ({ phase }) => {
         strokeDasharray="6 4"
         opacity={0.6}
       />
-      {/* Alignment receptor notch */}
       <rect x={DOCK_SLOT.w - 3} y={DOCK_SLOT.h / 2 - 6} width={4} height={12} rx={1.5} fill="#c6bfff" opacity={0.5} />
     </g>
   );
@@ -134,11 +167,7 @@ const DockingModule = ({ phase, prefersReduced }) => {
 
   return (
     <motion.g
-      animate={{
-        x: pos.x, y: pos.y,
-        rotate: pos.rotate,
-        scale: pos.scale,
-      }}
+      animate={{ x: pos.x, y: pos.y, rotate: pos.rotate, scale: pos.scale }}
       transition={{
         type: 'spring',
         stiffness: phase === 'dock' ? 120 : 60,
@@ -161,26 +190,55 @@ const DockingModule = ({ phase, prefersReduced }) => {
   );
 };
 
-/* ─── Data path lines ─── */
+/* ─── Data path lines with glowing packets ─── */
 const DataPaths = ({ scenario, phase }) => {
   const paths = scenario === 'inventory' ? PATHS_INVENTORY : PATHS_CONVERSION;
   const isReady = phase === 'ready';
 
   return (
     <g>
-      {paths.map((p, i) => (
-        <motion.path
-          key={`${scenario}-${i}`}
-          d={p.d}
-          fill="none"
-          stroke={isReady && p.active ? '#5749c2' : '#e3e2e7'}
-          strokeWidth={isReady && p.active ? 2 : 1}
-          strokeDasharray={isReady ? 'none' : '4 4'}
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: isReady ? 1 : 0.4, opacity: isReady ? 1 : 0.3 }}
-          transition={{ duration: 0.8, delay: i * 0.15 }}
-        />
-      ))}
+      <defs>
+        <filter id="packetGlow">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feFlood floodColor="#5749c2" floodOpacity="0.6" />
+          <feComposite in2="blur" operator="in" />
+          <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {paths.map((p) => {
+        const isActive = isReady && p.active;
+        return (
+          <g key={p.id} className={`transition-opacity duration-700 ${!p.active ? 'max-sm:opacity-0' : ''}`}>
+            {/* Base track */}
+            <motion.path
+              d={p.d}
+              fill="none"
+              stroke={isActive ? '#5749c2' : '#e3e2e7'}
+              strokeWidth={isActive ? 2 : 1}
+              strokeDasharray={isReady ? 'none' : '4 4'}
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: isReady ? 1 : 0.4, opacity: isReady ? 1 : 0.4 }}
+              transition={{ duration: 0.8 }}
+            />
+            
+            {/* Animated data packets (only when ready and active) */}
+            {isActive && (
+              <>
+                <circle r="2.5" fill="#5749c2" filter="url(#packetGlow)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" path={p.d} />
+                </circle>
+                <circle r="2.5" fill="#5749c2" filter="url(#packetGlow)">
+                  <animateMotion dur="2.5s" begin="1.25s" repeatCount="indefinite" path={p.d} />
+                </circle>
+              </>
+            )}
+          </g>
+        );
+      })}
     </g>
   );
 };
@@ -254,7 +312,6 @@ const DockingHero = () => {
     setHasPlayed(true);
   }, [prefersReduced, clearTimers]);
 
-  // Autoplay on first meaningful visibility
   useEffect(() => {
     if (hasPlayed || prefersReduced) return;
     const el = sectionRef.current;
@@ -284,7 +341,7 @@ const DockingHero = () => {
   /* Modules active in each scenario */
   const activeModules = scenario === 'inventory'
     ? ['erp', 'inventory']
-    : ['campaigns', 'webshop'];
+    : ['campaigns', 'crm', 'webshop'];
 
   return (
     <section
@@ -295,7 +352,7 @@ const DockingHero = () => {
     >
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-        {/* ─── Left: copy ─── */}
+        {/* Left: copy */}
         <div className="lg:w-[45%] pt-4 lg:pt-12">
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary/80 mb-5">
             {t('hero.eyebrow')}
@@ -324,10 +381,9 @@ const DockingHero = () => {
           </div>
         </div>
 
-        {/* ─── Right: docking scene ─── */}
+        {/* Right: docking scene */}
         <div className="lg:w-[55%] w-full">
           <div className="relative bg-white/60 border border-outline-variant/15 rounded-lg p-5 md:p-7 backdrop-blur-sm">
-            {/* Status indicator */}
             <div className="flex items-center gap-2 mb-4">
               <span
                 className={`w-2 h-2 rounded-full ${isReady ? 'bg-emerald-500' : 'bg-amber-400'} ${isReady ? '' : 'animate-pulse'}`}
@@ -337,7 +393,6 @@ const DockingHero = () => {
               </span>
             </div>
 
-            {/* SVG Scene */}
             <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
               <svg
                 viewBox="0 0 440 220"
@@ -345,7 +400,6 @@ const DockingHero = () => {
                 role="img"
                 aria-label="Modular business architecture with ModularAI docking"
               >
-                {/* Grid lines (subtle) */}
                 <defs>
                   <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                     <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e3e2e7" strokeWidth="0.5" opacity="0.5" />
@@ -353,10 +407,8 @@ const DockingHero = () => {
                 </defs>
                 <rect width="440" height="220" fill="url(#grid)" />
 
-                {/* Data paths */}
                 <DataPaths scenario={scenario} phase={phase} />
 
-                {/* System modules */}
                 {MODULES.map(mod => (
                   <SystemModule
                     key={mod.id}
@@ -367,25 +419,19 @@ const DockingHero = () => {
                   />
                 ))}
 
-                {/* Dock slot */}
                 <DockSlot phase={phase} />
-
-                {/* ModularAI module */}
                 <DockingModule phase={phase} prefersReduced={prefersReduced} />
               </svg>
             </div>
 
-            {/* Signal readout — appears when ready */}
             {isReady && (
               <AnimatePresence mode="wait">
                 <SignalReadout key={scenario} scenario={scenario} t={t} />
               </AnimatePresence>
             )}
 
-            {/* Controls */}
             {isReady && (
               <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
-                {/* Scenario tabs */}
                 <div className="flex gap-1 bg-surface-container rounded-full p-0.5" role="tablist" aria-label="Scenario selection">
                   {['inventory', 'conversion'].map(s => (
                     <button
@@ -403,7 +449,6 @@ const DockingHero = () => {
                     </button>
                   ))}
                 </div>
-                {/* Replay */}
                 <button
                   onClick={handleReplay}
                   className="flex items-center gap-1 text-xs text-on-surface-variant hover:text-primary transition-colors"
