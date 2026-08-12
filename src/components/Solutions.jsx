@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import ScrollReveal from './ScrollReveal';
 
 const SolutionPath = ({ prefix, icon, t }) => (
   <div className="flex flex-col h-full">
@@ -59,14 +60,20 @@ const Solutions = () => {
 
   return (
     <section id="solutions" className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 scroll-mt-24">
-      <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4 max-w-lg leading-snug">
-        {t('solutions.title')}
-      </h2>
-      <div className="h-px w-16 bg-primary/30 mb-12" />
+      <ScrollReveal>
+        <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4 max-w-lg leading-snug">
+          {t('solutions.title')}
+        </h2>
+        <div className="h-px w-16 bg-primary/30 mb-12" />
+      </ScrollReveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-        <SolutionPath prefix="inv" icon="inventory_2" t={t} />
-        <SolutionPath prefix="conv" icon="conversion_path" t={t} />
+        <ScrollReveal delay={0.1}>
+          <SolutionPath prefix="inv" icon="inventory_2" t={t} />
+        </ScrollReveal>
+        <ScrollReveal delay={0.25}>
+          <SolutionPath prefix="conv" icon="conversion_path" t={t} />
+        </ScrollReveal>
       </div>
     </section>
   );
