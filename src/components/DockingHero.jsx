@@ -394,7 +394,7 @@ const DockingHero = () => {
           <p className="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-lg">
             {t('hero.subtitle')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="hidden lg:flex flex-col sm:flex-row gap-3">
             <Link
               to="/audit"
               className="text-center bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-primary/90 transition-colors active:scale-[0.97] shadow-lg shadow-primary/15"
@@ -496,6 +496,24 @@ const DockingHero = () => {
             )}
           </div>
         </div>
+
+        {/* Buttons - Mobile only, below animation */}
+        <div className="flex lg:hidden flex-col sm:flex-row gap-3 w-full mt-4">
+          <Link
+            to="/audit"
+            className="text-center bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-primary/90 transition-colors active:scale-[0.97] shadow-lg shadow-primary/15"
+          >
+            {t('hero.cta_primary')}
+          </Link>
+          <button
+            onClick={handleReplay}
+            className="text-center bg-surface-container-low text-on-surface px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-surface-container transition-colors"
+            aria-label={t('hero.cta_secondary')}
+          >
+            {t('hero.cta_secondary')}
+          </button>
+        </div>
+
       </div>
     </section>
   );
