@@ -170,9 +170,9 @@ const DockingModule = ({ phase, prefersReduced }) => {
       animate={{ x: pos.x, y: pos.y, rotate: pos.rotate, scale: pos.scale }}
       transition={{
         type: 'spring',
-        stiffness: phase === 'dock' ? 120 : 60,
-        damping: phase === 'dock' ? 20 : 15,
-        mass: phase === 'approach' ? 1.2 : 0.8,
+        stiffness: phase === 'dock' ? 80 : 40,
+        damping: phase === 'dock' ? 18 : 12,
+        mass: 1,
       }}
       style={{ originX: '50%', originY: '50%' }}
     >
@@ -190,8 +190,33 @@ const DockingModule = ({ phase, prefersReduced }) => {
   );
 };
 
-/* ─── Data path lines with glowing packets ─── */
-const DataPaths = ({ scenario, phase }) => {
+/* ─── Background data paths (inactive grey lines — rendered behind modules) ─── */
+const DataPathsBackground = ({ scenario, phase }) => {
+  const paths = scenario === 'inventory' ? PATHS_INVENTORY : PATHS_CONVERSION;
+  const isReady = phase === 'ready';
+
+  return (
+    <g>
+      {paths.filter(p => !(isReady && p.active)).map((p) => (
+        <g key={p.id} className={`transition-opacity duration-700 ${!p.active ? 'max-sm:opacity-0' : ''}`}>
+          <motion.path
+            d={p.d}
+            fill="none"
+            stroke="#e3e2e7"
+            strokeWidth={1}
+            strokeDasharray={isReady ? 'none' : '4 4'}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: isReady ? 1 : 0.4, opacity: isReady ? 0.5 : 0.3 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          />
+        </g>
+      ))}
+    </g>
+  );
+};
+
+/* ─── Foreground data paths (active purple lines + dots — rendered on top of everything) ─── */
+const DataPathsForeground = ({ scenario, phase }) => {
   const paths = scenario === 'inventory' ? PATHS_INVENTORY : PATHS_CONVERSION;
   const isReady = phase === 'ready';
 
@@ -199,8 +224,8 @@ const DataPaths = ({ scenario, phase }) => {
     <g>
       <defs>
         <filter id="packetGlow">
-          <feGaussianBlur stdDeviation="2" result="blur" />
-          <feFlood floodColor="#5749c2" floodOpacity="0.6" />
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <feFlood floodColor="#5749c2" floodOpacity="0.5" />
           <feComposite in2="blur" operator="in" />
           <feMerge>
             <feMergeNode />
@@ -209,36 +234,28 @@ const DataPaths = ({ scenario, phase }) => {
         </filter>
       </defs>
 
-      {paths.map((p) => {
-        const isActive = isReady && p.active;
-        return (
-          <g key={p.id} className={`transition-opacity duration-700 ${!p.active ? 'max-sm:opacity-0' : ''}`}>
-            {/* Base track */}
-            <motion.path
-              d={p.d}
-              fill="none"
-              stroke={isActive ? '#5749c2' : '#e3e2e7'}
-              strokeWidth={isActive ? 2 : 1}
-              strokeDasharray={isReady ? 'none' : '4 4'}
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: isReady ? 1 : 0.4, opacity: isReady ? 1 : 0.4 }}
-              transition={{ duration: 0.8 }}
-            />
-            
-            {/* Animated data packets (only when ready and active) */}
-            {isActive && (
-              <>
-                <circle r="2.5" fill="#5749c2" filter="url(#packetGlow)">
-                  <animateMotion dur="2.5s" repeatCount="indefinite" path={p.d} />
-                </circle>
-                <circle r="2.5" fill="#5749c2" filter="url(#packetGlow)">
-                  <animateMotion dur="2.5s" begin="1.25s" repeatCount="indefinite" path={p.d} />
-                </circle>
-              </>
-            )}
-          </g>
-        );
-      })}
+      {paths.filter(p => isReady && p.active).map((p) => (
+        <g key={p.id}>
+          {/* Active purple line */}
+          <motion.path
+            d={p.d}
+            fill="none"
+            stroke="#5749c2"
+            strokeWidth={1.5}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          />
+          
+          {/* Animated data packets */}
+          <circle r="2" fill="#5749c2" filter="url(#packetGlow)">
+            <animateMotion dur="3s" repeatCount="indefinite" path={p.d} />
+          </circle>
+          <circle r="2" fill="#5749c2" filter="url(#packetGlow)">
+            <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path={p.d} />
+          </circle>
+        </g>
+      ))}
     </g>
   );
 };
@@ -312,11 +329,11 @@ const DockingHero = () => {
     if (prefersReduced) return;
     clearTimers();
     const delays = [
-      ['approach', 400],
-      ['align', 1600],
-      ['dock', 2600],
-      ['activate', 3200],
-      ['ready', 3800],
+      ['approach', 600],
+      ['align', 2000],
+      ['dock', 3200],
+      ['activate', 4000],
+      ['ready', 4800],
     ];
     setPhase('initial');
     delays.forEach(([p, d]) => {
@@ -407,7 +424,7 @@ const DockingHero = () => {
             </div>
 
             <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
-              <svg
+                <svg
                 viewBox="0 0 440 220"
                 className="w-full h-full"
                 role="img"
@@ -420,8 +437,10 @@ const DockingHero = () => {
                 </defs>
                 <rect width="440" height="220" fill="url(#grid)" />
 
-                <DataPaths scenario={scenario} phase={phase} />
+                {/* Layer 1: Inactive grey lines (behind everything) */}
+                <DataPathsBackground scenario={scenario} phase={phase} />
 
+                {/* Layer 2: System modules */}
                 {MODULES.map(mod => (
                   <SystemModule
                     key={mod.id}
@@ -434,6 +453,9 @@ const DockingHero = () => {
 
                 <DockSlot phase={phase} />
                 <DockingModule phase={phase} prefersReduced={prefersReduced} />
+
+                {/* Layer 3: Active purple lines + dots (on top of everything) */}
+                <DataPathsForeground scenario={scenario} phase={phase} />
               </svg>
             </div>
 
