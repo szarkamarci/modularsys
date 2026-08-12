@@ -300,7 +300,7 @@ const DockingHero = () => {
   const [phase, setPhase] = useState(prefersReduced ? 'ready' : 'initial');
   const [scenario, setScenario] = useState('inventory');
   const [hasPlayed, setHasPlayed] = useState(prefersReduced);
-  const sectionRef = useRef(null);
+  const animationContainerRef = useRef(null);
   const timeoutsRef = useRef([]);
 
   const clearTimers = useCallback(() => {
@@ -328,7 +328,7 @@ const DockingHero = () => {
 
   useEffect(() => {
     if (hasPlayed || prefersReduced) return;
-    const el = sectionRef.current;
+    const el = animationContainerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { runSequence(); observer.disconnect(); } },
@@ -359,7 +359,6 @@ const DockingHero = () => {
 
   return (
     <section
-      ref={sectionRef}
       id="solution"
       className="max-w-7xl mx-auto px-4 md:px-8 pt-28 md:pt-36 pb-16 md:pb-24 scroll-mt-20"
       aria-label="ModularAI docking demonstration"
@@ -396,7 +395,7 @@ const DockingHero = () => {
         </div>
 
         {/* Right: docking scene */}
-        <div className="lg:w-[55%] w-full">
+        <div className="lg:w-[55%] w-full" ref={animationContainerRef}>
           <div className="relative bg-white/60 border border-outline-variant/15 rounded-lg p-5 md:p-7 backdrop-blur-sm">
             <div className="flex items-center gap-2 mb-4">
               <span

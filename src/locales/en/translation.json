@@ -226,7 +226,8 @@
     "field2_placeholder": "hello@company.com",
     "field3_label": "What's the biggest 'spreadsheet spaghetti' nightmare you're facing?",
     "field3_placeholder": "Describe your data chaos...",
-    "submit_btn": "Rescue My Data (Free Audit)",
+    "submit_btn": "Rescue My Data",
+    "submit_btn_suffix": " (Free Audit)",
     "submitting_btn": "Untangling Data...",
     "prefer_email": "Prefer email?",
     "success_title": "Signal Received!",
@@ -239,7 +240,7 @@
     "feat1_desc": "We handle the heavy lifting while you focus on what matters most.",
     "feat2_title": "Unified Nodes",
     "feat2_desc": "Connect your siloed apps into one beautiful, breathing ecosystem.",
-    "feat3_title": "Human-First AI",
+    "feat3_title": "Human-First",
     "feat3_desc": "Technology that speaks your language, not binary riddles."
   },
 

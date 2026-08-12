@@ -106,7 +106,12 @@ const Audit = () => {
                     disabled={isSubmitting}
                     className="w-full bg-slate-900 border border-slate-800 text-white py-5 rounded-full font-headline font-bold text-lg shadow-xl shadow-slate-900/10 hover:bg-slate-800 disabled:opacity-70 transition-all duration-300 active:scale-95 flex justify-center items-center gap-2"
                   >
-                    {isSubmitting ? t('get_started.submitting_btn') : t('get_started.submit_btn')}
+                    {isSubmitting ? t('get_started.submitting_btn') : (
+                      <>
+                        {t('get_started.submit_btn')}
+                        <span className="hidden sm:inline">{t('get_started.submit_btn_suffix')}</span>
+                      </>
+                    )}
                     {isSubmitting && <span className="material-symbols-outlined animate-spin text-lg">autorenew</span>}
                   </button>
                   <p className="text-center text-sm text-[#474553]">

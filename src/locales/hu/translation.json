@@ -195,7 +195,8 @@
     "field2_placeholder": "hello@ceged.hu",
     "field3_label": "Mi a legnagyobb adatos kihívás, amivel épp küzdesz?",
     "field3_placeholder": "Írd le az adatkáoszt...",
-    "submit_btn": "Segítsetek az adataimmal (Ingyenes Audit)",
+    "submit_btn": "Segítsetek az adataimmal",
+    "submit_btn_suffix": " (Ingyenes Audit)",
     "submitting_btn": "Adatok mentése folyamatban...",
     "prefer_email": "Inkább emailben írnál?",
     "success_title": "Jelzés megérkezett!",
@@ -208,7 +209,7 @@
     "feat1_desc": "Mi elvégezzük a munka nehezét, amíg te az üzletre fókuszálsz.",
     "feat2_title": "Egyesített Rendszerek",
     "feat2_desc": "Kössük össze a különálló rendszereid egyetlen, átlátható ökoszisztémává.",
-    "feat3_title": "Emberközpontú AI",
+    "feat3_title": "Emberközpontú",
     "feat3_desc": "Technológia, ami a te nyelveden beszél, nem kettes számrendszerben."
   },
 
