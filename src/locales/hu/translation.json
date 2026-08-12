@@ -42,7 +42,7 @@
   },
   "solutions": {
     "title": "Két kiindulópont. Egy intelligencia réteg.",
-    "inv_title": "Készletintelligencia",
+    "inv_title": "Készlet-intelligencia",
     "inv_desc": "Azonosítsd a változó keresletet, valószínű hiányokat, készlettöbbletet és újrarendelési igényeket a meglévő értékesítési, keresési és készletmozgási adatokból.",
     "inv_question": "Mely meglévő termékeknél várható készlethiány?",
     "inv_example_signal": "3 termék előreláthatólag 14 napon belül elfogy",

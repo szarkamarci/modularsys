@@ -42,14 +42,31 @@ const DataFlow = () => {
         ))}
       </div>
 
-      {/* Connector line on desktop */}
-      <div className="hidden md:flex items-center justify-center mt-8 gap-1">
-        {[0, 1].map(i => (
-          <div key={i} className="flex items-center gap-1">
-            <div className="w-16 h-px bg-outline-variant/30" />
-            <span className="material-symbols-outlined text-outline-variant/40" style={{ fontSize: 12 }}>arrow_forward</span>
-          </div>
-        ))}
+      {/* Animated SVG Connector line on desktop */}
+      <div className="hidden md:block mt-12 w-full max-w-4xl mx-auto px-10">
+        <svg width="100%" height="20" className="overflow-visible">
+          <defs>
+            <filter id="flowGlow">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feFlood floodColor="#5749c2" floodOpacity="0.5" />
+              <feComposite in2="blur" operator="in" />
+              <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+          </defs>
+          <line x1="0" y1="10" x2="100%" y2="10" stroke="#e3e2e7" strokeWidth="1" strokeDasharray="4 4" />
+          
+          <circle r="3" fill="#5749c2" filter="url(#flowGlow)">
+            <animate attributeName="cx" values="0%; 100%" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="10; 10" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+          </circle>
+          
+          <circle r="3" fill="#5749c2" filter="url(#flowGlow)">
+            <animate attributeName="cx" values="0%; 100%" dur="3s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="10; 10" dur="3s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" begin="1.5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
       </div>
     </section>
   );

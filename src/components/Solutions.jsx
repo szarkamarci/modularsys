@@ -41,7 +41,7 @@ const SolutionPath = ({ prefix, icon, t }) => (
           <p className="text-sm text-on-surface-variant">{t(`solutions.${prefix}_example_action`)}</p>
         </div>
       </div>
-      <p className="text-[9px] text-on-surface-variant/40 italic pt-1">Illustrative example</p>
+      <p className="text-[9px] text-on-surface-variant/40 italic pt-1">{t('hero.illustrative_label')}</p>
     </div>
 
     <Link
