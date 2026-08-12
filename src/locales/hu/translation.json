@@ -2,109 +2,92 @@
   "header": {
     "solution": "Megoldások",
     "how_it_works": "Hogyan működik",
-    "use_cases": "Felhasználási területek",
     "demo": "Demó",
-    "book": "Beszéljünk",
-    "cta": "20 perces egyeztetés"
+    "cta": "Beszéljünk egy problémáról"
   },
   "hero": {
-    "badge": "Operatív intelligencia réteg",
-    "headline": "Alakítsd a szétszórt üzleti adatokat használható döntésekké.",
-    "subtitle": "A ModularAI összekapcsolja a meglévő rendszereid adatait, megmutatja, mi mozgatja az eredményeket, és egyértelmű prioritásokká és következő lépésekké alakítja az információt.",
-    "supporting": "Induljunk egy mérhető üzleti problémából. Nincs szükség teljes rendszerlecserélésre.",
-    "cta_primary": "20 perces egyeztetés",
-    "cta_secondary": "ModularAI bemutató",
-    "trust_note": "Technikai előkészület nem szükséges.",
-    "visual_inputs_label": "Az adataid",
-    "visual_output_label": "Világos döntések",
-    "visual_input1": "Kampányok",
-    "visual_input2": "CRM",
-    "visual_input3": "Rendelések",
-    "visual_input4": "Készlet",
-    "visual_output1": "Konverziós meglátás",
-    "visual_output2": "Készletkóckázat",
-    "visual_output3": "Terméklehetőség",
-    "visual_output4": "Javasolt lépés"
+    "eyebrow": "Döntésintelligencia a meglévő rendszereidhez",
+    "headline": "Egészítsd ki a rendszert.",
+    "headline2": "Lásd a következő lépést.",
+    "subtitle": "A ModularAI összeköti az ERP-ben, webshopban, CRM-ben és kampányrendszerekben tárolt adatokat, hogy feltarje a készletkóckázatokat, konverziós veszteségeket és javasolt lépéseket — anélkül, hogy liecserélné a meglévő rendszereidet.",
+    "cta_primary": "Beszéljünk egy üzleti problémáról",
+    "cta_secondary": "Nézd meg a csatlakozást",
+    "status_ready": "Döntésre kész",
+    "status_waiting": "Intelligencia modul várólistán",
+    "module_erp": "ERP",
+    "module_webshop": "Webshop",
+    "module_crm": "CRM",
+    "module_inventory": "Készlet",
+    "module_campaigns": "Kampányok",
+    "module_modularai": "ModularAI",
+    "scenario_inventory": "Készlet",
+    "scenario_conversion": "Konverzió",
+    "scenario_inventory_signal": "Készletkóckázat várható a 3. üzletben 11 napon belül",
+    "scenario_inventory_action": "Rendelkezésre álló egységek áthelyezése az 1. üzletből és a következő rendelési dátum felulvizsgálata",
+    "scenario_conversion_signal": "A legnagyobb minőségi felhasználó-veszteség a regisztráció során történik",
+    "scenario_conversion_action": "Vizsgáld felül az űrlapsúrlódást és hasonlítsd össze a kampányminőséget regisztráció után",
+    "signal_label": "Jelzés",
+    "action_label": "Javasolt lépés",
+    "illustrative_label": "Szemléltető példa",
+    "replay": "Újrajátszás"
   },
-  "trustbar": {
-    "quote": "Az üzletetek már rendelkezik adatokkal. A kérdés az, hogyan kapcsolódnak ezek a valódi döntésekhez.",
-    "subtext": "Nincs fekete doboz, nincs teljes platformcsere. Induljunk egy fókuszált problémával."
+  "dataflow": {
+    "title": "Hogyan lesz szétszórt adatból világos következő lépés",
+    "step1_label": "Adat",
+    "step1_desc": "A meglévő rendszerek már tartalmazák az információt: rendelések, készlet, webes aktivitás, kampányok, CRM adatok.",
+    "step2_label": "Jelzés",
+    "step2_desc": "A ModularAI azonosítja azokat a mintákat, kockázatokat és lehetőségeket, amelyeket az egyes rendszerek önmagukban nem képesek feltárni.",
+    "step3_label": "Lépés",
+    "step3_desc": "A csapat konkrét ajánlást kap: mit vizsgáljon, priorizraljon vagy döntsön el."
   },
-  "beforeAfter": {
-    "title": "A szétszórt adatoktól a működési tisztánlátásig",
-    "subtitle": "Az üzletetek már rendelkezik értékes adatokkal. A kérdés az, hogyan kapcsolódnak ezek azokhoz a döntésekhez, amelyeket a csapatnak meg kell hoznia.",
-    "before_label": "Szét kapcsolt rendszerek",
-    "after_label": "Összekötött intelligencia",
-    "health_label": "Készlet Egészsége",
-    "health_status": "Optimális",
-    "order_label": "Ajánlott Rendelés",
-    "order_value": "+577 egység"
+  "solutions": {
+    "title": "Két kiindulópont. Egy intelligencia réteg.",
+    "inv_title": "Készletintelligencia",
+    "inv_desc": "Azonosítsd a változó keresletet, valószínű hiányokat, készlettöbbletet és újrarendelési igényeket a meglévő értékesítési, keresési és készletmozgási adatokból.",
+    "inv_question": "Mely meglévő termékeknél várható készlethiány?",
+    "inv_example_signal": "3 termék előreláthatólag 14 napon belül elfogy",
+    "inv_example_action": "Újrarendelési dátumok és áthelyezhető mennyiségek áttekintése",
+    "inv_cta": "Készletláthatóság megbeszélése",
+    "conv_title": "Konverziós intelligencia",
+    "conv_desc": "Kapcsold össze a hirdetési, weboldali és CRM adatokat, hogy kiderüljön, hol tűnnek el az értékes érdeklődők a konverzió előtt.",
+    "conv_question": "Hol hagyják el a minősített érdeklődők a folyamatot, mielőtt ügyféllé válnának?",
+    "conv_example_signal": "A minősített leadek 78%-a a regisztrációs lépésnél esik ki",
+    "conv_example_action": "Egyszerűsítsd az űrlapot és hasonlítsd össze a leadminőséget kampányforrás szerint",
+    "conv_cta": "Konverziós láthatóság megbeszélése"
   },
-  "features": {
-    "section_title": "Fő képességek",
-    "feat1_title": "Bevétel- és konverziós intelligencia",
-    "feat1_desc": "Lásd, mely kampányok, termékek és aktivitások vezetnek tényleges regisztrációhoz, vásárláshoz, minősített érdeklődőhöz vagy bevételhez.",
-    "feat1_stat": "Kampányfunnel · Példa",
-    "feat2_title": "Termék- és operatív intelligencia",
-    "feat2_desc": "Azonosítsd a keresleti változásokat, készletkóckázatokat, beszérzési igényeket, anomáliákat és működési lehetőségeket a már rendelkezésre álló adatokból.",
-    "feat2_stat_label": "Jelészlelve",
-    "feat2_stat_val": "Készletkóckázat",
-    "feat3_title": "Döntéstámogatás és javaslatok",
-    "feat3_desc": "Alakítsd a szétszórt jeleket egyértelmű prioritásokká, vezetői összefoglalókká és konkrét következő lépésekké.",
-    "feat3_item1": "Készletkóckázat vizsgálata",
-    "feat3_item2": "Magas értékű lehetőség előtérbe helyezése",
-    "feat3_item3": "Gyengén teljesítő folyamat áttekintése",
-    "feat4_title": "Egyértelmű javaslatok",
-    "feat4_desc": "Alakítsd a szétszórt kampány- és üzleti adatokat világos prioritásokká, vezetői összefoglalókká és konkrét következő lépésekké.",
-    "feat4_stat": "Gyakorlati riportok"
+  "pilot": {
+    "eyebrow": "Hogyan néz ki egy pilot",
+    "question_label": "Üzleti kérdés",
+    "question": "Mely meglévő termékeknél várható készlethiány?",
+    "data_label": "Elérhető adatok",
+    "data": "Korábbi rendelések, webshop kereslet és készletmozgások",
+    "signal_label": "Érkeztetett jelzés",
+    "signal": "Korábbi felulvizsgálatot igénylő termékek és helyszínek",
+    "use_label": "Operatív felhasználás",
+    "use": "Beszérzési és készletáthelyezési prioritizálás"
   },
-  "use_cases": {
-    "title": "Valódi üzleti problémákra építve",
-    "intro": "A ModularAI különböző üzletekhez, adatforrásokhoz és döntési problémákhoz alakítható.",
-    "case1_title": "E-kereskedelem és kiskereskedelem",
-    "case1_desc": "Kampánytulajdonítás, termékteljesítmény, keresleti és készletjelek.",
-    "case2_title": "Toborzás és munkaerő",
-    "case2_desc": "Kampánytól regisztrációig, jelent kezésig és elhelyezésig való átláthatóság.",
-    "case3_title": "B2B és szolgáltató vállalkozások",
-    "case3_desc": "Leadminőség, funnel-teljesítmény, értékesítési lehetőségek és riporting.",
-    "case4_title": "Operatív vállalkozások",
-    "case4_desc": "Előrejelzés, beszérzés, anomáliaészlelés és vezetői javaslatok.",
-    "bottom_line": "Induljunk egy mérhető problémából, és csak ott bővítsünk, ahol az adatok valódi értéket mutatnak."
+  "process": {
+    "title": "Problémától piloting hetekben, nem negyedévekben",
+    "step1_title": "Üzleti felfedezés",
+    "step1_desc": "Azonosítunk egy mérhető döntést, amelyet érdemes megoldani.",
+    "step2_title": "Adattáttekintés",
+    "step2_desc": "Áttekintjük a releváns rendszereket, az adatminőséget és hozzáférési feltételeket.",
+    "step3_title": "Fókuszált pilot",
+    "step3_desc": "Elkészítünk egy fókuszált elemzést, dashboardot vagy döntési munkafolyamatot.",
+    "step4_title": "Bővítés ott, ahol működik",
+    "step4_desc": "Ha a pilot értéket teremt, csak ott terjesztjük ki, ahol az indokolt.",
+    "security_title": "A rendszereid a tiéiek maradnak",
+    "security_desc": "A ModularAI a meglévő infrastruktúrád mellett dolgozik. Az adathozzáférést, integrációkat és telepítést projektenként határozzuk meg.",
+    "security_bullet1": "Kontrollált adathozzáférés",
+    "security_bullet2": "Egyedi ügyfél-integrációk",
+    "security_bullet3": "Csak az egyeztetett célhoz szükséges adatok",
+    "security_bullet4": "Privát telepítési opciók, ahol szükséges"
   },
-  "demo_selector": {
-    "badge": "ModularAI bemutató",
-    "title": "Melyik működési helyzet ismerős?",
-    "subtitle": "Válasszon egy példát, és nézze meg, hogyan lesz a szétszórt adatokból vezetői nézet, korai jelzés és gyakorlati következő lépés.",
-    "open_demo": "Bemutató megnyitása",
-    "contact": "Kérdése van?",
-    "back": "Vissza a ModularAI oldalra",
-    "cards": {
-      "retail": {
-        "title": "Kereskedelem, nagyker és készlet",
-        "desc": "Készlethiány, rendelési prioritások, termékteljesítmény, kosárminták és raktári átláthatóság.",
-        "badge": "Részletes bemutató"
-      },
-      "workforce": {
-        "title": "Toborzási és munkaerő-platformok",
-        "desc": "Álláskereslet, jelöltmozgás, illesztési minőség, keresési minták és partneri teljesítmény egy helyen.",
-        "badge": "Rövid bemutató"
-      },
-      "sales": {
-        "title": "Értékesítés és ügyfélkezelés",
-        "desc": "Gyengülő ügyfelek, upsell jelek, megújítási kockázat, elmaradt utánkövetés és bevételi lehetőség.",
-        "badge": "Rövid bemutató"
-      },
-      "operations": {
-        "title": "Operáció és adminisztráció",
-        "desc": "Manuális riportok, folyamatkésések, adathibák, visszatérő elakadások és vezetői összefoglalók.",
-        "badge": "Rövid bemutató"
-      }
-    }
-  },
+  "brand_thought": "Kösd össze, amid van. Lásd, mi jön.",
   "cta": {
     "title": "Van olyan üzleti döntés, amelyhez jelenleg nincs elég jó információtok?",
     "subtitle": "Egy 20 perces beszélgetésben megnézzük a problémát, az elérhető adatokat és azt, hogy egy fókuszált ModularAI pilot tud-e valódi értéket teremteni.",
-    "button": "Egyeztessünk 20 percet",
+    "button": "Beszéljünk egy üzleti problémáról",
     "disclaimer": "Technikai előkészület nem szükséges."
   },
   "footer": {
@@ -228,41 +211,7 @@
     "feat3_title": "Emberközpontú AI",
     "feat3_desc": "Technológia, ami a te nyelveden beszél, nem kettes számrendszerben."
   },
-  "how_it_works": {
-    "title": "Hogyan működik a ModularAI?",
-    "step1_title": "Üzleti felfedezés",
-    "step1_desc": "Azonosítunk egy mérhető döntést vagy üzleti problémát, amelyet érdemes megoldani.",
-    "step2_title": "Adattáttekintés",
-    "step2_desc": "Áttekintjük a releváns rendszereket, az elérhető adatokat, azok minőségét és hozzáférési feltételeit.",
-    "step3_title": "Fókuszált pilot",
-    "step3_desc": "Bekaplcsoljuk a szükséges adatokat, és elkészítünk egy fókuszált elemzést, dashboardot vagy döntéstámogató megoldást.",
-    "step4_title": "Bővítés ott, ahol működik",
-    "step4_desc": "Ha a pilot értéket teremt, automatizáljuk, integráljuk és kiterjesztünk a megoldást, ahol ez indokolt.",
-    "trust_title": "A rendszereid a tiéiek maradnak.",
-    "trust_desc": "A ModularAI a meglévő infrastruktúrád mellett dolgozik. Az adathozzáférést, az integrációkat és a telepítést minden projekt követelményei szerint határozzuk meg.",
-    "trust_bullet1": "Kontrollált adathozzáférés",
-    "trust_bullet2": "Egyedi ügyfél-integrációk",
-    "trust_bullet3": "Csak az egyeztetett célhoz szükséges adatok kezelése",
-    "trust_bullet4": "Privát vagy kontrollált telepítési lehetőségek, ahol szükséges"
-  },
-  "testimonial": {
-    "quote": "\"A ModularAI segített a szétszórt működési adatainkat egy olyan tiszta műszerfalá alakítani, amit a csapatunk ténylegesen használni is tud.\"",
-    "author": "Nagy Csaba",
-    "role": "CEO, Cortos, Magyarország"
-  },
-  "campaign_feature": {
-    "label": "Példa use case",
-    "title": "Lásd, mi történik a kattintás után.",
-    "desc": "Kapcsold össze a hirdetési aktivitást a weboldali viselkedéssel, regisztrációkkal, vásárlásokkal és az üzleti eredményekkel.",
-    "cta": "Kampány intelligencia felfedezése",
-    "funnel_title": "Kampányfunnel",
-    "funnel_demo_label": "Példaadatok",
-    "funnel_stage1": "Hirdetési kattintások",
-    "funnel_stage2": "Landing látogatások",
-    "funnel_stage3": "Regisztrációk",
-    "funnel_stage4": "Minőségi eredmények",
-    "funnel_insight": "Legnagyobb lemorzsolódás: regisztrációs űrlap"
-  },
+
   "founders": {
     "title": "Valódi üzleti problémák közelében építve",
     "desc": "A ModularAI-t AI- és szoftverszakemberek építik, akik a szétszórt operatív adatok gyakorlati üzleti döntésekké alakítására fókuszálnak.",

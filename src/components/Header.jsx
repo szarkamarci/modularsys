@@ -25,9 +25,8 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <a href="/#features" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.solution')}</a>
+          <a href="/#solutions" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.solution')}</a>
           <a href="/#how-it-works" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.how_it_works')}</a>
-          <a href="/#use-cases" className="font-semibold transition-colors duration-300 text-on-surface-variant dark:text-slate-400 hover:text-primary">{t('header.use_cases')}</a>
           <Link to="/demo-dashboard" className={`font-semibold transition-colors duration-300 ${location.pathname.startsWith('/demo-dashboard') ? 'text-primary' : 'text-on-surface-variant dark:text-slate-400 hover:text-primary'}`}>{t('header.demo')}</Link>
         </div>
         <div className="flex items-center gap-4">
@@ -36,7 +35,6 @@ const Header = () => {
             {t('header.cta')}
           </Link>
         </div>
-
       </div>
     </nav>
   );

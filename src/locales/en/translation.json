@@ -2,74 +2,93 @@
   "header": {
     "solution": "Solutions",
     "how_it_works": "How It Works",
-    "use_cases": "Use Cases",
     "demo": "Demo",
-    "book": "Book a Call",
-    "cta": "Book a 20-minute Discovery"
+    "cta": "Discuss a Business Problem"
   },
   "hero": {
-    "badge": "Operational Intelligence Layer",
-    "headline": "Turn fragmented business data into decisions you can act on.",
-    "subtitle": "ModularAI connects data from your existing systems, reveals what drives results and turns complex information into clear priorities and next steps.",
-    "supporting": "Start with one measurable business problem. No platform migration required.",
-    "cta_primary": "Book a 20-minute Discovery",
-    "cta_secondary": "See ModularAI in Action",
-    "trust_note": "No technical preparation required.",
-    "visual_inputs_label": "Your data",
-    "visual_output_label": "Clear decisions",
-    "visual_input1": "Campaigns",
-    "visual_input2": "CRM",
-    "visual_input3": "Orders",
-    "visual_input4": "Inventory",
-    "visual_output1": "Conversion insight",
-    "visual_output2": "Stock risk",
-    "visual_output3": "Product opportunity",
-    "visual_output4": "Recommended action"
+    "eyebrow": "Decision intelligence for your existing systems",
+    "headline": "Complete the system.",
+    "headline2": "See the next move.",
+    "subtitle": "ModularAI connects data already stored in your ERP, webshop, CRM and campaigns to reveal stock risks, conversion losses and recommended actions—without replacing the systems you already use.",
+    "cta_primary": "Discuss one business problem",
+    "cta_secondary": "Watch the module connect",
+    "status_ready": "Decision ready",
+    "status_waiting": "Awaiting intelligence module",
+    "module_erp": "ERP",
+    "module_webshop": "Webshop",
+    "module_crm": "CRM",
+    "module_inventory": "Inventory",
+    "module_campaigns": "Campaigns",
+    "module_modularai": "ModularAI",
+    "scenario_inventory": "Inventory",
+    "scenario_conversion": "Conversion",
+    "scenario_inventory_signal": "Stock risk expected at Store 3 in 11 days",
+    "scenario_inventory_action": "Move available units from Store 1 and review the next reorder date",
+    "scenario_conversion_signal": "Largest qualified-user loss occurs during registration",
+    "scenario_conversion_action": "Review form friction and compare campaign quality after registration",
+    "signal_label": "Signal",
+    "action_label": "Recommended action",
+    "illustrative_label": "Illustrative example",
+    "replay": "Replay"
   },
-  "trustbar": {
-    "quote": "Your business already has data. The challenge is connecting it to the decisions that matter.",
-    "subtext": "No black-box promises. No platform migrations. Start with one focused problem."
+  "dataflow": {
+    "title": "How fragmented data becomes a clear next step",
+    "step1_label": "Data",
+    "step1_desc": "Existing systems already contain the information: orders, inventory, website activity, campaigns, CRM records.",
+    "step2_label": "Signal",
+    "step2_desc": "ModularAI identifies patterns, risks and opportunities that individual systems cannot surface alone.",
+    "step3_label": "Action",
+    "step3_desc": "The team receives a specific recommendation: what to investigate, prioritize or decide."
   },
-  "beforeAfter": {
-    "title": "From fragmented data to operational clarity",
-    "subtitle": "Your business already has valuable data. The challenge is connecting it to the decisions your team needs to make.",
-    "before_label": "Disconnected systems",
-    "after_label": "Unified intelligence",
-    "health_label": "Inventory Health",
-    "health_status": "Optimal",
-    "order_label": "Recommended Order",
-    "order_value": "+577 units"
+  "solutions": {
+    "title": "Two starting points. One intelligence layer.",
+    "inv_title": "Inventory Intelligence",
+    "inv_desc": "Identify changing demand, likely shortages, excess inventory and reorder needs using existing sales, search and stock-movement data.",
+    "inv_question": "Which existing products are likely to become understocked?",
+    "inv_example_signal": "3 SKUs projected to reach zero stock within 14 days",
+    "inv_example_action": "Review reorder dates and available transfer quantities",
+    "inv_cta": "Discuss inventory visibility",
+    "conv_title": "Conversion Intelligence",
+    "conv_desc": "Connect advertising, website and CRM data to determine where valuable prospects disappear before conversion.",
+    "conv_question": "Where are qualified prospects leaving before becoming customers?",
+    "conv_example_signal": "78% of qualified leads drop off during the registration step",
+    "conv_example_action": "Simplify the form and compare lead quality by campaign source",
+    "conv_cta": "Discuss conversion visibility"
   },
-  "features": {
-    "section_title": "Core Capabilities",
-    "feat1_title": "Revenue & Conversion Intelligence",
-    "feat1_desc": "Understand which campaigns, products and activities actually lead to registrations, purchases, qualified leads and revenue.",
-    "feat1_stat": "Campaign funnel · Example",
-    "feat2_title": "Product & Operational Intelligence",
-    "feat2_desc": "Identify product demand, stock risks, procurement needs, anomalies and operational opportunities using data already available in your business.",
-    "feat2_stat_label": "Signal detected",
-    "feat2_stat_val": "Stock risk",
-    "feat3_title": "Decision Support & Recommendations",
-    "feat3_desc": "Turn fragmented signals into clear priorities, management summaries and practical next steps.",
-    "feat3_item1": "Investigate stock risk",
-    "feat3_item2": "Prioritize high-value opportunity",
-    "feat3_item3": "Review underperforming process",
-    "feat4_title": "Clear Recommendations",
-    "feat4_desc": "Turn fragmented campaign and business data into clear priorities, management summaries and practical next steps.",
-    "feat4_stat": "Actionable reports"
+  "pilot": {
+    "eyebrow": "What a pilot looks like",
+    "question_label": "Business question",
+    "question": "Which existing products are likely to become understocked?",
+    "data_label": "Available data",
+    "data": "Historical orders, webshop demand and inventory movements",
+    "signal_label": "Signal delivered",
+    "signal": "Products and locations requiring earlier review",
+    "use_label": "Operational use",
+    "use": "Purchasing and stock-transfer prioritization"
   },
-  "use_cases": {
-    "title": "Built Around Real Business Problems",
-    "intro": "ModularAI is designed to be adapted to different businesses, data sources and decision problems.",
-    "case1_title": "E-commerce & Retail",
-    "case1_desc": "Campaign attribution, product performance, demand and inventory signals.",
-    "case2_title": "Recruitment & Workforce",
-    "case2_desc": "Campaign to registration, application and placement visibility.",
-    "case3_title": "B2B & Service Businesses",
-    "case3_desc": "Lead quality, funnel performance, sales opportunities and reporting.",
-    "case4_title": "Operational Businesses",
-    "case4_desc": "Forecasting, procurement, anomaly detection and management recommendations.",
-    "bottom_line": "Start with one measurable problem, then expand only where the data proves value."
+  "process": {
+    "title": "From problem to pilot in weeks, not quarters",
+    "step1_title": "Business Discovery",
+    "step1_desc": "We identify one measurable decision worth solving.",
+    "step2_title": "Data Review",
+    "step2_desc": "We review relevant systems, data quality and access requirements.",
+    "step3_title": "Focused Pilot",
+    "step3_desc": "We build a focused analysis, dashboard or decision workflow.",
+    "step4_title": "Expand What Works",
+    "step4_desc": "If the pilot creates value, we extend only where justified.",
+    "security_title": "Your systems stay yours",
+    "security_desc": "ModularAI works alongside your existing infrastructure. Data access, integrations and deployment are defined per project.",
+    "security_bullet1": "Controlled data access",
+    "security_bullet2": "Client-specific integrations",
+    "security_bullet3": "Only data required for the agreed purpose",
+    "security_bullet4": "Private deployment options where required"
+  },
+  "brand_thought": "Connect what you have. See what comes next.",
+  "cta": {
+    "title": "Have a business decision your current data is not answering?",
+    "subtitle": "Let's spend 20 minutes understanding the problem, the available data and whether a focused ModularAI pilot could create value.",
+    "button": "Discuss one business problem",
+    "disclaimer": "No technical preparation required."
   },
   "demo_selector": {
     "badge": "ModularAI Demo Platform",
@@ -100,12 +119,6 @@
         "badge": "Cockpit demo"
       }
     }
-  },
-  "cta": {
-    "title": "Have a business decision your current data is not answering?",
-    "subtitle": "Let's spend 20 minutes understanding the problem, the available data and whether a focused ModularAI pilot could create value.",
-    "button": "Book a 20-minute Discovery",
-    "disclaimer": "No technical preparation required."
   },
   "footer": {
     "rights": "© 2026 ModularAI. All rights reserved.",
@@ -229,41 +242,7 @@
     "feat3_title": "Human-First AI",
     "feat3_desc": "Technology that speaks your language, not binary riddles."
   },
-  "how_it_works": {
-    "title": "How ModularAI Works",
-    "step1_title": "Business Discovery",
-    "step1_desc": "We identify one measurable decision or business problem worth solving.",
-    "step2_title": "Data Review",
-    "step2_desc": "We review the relevant systems, available data, quality and access requirements.",
-    "step3_title": "Focused Pilot",
-    "step3_desc": "We connect the required data and build a focused analysis, dashboard or decision-support workflow.",
-    "step4_title": "Expand What Works",
-    "step4_desc": "If the pilot creates value, we automate, integrate and extend the solution where justified.",
-    "trust_title": "Your systems stay yours.",
-    "trust_desc": "ModularAI works alongside your existing infrastructure. Data access, integrations and deployment are defined according to the requirements of each project.",
-    "trust_bullet1": "Controlled data access",
-    "trust_bullet2": "Client-specific integrations",
-    "trust_bullet3": "Only the data required for the agreed purpose",
-    "trust_bullet4": "Private or controlled deployment options where required"
-  },
-  "testimonial": {
-    "quote": "\"ModularAI helped us turn scattered operational data into a clear dashboard our team can actually use.\"",
-    "author": "Nagy Csaba",
-    "role": "CEO, Cortos, Hungary"
-  },
-  "campaign_feature": {
-    "label": "Example use case",
-    "title": "See what happens after the click.",
-    "desc": "Connect advertising activity with website behaviour, registrations, purchases and downstream business outcomes.",
-    "cta": "Explore Campaign Intelligence",
-    "funnel_title": "Campaign Funnel",
-    "funnel_demo_label": "Demo data",
-    "funnel_stage1": "Ad Clicks",
-    "funnel_stage2": "Landing Visits",
-    "funnel_stage3": "Registrations",
-    "funnel_stage4": "Qualified Outcomes",
-    "funnel_insight": "Largest drop-off: Registration form"
-  },
+
   "founders": {
     "title": "Built close to real business problems",
     "desc": "ModularAI is built by AI and software specialists focused on turning fragmented operational data into practical business decisions.",
