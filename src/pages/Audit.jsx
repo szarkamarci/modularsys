@@ -31,10 +31,16 @@ const Audit = () => {
 
   return (
     <main className="relative min-h-[100dvh] pt-32 pb-24 bg-[#faf9fe]">
-      {/* Ethereal Background Elements - Properly contained for Safari */}
+      {/* Ethereal Background Elements - Performant radial gradients instead of heavy GPU blurs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#5749c2]/5 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#704a9a]/5 rounded-full blur-[120px]"></div>
+        <div 
+          className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(87,73,194,0.06) 0%, rgba(87,73,194,0) 70%)' }}
+        ></div>
+        <div 
+          className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(112,74,154,0.06) 0%, rgba(112,74,154,0) 70%)' }}
+        ></div>
       </div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">

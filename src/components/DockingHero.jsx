@@ -349,7 +349,7 @@ const DockingHero = () => {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { runSequence(); observer.disconnect(); } },
-      { threshold: 0.3 }
+      { threshold: 0.6 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -377,24 +377,24 @@ const DockingHero = () => {
   return (
     <section
       id="solution"
-      className="max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-36 pb-16 md:pb-24 scroll-mt-20"
+      className="max-w-7xl mx-auto px-4 md:px-8 pt-28 md:pt-36 pb-16 md:pb-24 scroll-mt-20"
       aria-label="ModularAI docking demonstration"
     >
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
         {/* Left: copy */}
-        <div className="lg:w-[45%] pt-2 lg:pt-12">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary/80 mb-3 md:mb-5">
+        <div className="lg:w-[45%] pt-4 lg:pt-12">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary/80 mb-5">
             {t('hero.eyebrow')}
           </p>
-          <h1 className="font-headline text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight text-on-surface leading-[1.08] mb-4 md:mb-6">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight text-on-surface leading-[1.08] mb-6">
             {t('hero.headline')}<br />
             <span className="text-primary">{t('hero.headline2')}</span>
           </h1>
-          <p className="text-on-surface-variant text-lg leading-relaxed mb-0 md:mb-8 max-w-lg">
+          <p className="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-lg">
             {t('hero.subtitle')}
           </p>
-          <div className="hidden lg:flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Link
               to="/audit"
               className="text-center bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-primary/90 transition-colors active:scale-[0.97] shadow-lg shadow-primary/15"
@@ -495,23 +495,6 @@ const DockingHero = () => {
               </div>
             )}
           </div>
-        </div>
-
-        {/* Buttons - Mobile only, below animation */}
-        <div className="flex lg:hidden flex-col sm:flex-row gap-3 w-full mt-4">
-          <Link
-            to="/audit"
-            className="text-center bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-primary/90 transition-colors active:scale-[0.97] shadow-lg shadow-primary/15"
-          >
-            {t('hero.cta_primary')}
-          </Link>
-          <button
-            onClick={handleReplay}
-            className="text-center bg-surface-container-low text-on-surface px-7 py-3.5 rounded-full font-semibold text-[15px] hover:bg-surface-container transition-colors"
-            aria-label={t('hero.cta_secondary')}
-          >
-            {t('hero.cta_secondary')}
-          </button>
         </div>
 
       </div>
