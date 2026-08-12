@@ -23,19 +23,14 @@ export default function BottomNav() {
         <nav
             aria-label="Mobil navigáció"
             className={[
-                // Only visible below md breakpoint
                 'md:hidden',
-                // Positioning: fixed to bottom, full width, above iOS home bar
-                'fixed bottom-0 left-0 right-0 z-40',
-                // Surface: matches mockup — white/90 with strong blur, card elevation
-                'bg-surface/90 backdrop-blur-xl',
-                // Top border + subtle upward shadow (from mockup)
-                'border-t border-outline-variant/15',
-                'shadow-[0px_-8px_24px_rgba(25,28,30,0.06)]',
-                // Rounded top corners (from mockup)
-                'rounded-t-2xl',
-                // Safe area inset for phones with home indicator
-                'pb-[env(safe-area-inset-bottom,0px)]',
+                'fixed bottom-4 left-1/2 -translate-x-1/2 z-40',
+                'w-[calc(100%-2rem)] max-w-[400px]',
+                'bg-surface/90 backdrop-blur-2xl',
+                'shadow-[0px_12px_40px_rgba(87,73,194,0.18)]',
+                'border border-outline-variant/20',
+                'rounded-full',
+                'overflow-hidden'
             ].join(' ')}
         >
             {/*
@@ -45,7 +40,7 @@ export default function BottomNav() {
               - snap scrolling for a native feel
             */}
             <div
-                className="flex items-stretch overflow-x-auto px-2 pt-2 pb-1 gap-1 scroll-smooth snap-x snap-mandatory"
+                className="flex items-stretch overflow-x-auto px-4 py-1.5 gap-1 scroll-smooth snap-x snap-mandatory"
                 style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
             >
                 {navItems.map((item) => {

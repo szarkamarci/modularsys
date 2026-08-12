@@ -35,6 +35,17 @@ const GetStarted = () => {
     <div className="min-h-screen flex items-center justify-center bg-surface relative overflow-hidden font-body px-4 py-16">
       <InteractiveBackground />
       
+      {/* Absolute top left back button */}
+      <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50">
+        <button 
+          onClick={() => navigate('/')} 
+          className="flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-bold text-xs tracking-wider px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm transition-all duration-300 active:scale-95"
+        >
+          <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+          {t('demo_selector.back')}
+        </button>
+      </div>
+
       {/* Absolute top right language switcher */}
       <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
         <LanguageSwitcher />
@@ -87,17 +98,13 @@ const GetStarted = () => {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 text-center">
           <a
             href="mailto:hello@modularsys.ai"
             className="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors"
           >
             {t('demo_selector.contact')} hello@modularsys.ai
           </a>
-          <button onClick={() => navigate('/')} className="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2">
-            <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-            {t('demo_selector.back')}
-          </button>
         </div>
       </div>
     </div>

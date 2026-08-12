@@ -212,6 +212,36 @@
     "feat3_desc": "Technológia, ami a te nyelveden beszél, nem kettes számrendszerben."
   },
 
+  "demo_selector": {
+    "badge": "ModularAI Demó Platform",
+    "title": "Válasszon üzleti folyamatot",
+    "subtitle": "Fedezze fel, hogyan alkalmazkodik ugyanaz a döntéstámogató réteg a különböző operatív adatokhoz, kockázatokhoz, ajánlásokhoz és riportolási igényekhez.",
+    "open_demo": "Demó megnyitása",
+    "contact": "Kérdése van?",
+    "back": "Vissza a főoldalra",
+    "cards": {
+      "retail": {
+        "title": "Kiskereskedelem, Nagykereskedelem & Készlet",
+        "desc": "Készlethiány-kockázat, újrarendelési prioritások, termékteljesítmény, kosárjelek és raktári láthatóság.",
+        "badge": "Mély demó"
+      },
+      "workforce": {
+        "title": "Toborzás & HR Platformok",
+        "desc": "Munkaerőigény, jelöltaktivitás, párosítási minőség, keresési viselkedés, partnerteljesítmény és lemorzsolódási pontok.",
+        "badge": "Áttekintő demó"
+      },
+      "sales": {
+        "title": "Értékesítés & Ügyfélmenedzsment",
+        "desc": "Gyenge ügyfelek, felülértékesítési lehetőségek, megújítási kockázatok, kihagyott utánkövetések és bevételi jelek.",
+        "badge": "Áttekintő demó"
+      },
+      "operations": {
+        "title": "Operatív & Adminisztrációs Folyamatok",
+        "desc": "Manuális jelentések, folyamatkésések, adatminőségi problémák, ismétlődő szűk keresztmetszetek és vezetői összefoglalók.",
+        "badge": "Áttekintő demó"
+      }
+    }
+  },
   "founders": {
     "title": "Valós üzleti problémákra építve",
     "desc": "A ModularAI-t mesterséges intelligencia és szoftverfejlesztő szakemberek építik, akik a töredezett működési adatok gyakorlati üzleti döntésekké alakítására fókuszálnak.",

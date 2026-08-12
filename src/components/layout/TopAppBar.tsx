@@ -105,13 +105,13 @@ export default function TopAppBar() {
             <header className={`bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 sticky top-0 flex items-center justify-between px-4 md:px-8 py-3 flex-shrink-0 transition-all ${isOverlayOpen ? 'z-50' : 'z-20'}`}>
             <div className="flex items-center gap-6 flex-1">
                 {/* Mobile brand — official mark only */}
-                <div className="flex items-center gap-2 md:hidden">
+                <Link to="/" className="flex items-center gap-2 md:hidden">
                     <img
                         src="/assets/brand/mark.svg"
                         alt="ModularAI"
                         className="h-8 w-auto"
                     />
-                </div>
+                </Link>
 
                 {/* Desktop search */}
                 <div className="hidden md:flex items-center max-w-md w-full" ref={searchRef}>
