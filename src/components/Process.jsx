@@ -11,16 +11,55 @@ const Process = () => {
         {t('process.title')}
       </h2>
 
-      {/* Steps — horizontal on desktop */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {/* Animated Timeline */}
+      <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6 mb-16">
+        
+        {/* Mobile vertical connector */}
+        <div className="lg:hidden absolute top-8 bottom-8 left-[15px] w-px z-0">
+          <svg width="100%" height="100%" className="overflow-visible">
+            <defs>
+              <filter id="processGlowMob">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feFlood floodColor="#5749c2" floodOpacity="0.5" />
+                <feComposite in2="blur" operator="in" />
+                <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            <line x1="0" y1="0" x2="0" y2="100%" stroke="#e3e2e7" strokeWidth="1.5" strokeDasharray="4 4" />
+            <circle r="3" fill="#5749c2" filter="url(#processGlowMob)">
+              <animate attributeName="cy" values="0%; 100%" dur="3s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+            </circle>
+          </svg>
+        </div>
+
+        {/* Desktop horizontal connector */}
+        <div className="hidden lg:block absolute top-[15px] left-8 right-16 h-px z-0">
+          <svg width="100%" height="100%" className="overflow-visible">
+            <defs>
+              <filter id="processGlowDesk">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feFlood floodColor="#5749c2" floodOpacity="0.5" />
+                <feComposite in2="blur" operator="in" />
+                <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            <line x1="0" y1="0" x2="100%" y2="0" stroke="#e3e2e7" strokeWidth="1.5" strokeDasharray="4 4" />
+            <circle r="3" fill="#5749c2" filter="url(#processGlowDesk)">
+              <animate attributeName="cx" values="0%; 100%" dur="3s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.1; 0.9; 1" dur="3s" repeatCount="indefinite" />
+            </circle>
+          </svg>
+        </div>
+
         {[1, 2, 3, 4].map(n => (
-          <div key={n} className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 mt-0.5">
+          <div key={n} className="flex lg:flex-col items-start gap-4 lg:gap-5 relative z-10">
+            <div className="w-8 h-8 rounded-lg bg-surface border border-outline-variant/30 flex items-center justify-center shrink-0 shadow-sm shadow-primary/5">
               <span className="material-symbols-outlined text-primary" style={{ fontSize: 16 }}>{STEP_ICONS[n - 1]}</span>
             </div>
             <div>
               <p className="font-headline font-bold text-sm text-on-surface mb-1">{t(`process.step${n}_title`)}</p>
-              <p className="text-sm text-on-surface-variant leading-relaxed">{t(`process.step${n}_desc`)}</p>
+              <p className="text-sm text-on-surface-variant leading-relaxed lg:max-w-[220px]">{t(`process.step${n}_desc`)}</p>
             </div>
           </div>
         ))}

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 
-import MobileNav from './MobileNav';
+
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +40,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <MobileNav />
     </>
   );
 };
