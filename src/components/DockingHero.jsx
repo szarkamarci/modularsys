@@ -247,35 +247,64 @@ const DataPaths = ({ scenario, phase }) => {
 const SignalReadout = ({ scenario, t }) => (
   <motion.div
     key={scenario}
-    initial={{ opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -8 }}
-    transition={{ duration: 0.35 }}
-    className="mt-5 space-y-3"
+    initial={{ opacity: 0, height: 0 }}
+    animate={{ opacity: 1, height: 'auto' }}
+    exit={{ opacity: 0, height: 0 }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
+    className="mt-6 p-4 rounded-xl bg-white dark:bg-slate-900 border border-primary/20 shadow-[0_8px_30px_rgba(87,73,194,0.12)] relative overflow-hidden"
   >
-    <div className="flex items-start gap-3">
-      <span className="mt-0.5 w-5 h-5 rounded bg-amber-100 flex items-center justify-center shrink-0">
-        <span className="material-symbols-outlined text-amber-700" style={{ fontSize: 13 }}>warning</span>
-      </span>
-      <div>
-        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.signal_label')}</p>
-        <p className="text-sm font-semibold text-on-surface leading-snug">
-          {t(`hero.scenario_${scenario}_signal`)}
-        </p>
-      </div>
+    {/* Animated AI scanline effect */}
+    <motion.div 
+      className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent blur-[1px]"
+      initial={{ top: '-10%' }}
+      animate={{ top: '110%' }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+    />
+    
+    <div className="space-y-4 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, x: -10 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ delay: 0.3, duration: 0.4 }}
+        className="flex items-start gap-3"
+      >
+        <span className="mt-0.5 w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center shrink-0 border border-amber-200">
+          <span className="material-symbols-outlined text-amber-700" style={{ fontSize: 14 }}>warning</span>
+        </span>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/70 font-bold mb-0.5">{t('hero.signal_label')}</p>
+          <p className="text-[13px] font-semibold text-on-surface leading-snug">
+            {t(`hero.scenario_${scenario}_signal`)}
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, x: -10 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ delay: 0.8, duration: 0.4 }}
+        className="flex items-start gap-3"
+      >
+        <span className="mt-0.5 w-6 h-6 rounded-md bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+          <span className="material-symbols-outlined text-primary" style={{ fontSize: 14 }}>auto_awesome</span>
+        </span>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-0.5">{t('hero.action_label')}</p>
+          <p className="text-[13px] text-on-surface-variant font-medium leading-snug">
+            {t(`hero.scenario_${scenario}_action`)}
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.p 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ delay: 1.2, duration: 0.4 }}
+        className="text-[10px] text-on-surface-variant/40 italic text-right mt-1"
+      >
+        {t('hero.illustrative_label')}
+      </motion.p>
     </div>
-    <div className="flex items-start gap-3">
-      <span className="mt-0.5 w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
-        <span className="material-symbols-outlined text-primary" style={{ fontSize: 13 }}>task_alt</span>
-      </span>
-      <div>
-        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold mb-0.5">{t('hero.action_label')}</p>
-        <p className="text-sm text-on-surface-variant leading-snug">
-          {t(`hero.scenario_${scenario}_action`)}
-        </p>
-      </div>
-    </div>
-    <p className="text-[10px] text-on-surface-variant/40 italic">{t('hero.illustrative_label')}</p>
   </motion.div>
 );
 
