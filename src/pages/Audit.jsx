@@ -30,10 +30,12 @@ const Audit = () => {
   };
 
   return (
-    <main className="relative min-h-screen pt-32 pb-24 overflow-hidden bg-[#faf9fe]">
-      {/* Ethereal Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#5749c2]/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#704a9a]/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <main className="relative min-h-[100dvh] pt-32 pb-24 bg-[#faf9fe]">
+      {/* Ethereal Background Elements - Properly contained for Safari */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#5749c2]/5 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#704a9a]/5 rounded-full blur-[120px]"></div>
+      </div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header Section */}

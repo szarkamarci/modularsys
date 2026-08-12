@@ -9,18 +9,25 @@ const BottomNavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY < 500) {
-        setActiveSection('home');
-      } else if (scrollY < 1800) {
-        setActiveSection('solutions');
-      } else if (scrollY < 3000) {
-        setActiveSection('how-it-works');
-      } else {
-        setActiveSection('cta');
+      const sections = ['solutions', 'how-it-works'];
+      let current = 'home';
+      
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // If the top of the section has scrolled past the middle of the viewport
+          if (rect.top <= window.innerHeight / 2) {
+            current = section;
+          }
+        }
       }
+      setActiveSection(current);
     };
+
     window.addEventListener('scroll', handleScroll);
+    // Call once on mount to set initial state
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
