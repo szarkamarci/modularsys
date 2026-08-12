@@ -42,7 +42,7 @@
   },
   "solutions": {
     "title": "Két kiindulópont. Egy intelligencia réteg.",
-    "inv_title": "Készlet-intelligencia",
+    "inv_title": "Készletintelligencia",
     "inv_desc": "Azonosítsd a változó keresletet, valószínű hiányokat, készlettöbbletet és újrarendelési igényeket a meglévő értékesítési, keresési és készletmozgási adatokból.",
     "inv_question": "Mely meglévő termékeknél várható készlethiány?",
     "inv_example_signal": "3 termék előreláthatólag 14 napon belül elfogy",
@@ -52,7 +52,7 @@
     "conv_desc": "Kapcsold össze a hirdetési, weboldali és CRM adatokat, hogy kiderüljön, hol tűnnek el az értékes érdeklődők a konverzió előtt.",
     "conv_question": "Hol hagyják el a minősített érdeklődők a folyamatot, mielőtt ügyféllé válnának?",
     "conv_example_signal": "A minősített leadek 78%-a a regisztrációs lépésnél esik ki",
-    "conv_example_action": "Egyszerűsítsd az űrlapot és hasonlítsd össze a leadminőséget kampányforrás szerint",
+    "conv_example_action": "Rövidítsd le az űrlapot, és értékeld a kampányokat a beérkező leadek minősége alapján",
     "conv_cta": "Konverziós láthatóság megbeszélése"
   },
   "pilot": {
@@ -67,17 +67,17 @@
     "use": "Beszérzési és készletáthelyezési prioritizálás"
   },
   "process": {
-    "title": "Problémától piloting hetekben, nem negyedévekben",
+    "title": "Problémától a pilotig hetekben, nem negyedévekben",
     "step1_title": "Üzleti felfedezés",
-    "step1_desc": "Azonosítunk egy mérhető döntést, amelyet érdemes megoldani.",
+    "step1_desc": "Azonosítunk egy mérhető üzleti kérdést, amelyet érdemes megválaszolni.",
     "step2_title": "Adattáttekintés",
-    "step2_desc": "Áttekintjük a releváns rendszereket, az adatminőséget és hozzáférési feltételeket.",
+    "step2_desc": "Áttekintjük a releváns rendszereket, az adatminőséget, és hogy hol tudjuk a modult biztonságosan implementálni.",
     "step3_title": "Fókuszált pilot",
     "step3_desc": "Elkészítünk egy fókuszált elemzést, dashboardot vagy döntési munkafolyamatot.",
     "step4_title": "Bővítés ott, ahol működik",
     "step4_desc": "Ha a pilot értéket teremt, csak ott terjesztjük ki, ahol az indokolt.",
-    "security_title": "A rendszereid a tiéiek maradnak",
-    "security_desc": "A ModularAI a meglévő infrastruktúrád mellett dolgozik. Az adathozzáférést, integrációkat és telepítést projektenként határozzuk meg.",
+    "security_title": "Az adatok a tieid maradnak",
+    "security_desc": "A ModularAI a meglévő infrastruktúrádra épül, az adathozzáférést és a telepítést pedig mindig a te biztonsági elvárásaidhoz igazítjuk.",
     "security_bullet1": "Kontrollált adathozzáférés",
     "security_bullet2": "Egyedi ügyfél-integrációk",
     "security_bullet3": "Csak az egyeztetett célhoz szükséges adatok",
