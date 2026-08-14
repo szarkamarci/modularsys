@@ -38,7 +38,7 @@
     "step2_label": "Jelzés",
     "step2_desc": "A ModularAI azonosítja azokat a mintákat, kockázatokat és lehetőségeket, amelyeket az egyes rendszerek önmagukban nem képesek feltárni.",
     "step3_label": "Lépés",
-    "step3_desc": "A csapat konkrét ajánlást kap: mit vizsgáljon, priorizraljon vagy döntsön el."
+    "step3_desc": "A csapat konkrét ajánlást kap: mit vizsgáljon, priorizáljon vagy döntsön el."
   },
   "solutions": {
     "title": "Két kiindulópont. Egy intelligencia réteg.",
@@ -186,7 +186,7 @@
   },
   "get_started": {
     "title_start": "Rendszerezzük",
-    "title_highlight": "az adatait",
+    "title_highlight": "az adataidat",
     "title_end": "együtt.",
     "subtitle": "Semmi tukmálás vagy érthetetlen szakzsargon. Csak egy őszinte beszélgetés arról, hogyan tehetjük az adatkáoszt múltidővé.",
     "field1_label": "Hogy szólíthatunk? (Az 'Adathős'-ön kívül)",
@@ -212,13 +212,12 @@
     "feat3_title": "Emberközpontú",
     "feat3_desc": "Technológia, ami a te nyelveden beszél, nem kettes számrendszerben."
   },
-
   "demo_selector": {
     "badge": "ModularAI Demó Platform",
-    "title": "Válasszon üzleti folyamatot",
-    "subtitle": "Fedezze fel, hogyan alkalmazkodik ugyanaz a döntéstámogató réteg a különböző operatív adatokhoz, kockázatokhoz, ajánlásokhoz és riportolási igényekhez.",
+    "title": "Válassz üzleti folyamatot",
+    "subtitle": "Fedezd fel, hogyan alkalmazkodik ugyanaz a döntéstámogató réteg a különböző operatív adatokhoz, kockázatokhoz, ajánlásokhoz és riportolási igényekhez.",
     "open_demo": "Demó megnyitása",
-    "contact": "Kérdése van?",
+    "contact": "Kérdésed van?",
     "back": "Vissza a főoldalra",
     "cards": {
       "retail": {
