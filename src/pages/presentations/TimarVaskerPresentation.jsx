@@ -34,7 +34,7 @@ const ConsumptionChart = () => {
   const stock =      [null,null,null,null,null,null,null,null,null,null,null,null,120,85,53,25,1];
   const stockoutWeek = 16; // index of the stockout point
 
-  const W = 720, H = 220, PL = 40, PR = 20, PT = 16, PB = 32;
+  const W = 750, H = 220, PL = 40, PR = 30, PT = 16, PB = 32;
   const cw = (W - PL - PR) / (weeks.length - 1);
   const maxY = 55;
   const maxStock = 140;
@@ -127,7 +127,7 @@ const SlideCurrentProcess = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
       <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-4">
         A jelenlegi rendelési folyamatból<br />indulunk ki
       </h2>
@@ -167,7 +167,7 @@ const SlidePracticalDifference = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
       <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-10">
         Ne csak azt lássuk, mi fogyott –<br />hanem azt is, mire lesz szükség
       </h2>
@@ -220,7 +220,7 @@ const SlideConcreteExample = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-16">
+    <div className="flex flex-col justify-center h-full px-12 md:px-16 w-full max-w-5xl mx-auto">
       <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface tracking-tight leading-tight mb-6">
         Egy heti jelzésnek ennyire egyszerűnek kell lennie
       </h2>
@@ -272,7 +272,7 @@ const SlideValidation = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
       <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-4">
         Egy kis körű tesztből kiderül,<br />van-e érdemi előny
       </h2>
@@ -310,8 +310,8 @@ const SlideDecision = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-10">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
+      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
         A következő lépést<br />az eredmények döntik el
       </h2>
       
@@ -352,7 +352,7 @@ const SlideAppendixData = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
       <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</p>
       <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
         Milyen adatokra lenne szükség<br />az első teszthez?
@@ -385,7 +385,7 @@ const SlideAppendixScope = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20">
+    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
       <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</p>
       <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
         Mit nem tartalmaz az első kör?
