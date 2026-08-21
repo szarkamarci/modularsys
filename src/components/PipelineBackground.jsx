@@ -25,12 +25,17 @@ const PIPELINES = [
   },
 ];
 
-const PipelineBackground = () => {
+const PipelineBackground = ({ variant = 'default', className = '' }) => {
   const prefersReduced = useReducedMotion();
+
+  // Filter out center pipe if variant is edges
+  const activePipelines = variant === 'edges' 
+    ? PIPELINES.filter(p => p.id !== 'center') 
+    : PIPELINES;
 
   return (
     <div
-      className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+      className={`fixed inset-0 z-0 pointer-events-none overflow-hidden ${className}`}
       aria-hidden="true"
     >
       <svg
@@ -51,7 +56,7 @@ const PipelineBackground = () => {
           </filter>
         </defs>
 
-        {PIPELINES.map((pipe) => (
+        {activePipelines.map((pipe) => (
           <g key={pipe.id}>
             {/* The pipeline track */}
             <path
