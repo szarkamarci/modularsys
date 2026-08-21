@@ -1,5 +1,20 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PipelineBackground from '../../components/PipelineBackground';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  },
+  exit: { opacity: 0, transition: { duration: 0.2 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80, damping: 20 } }
+};
 
 /* ─── Slide data ─── */
 const SLIDES = [
@@ -78,25 +93,50 @@ const ConsumptionChart = () => {
       <text x={x(14.5)} y={PT + 6} textAnchor="middle" style={{ fontSize: 7, fontFamily: 'Manrope, sans-serif', fill: '#5749c2' }}>Előrejelzés</text>
 
       {/* Uncertainty band */}
-      <path d={uncertaintyPath} fill="#5749c2" opacity="0.06" />
+      <motion.path 
+        d={uncertaintyPath} fill="#5749c2" opacity="0.06"
+        initial={{ opacity: 0 }} animate={{ opacity: 0.06 }} transition={{ duration: 1, delay: 0.5 }}
+      />
       
       {/* Historical line */}
-      <path d={histPath} fill="none" stroke="#1a1b1f" strokeWidth="1.5" strokeLinejoin="round" />
+      <motion.path 
+        d={histPath} fill="none" stroke="#1a1b1f" strokeWidth="1.5" strokeLinejoin="round" 
+        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }}
+      />
       
       {/* Forecast line */}
-      <path d={fcPath} fill="none" stroke="#5749c2" strokeWidth="1.5" strokeDasharray="4 3" strokeLinejoin="round" />
+      <motion.path 
+        d={fcPath} fill="none" stroke="#5749c2" strokeWidth="1.5" strokeDasharray="4 3" strokeLinejoin="round" 
+        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1, delay: 0.8, ease: 'easeOut' }}
+      />
 
       {/* Stock level line */}
-      <path d={stockPath} fill="none" stroke="#ba1a1a" strokeWidth="1" opacity="0.5" strokeLinejoin="round" />
-      <text x={x(12) + 4} y={yScaleStock(120) - 5} style={{ fontSize: 7, fontFamily: 'Manrope, sans-serif', fill: '#ba1a1a' }}>Készletszint</text>
+      <motion.path 
+        d={stockPath} fill="none" stroke="#ba1a1a" strokeWidth="1" strokeLinejoin="round" 
+        initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 0.5 }} transition={{ duration: 1.5, delay: 0.2, ease: 'easeOut' }}
+      />
+      <motion.text 
+        x={x(12) + 4} y={yScaleStock(120) - 5} style={{ fontSize: 7, fontFamily: 'Manrope, sans-serif', fill: '#ba1a1a' }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+      >Készletszint</motion.text>
 
       {/* Stockout marker */}
-      <circle cx={x(stockoutWeek)} cy={yScaleStock(1)} r="3" fill="none" stroke="#ba1a1a" strokeWidth="1.5" />
-      <text x={x(stockoutWeek) + 6} y={yScaleStock(1) + 3} style={{ fontSize: 7, fontFamily: 'Manrope, sans-serif', fontWeight: 600, fill: '#ba1a1a' }}>Kifogyás</text>
+      <motion.circle 
+        cx={x(stockoutWeek)} cy={yScaleStock(1)} r="3" fill="none" stroke="#ba1a1a" strokeWidth="1.5" 
+        initial={{ scale: 0, opacity: 0 }} animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }} transition={{ delay: 1.7, repeat: Infinity, duration: 2 }}
+      />
+      <motion.text 
+        x={x(stockoutWeek) + 6} y={yScaleStock(1) + 3} style={{ fontSize: 7, fontFamily: 'Manrope, sans-serif', fontWeight: 600, fill: '#ba1a1a' }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.7 }}
+      >Kifogyás</motion.text>
 
       {/* Data points on historical */}
-      {historical.map((v, i) => v !== null ? <circle key={i} cx={x(i)} cy={yScale(v)} r="2" fill="#1a1b1f" /> : null)}
-      {forecast.map((v, i) => v !== null ? <circle key={`f${i}`} cx={x(i)} cy={yScale(v)} r="2" fill="#5749c2" /> : null)}
+      {historical.map((v, i) => v !== null ? (
+        <motion.circle key={i} cx={x(i)} cy={yScale(v)} r="2" fill="#1a1b1f" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: i * 0.05 }} />
+      ) : null)}
+      {forecast.map((v, i) => v !== null ? (
+        <motion.circle key={`f${i}`} cx={x(i)} cy={yScale(v)} r="2" fill="#5749c2" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8 + (i - 12) * 0.1 }} />
+      ) : null)}
     </svg>
   );
 };
@@ -104,18 +144,24 @@ const ConsumptionChart = () => {
 /* ─── Individual slide components ─── */
 
 const SlideOpening = () => (
-  <div className="flex flex-col items-center justify-center h-full px-12 text-center">
-    <img src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-10 mb-16 opacity-80" />
-    <h1 className="font-headline text-[2.6rem] md:text-5xl font-extrabold text-on-surface tracking-tight leading-[1.1] mb-6">
+  <motion.div 
+    variants={containerVariants} initial="hidden" animate="show" exit="exit"
+    className="flex flex-col items-center justify-center h-full px-12 text-center"
+  >
+    <motion.img variants={itemVariants} src="/assets/brand/wordmark.svg" alt="ModularAI" className="h-10 mb-16 opacity-80" />
+    <motion.h1 
+      variants={itemVariants}
+      className="font-headline text-[2.6rem] md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-[1.1] mb-6"
+    >
       Pontosabb készlettervezés<br />a meglévő adatokból
-    </h1>
-    <p className="text-on-surface-variant text-lg font-medium mb-10">
+    </motion.h1>
+    <motion.p variants={itemVariants} className="text-on-surface-variant text-lg font-medium mb-10">
       Timár Vasker <span className="text-outline mx-2">×</span> ModularAI
-    </p>
-    <p className="text-outline text-sm">
-      Egy lehetséges pilot közös áttekintése
-    </p>
-  </div>
+    </motion.p>
+    <motion.div variants={itemVariants} className="bg-surface-container-low/50 backdrop-blur-md border border-outline-variant/20 rounded-full px-4 py-1.5 shadow-sm">
+      <p className="text-primary text-sm font-medium">Egy lehetséges pilot közös áttekintése</p>
+    </motion.div>
+  </motion.div>
 );
 
 const SlideCurrentProcess = () => {
@@ -127,25 +173,30 @@ const SlideCurrentProcess = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-4">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-4">
         A jelenlegi rendelési folyamatból<br />indulunk ki
-      </h2>
-      <p className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-2xl">
+      </motion.h2>
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-2xl">
         A rendeléseket jelenleg az ügyviteli rendszerben nyilvántartott fogyások alapján állítjátok össze. Mielőtt bármit javaslunk, négy dolgot szeretnénk pontosan megérteni.
-      </p>
-      <div className="space-y-5 max-w-2xl mb-10">
+      </motion.p>
+      <motion.div variants={itemVariants} className="space-y-5 max-w-2xl mb-10">
         {questions.map((q, i) => (
-          <div key={i} className="flex items-start gap-4">
+          <motion.div key={i} variants={itemVariants} className="flex items-start gap-4">
             <span className="font-headline text-primary font-bold text-sm mt-0.5 shrink-0 w-5 text-right">{i + 1}.</span>
             <p className="text-on-surface text-[15px] leading-relaxed">{q}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <p className="text-outline text-xs max-w-xl">
-        Több telephely, széles termékkör, webáruház és 3000–4000 tonnás állandó készlet.
-      </p>
-    </div>
+      </motion.div>
+      <motion.div variants={itemVariants} className="bg-surface-container-low/50 backdrop-blur-md border border-outline-variant/15 rounded-xl px-5 py-3 max-w-xl shadow-sm">
+        <p className="text-on-surface-variant text-sm font-medium">
+          Több telephely, széles termékkör, webáruház és 3000–4000 tonnás állandó készlet.
+        </p>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -167,48 +218,51 @@ const SlidePracticalDifference = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-10">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-10">
         Ne csak azt lássuk, mi fogyott –<br />hanem azt is, mire lesz szükség
-      </h2>
+      </motion.h2>
       
-      <div className="flex items-stretch gap-3 md:gap-4 max-w-4xl mb-10">
+      <motion.div variants={itemVariants} className="flex items-stretch gap-3 md:gap-4 max-w-4xl mb-10">
         {/* Inputs */}
         <div className="flex-1 space-y-1.5">
           <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-3">Meglévő adatok</p>
           {inputs.map((item, i) => (
-            <div key={i} className="bg-surface-container-low border border-outline-variant/20 rounded-md px-3 py-2">
+            <motion.div key={i} variants={itemVariants} className="bg-surface-container-low/50 backdrop-blur border border-outline-variant/20 rounded-md px-3 py-2 hover:bg-surface-container transition-colors shadow-sm">
               <p className="text-on-surface text-[13px] font-medium">{item}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Arrow */}
         <div className="flex items-center px-2 md:px-4 shrink-0">
-          <div className="flex flex-col items-center gap-1">
+          <motion.div variants={itemVariants} className="flex flex-col items-center gap-1">
             <div className="w-px h-6 bg-primary/30" />
             <div className="w-8 h-8 rounded-full bg-primary/8 border border-primary/20 flex items-center justify-center">
               <span className="material-symbols-outlined text-primary" style={{ fontSize: 16 }}>arrow_forward</span>
             </div>
             <div className="w-px h-6 bg-primary/30" />
-          </div>
+          </motion.div>
         </div>
 
         {/* Outputs */}
         <div className="flex-1 space-y-1.5">
           <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-3">Eredmény</p>
           {outputs.map((item, i) => (
-            <div key={i} className="bg-primary/4 border border-primary/15 rounded-md px-3 py-2">
+            <motion.div key={i} variants={itemVariants} className="bg-primary/5 backdrop-blur border border-primary/15 rounded-md px-3 py-2 hover:bg-primary/10 transition-colors shadow-sm">
               <p className="text-on-surface text-[13px] font-medium">{item}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <p className="text-on-surface-variant text-sm max-w-xl leading-relaxed">
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-sm max-w-xl leading-relaxed">
         Az eredmény a meglévő munkafolyamatba visszaadható – nem szükséges lecserélni az ügyviteli rendszert.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 
@@ -220,18 +274,22 @@ const SlideConcreteExample = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-16 w-full max-w-5xl mx-auto">
-      <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface tracking-tight leading-tight mb-6">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-16 w-full max-w-5xl mx-auto"
+    >
+      <motion.h2 variants={itemVariants} className="font-headline text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-6">
         Egy heti jelzésnek ennyire egyszerűnek kell lennie
-      </h2>
+      </motion.h2>
 
       {/* Chart */}
-      <div className="max-w-3xl mb-6">
+      <motion.div variants={itemVariants} className="max-w-3xl mb-6 relative">
+        <div className="absolute inset-0 bg-surface/40 backdrop-blur-[2px] rounded-xl -z-10" />
         <ConsumptionChart />
-      </div>
+      </motion.div>
 
       {/* Decision table */}
-      <div className="max-w-3xl">
+      <motion.div variants={itemVariants} className="max-w-3xl">
         <table className="w-full text-left text-[12px]">
           <thead>
             <tr className="border-b border-outline-variant/20">
@@ -243,21 +301,24 @@ const SlideConcreteExample = () => {
           </thead>
           <tbody>
             {tableData.map((row, i) => (
-              <tr key={i} className="border-b border-outline-variant/10 last:border-0">
-                <td className="py-2 pr-4 font-medium text-on-surface">{row.product}</td>
-                <td className="py-2 pr-4 text-on-surface-variant">{row.site}</td>
-                <td className={`py-2 pr-4 ${row.color}`}>{row.status}</td>
-                <td className="py-2 font-medium text-on-surface">{row.action}</td>
-              </tr>
+              <motion.tr 
+                key={i} variants={itemVariants}
+                className="border-b border-outline-variant/10 last:border-0 hover:bg-surface-container-low transition-colors"
+              >
+                <td className="py-2.5 pr-4 font-medium text-on-surface">{row.product}</td>
+                <td className="py-2.5 pr-4 text-on-surface-variant">{row.site}</td>
+                <td className={`py-2.5 pr-4 ${row.color}`}>{row.status}</td>
+                <td className="py-2.5 font-medium text-on-surface">{row.action}</td>
+              </motion.tr>
             ))}
           </tbody>
         </table>
-      </div>
+      </motion.div>
 
-      <p className="text-outline text-[10px] mt-4 italic">
+      <motion.p variants={itemVariants} className="text-outline text-[10px] mt-4 italic">
         Szemléltető példa – nem a Timár Vasker tényleges adatai.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 
@@ -272,31 +333,34 @@ const SlideValidation = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-4">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-4">
         Egy kis körű tesztből kiderül,<br />van-e érdemi előny
-      </h2>
-      <p className="text-on-surface-variant text-sm mb-10 max-w-lg">
+      </motion.h2>
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-sm mb-10 max-w-lg">
         Nem szoftverbevezetés, hanem egy célzott validáció: tényleg pontosabb-e az előrejelzés a jelenlegi módszernél?
-      </p>
+      </motion.p>
       
-      <div className="max-w-lg mb-10">
+      <motion.div variants={itemVariants} className="max-w-lg mb-10">
         {steps.map((step, i) => (
-          <div key={i} className="flex items-start gap-4 mb-3">
+          <motion.div key={i} variants={itemVariants} className="flex items-start gap-4 mb-3">
             <span className="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
               <span className="font-headline text-on-surface-variant text-xs font-bold">{i + 1}</span>
             </span>
             <p className="text-on-surface text-[15px] leading-relaxed pt-0.5">{step}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       
-      <div className="bg-surface-container-low border border-outline-variant/15 rounded-md px-5 py-3 max-w-lg">
+      <motion.div variants={itemVariants} className="bg-surface-container-low/50 backdrop-blur border border-outline-variant/15 rounded-md px-5 py-3 max-w-lg shadow-sm">
         <p className="text-on-surface text-sm font-medium">
           Várható időtartam: <span className="text-primary font-bold">2–3 hét</span> az adatok átadásától.
         </p>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -310,31 +374,34 @@ const SlideDecision = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-8">
         A következő lépést<br />az eredmények döntik el
-      </h2>
+      </motion.h2>
       
-      <div className="space-y-3 max-w-2xl mb-12">
+      <motion.div variants={itemVariants} className="space-y-3 max-w-2xl mb-12">
         {criteria.map((c, i) => (
-          <div key={i} className="flex items-start gap-3">
+          <motion.div key={i} variants={itemVariants} className="flex items-start gap-3">
             <span className="w-5 h-5 rounded border border-outline-variant/30 bg-surface-container-lowest shrink-0 mt-0.5" />
             <p className="text-on-surface text-[15px] leading-relaxed">{c}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <p className="text-on-surface-variant text-sm leading-relaxed max-w-xl mb-10">
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-sm leading-relaxed max-w-xl mb-10">
         Ha nincs mérhető előny, nem érdemes továbbépíteni. Ha van, közösen dönthetünk a következő termékkategóriák és telephelyek bevonásáról.
-      </p>
+      </motion.p>
 
-      <div className="bg-primary/5 border border-primary/15 rounded-md px-5 py-3 max-w-xl">
+      <motion.div variants={itemVariants} className="bg-primary/5 backdrop-blur border border-primary/15 rounded-md px-5 py-3 max-w-xl shadow-sm">
         <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-1">Következő lépés</p>
         <p className="text-on-surface text-sm font-medium">
           A rendelkezésre álló adatok áttekintése és a pilot termékkategóriájának kiválasztása.
         </p>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -352,25 +419,28 @@ const SlideAppendixData = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</p>
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.p variants={itemVariants} className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</motion.p>
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-8">
         Milyen adatokra lenne szükség<br />az első teszthez?
-      </h2>
+      </motion.h2>
       
-      <div className="space-y-2 max-w-lg mb-10">
+      <motion.div variants={itemVariants} className="space-y-2 max-w-lg mb-10">
         {dataItems.map((item, i) => (
-          <div key={i} className="flex items-start gap-3">
+          <motion.div key={i} variants={itemVariants} className="flex items-start gap-3">
             <span className="text-outline text-xs mt-1 shrink-0">—</span>
             <p className="text-on-surface text-[14px] leading-relaxed">{item}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <p className="text-on-surface-variant text-sm max-w-lg leading-relaxed">
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-sm max-w-lg leading-relaxed">
         Az első validáció elindítható egy strukturált CSV vagy Excel exportból. Nem szükséges közvetlen rendszerhozzáférés.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 
@@ -385,25 +455,28 @@ const SlideAppendixScope = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto">
-      <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</p>
-      <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight leading-tight mb-8">
+    <motion.div 
+      variants={containerVariants} initial="hidden" animate="show" exit="exit"
+      className="flex flex-col justify-center h-full px-12 md:px-20 w-full max-w-5xl mx-auto"
+    >
+      <motion.p variants={itemVariants} className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Melléklet</motion.p>
+      <motion.h2 variants={itemVariants} className="font-headline text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-on-surface/70 tracking-tight leading-tight mb-8">
         Mit nem tartalmaz az első kör?
-      </h2>
+      </motion.h2>
 
-      <div className="space-y-2.5 max-w-lg mb-10">
+      <motion.div variants={itemVariants} className="space-y-2.5 max-w-lg mb-10">
         {exclusions.map((item, i) => (
-          <div key={i} className="flex items-start gap-3">
+          <motion.div key={i} variants={itemVariants} className="flex items-start gap-3">
             <span className="text-outline-variant text-sm mt-0.5 shrink-0">×</span>
             <p className="text-on-surface-variant text-[14px] leading-relaxed">{item}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <p className="text-on-surface-variant text-sm max-w-lg leading-relaxed">
+      <motion.p variants={itemVariants} className="text-on-surface-variant text-sm max-w-lg leading-relaxed">
         Ezekről csak akkor érdemes dönteni, ha a validáció már kimutatta az üzleti értéket.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 };
 
@@ -525,15 +598,18 @@ const TimarVaskerPresentation = () => {
           aria-label={`${currentSlide + 1} / ${SLIDES.length}`}
         >
           <div className="w-full h-full max-w-[177.78vh] max-h-[56.25vw] mx-auto flex flex-col justify-center" style={{ aspectRatio: '16/9' }}>
-            <div
-              key={slideId}
-              className="w-full h-full relative"
-              style={{
-                animation: prefersReduced ? 'none' : `slideIn ${transitionDuration} ease forwards`,
-              }}
-            >
-              <SlideComponent />
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slideId}
+                className="w-full h-full relative"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <SlideComponent />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -590,12 +666,6 @@ const TimarVaskerPresentation = () => {
         )}
       </div>
 
-      <style>{`
-        @keyframes slideIn {
-          from { opacity: 0.7; transform: translateX(8px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-      `}</style>
     </>
   );
 };
