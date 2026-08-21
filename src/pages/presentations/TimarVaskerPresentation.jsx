@@ -524,7 +524,7 @@ const TimarVaskerPresentation = () => {
           aria-roledescription="slide"
           aria-label={`${currentSlide + 1} / ${SLIDES.length}`}
         >
-          <div className="w-full h-full max-w-[177.78vh] max-h-[56.25vw] flex flex-col justify-center" style={{ aspectRatio: '16/9' }}>
+          <div className="w-full h-full max-w-[177.78vh] max-h-[56.25vw] mx-auto flex flex-col justify-center" style={{ aspectRatio: '16/9' }}>
             <div
               key={slideId}
               className="w-full h-full relative"
