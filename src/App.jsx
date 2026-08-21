@@ -12,6 +12,7 @@ import Terms from './pages/Terms';
 import Security from './pages/Security';
 import Status from './pages/Status';
 import Demo from './pages/Demo';
+import TimarVaskerPresentation from './pages/presentations/TimarVaskerPresentation';
 import DashboardLayout from './pages/dashboard/DashboardLayout';
 import ScenarioModulePage from './pages/dashboard/ScenarioModulePage';
 import OverviewPage from './features/overview/OverviewPage';
@@ -62,6 +63,7 @@ const App = () => {
         {/* Independent Pages */}
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/old-demo" element={<Demo />} />
+        <Route path="/presentations/timar-vasker" element={<TimarVaskerPresentation />} />
       </Routes>
       </LocaleProvider>
       </QueryClientProvider>
